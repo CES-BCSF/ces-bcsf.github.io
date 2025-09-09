@@ -3,6 +3,8 @@
 # C:\mysyncfolders\bcsf.com.ar\BCSF - Grupo CES - Documentos\CicSFE_sp\_Reportes rmd\_Github_out\ces-bcsf.github.io\
 # CON SU ESPEJO EN LA NUBE EN EL GITHUG DEL CES
 
+# PARA PODER CORRER ESTE SCIPT HAY QUE TENER INSTALADO GIT
+
 commit_message <- base::paste("Auto-update:", base::Sys.time()) # PARA NOMBRAR EL CAMBIO
 
 base::tryCatch({ 
