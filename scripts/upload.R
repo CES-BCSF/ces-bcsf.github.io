@@ -1,32 +1,17 @@
-# Instalar {gert} si no está disponible
-if (!requireNamespace("gert", quietly = TRUE)) {
-  install.packages("gert")
-}
 
-library(gert)
+# ESTE SCRIPT SINCRONIZA TODOS LOS CAMBIOS INTRODUCIDOS EN: 
+# C:\mysyncfolders\bcsf.com.ar\BCSF - Grupo CES - Documentos\CicSFE_sp\_Reportes rmd\_Github_out\ces-bcsf.github.io\
+# CON SU ESPEJO EN LA NUBE EN EL GITHUG DEL CES
 
-# Mensaje dinámico de commit (incluye fecha y hora)
-commit_message <- paste("Auto-update:", Sys.time())
+commit_message <- paste("Auto-update:", Sys.time()) # PARA NOMBRAR EL CAMBIO
 
-
-tryCatch({
-  # 0. muestra en consola el estado del repositorio
-  git_status()
-  
-  # 1. Agregar todos los cambios
-  git_add(".")
-  
-  # 2. Hacer commit
-  git_commit(commit_message)
-  
-  git_branch_list()
-  
-  
-  # 3. Subir cambios al remoto (rama main)
-  git_push(remote = "origin")
-  
-  message("✅ Cambios subidos con éxito: ", commit_message)
-  
-}, error = function(e) {
-  message("❌ Error al subir: ", e$message)
+base::tryCatch({ 
+   gert::git_status() 
+   gert::git_add(".")
+   gert::git_commit(commit_message)
+   gert::git_branch_list()
+   gert::git_push(remote = "origin") # LA NUBE
+   base::message("✅ Cambios subidos con éxito: ", commit_message)
+  }, error = function(e) {
+  base::message("❌ Error al subir: ", e$message)
 })
