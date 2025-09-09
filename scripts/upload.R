@@ -8,8 +8,8 @@ library(gert)
 # Mensaje dinámico de commit (incluye fecha y hora)
 commit_message <- paste("Auto-update:", Sys.time())
 
+
 tryCatch({
-  
   # 0. muestra en consola el estado del repositorio
   git_status()
   
@@ -19,8 +19,11 @@ tryCatch({
   # 2. Hacer commit
   git_commit(commit_message)
   
+  git_branch_list()
+  
+  
   # 3. Subir cambios al remoto (rama main)
-  git_push(remote = "origin", refspec = "main")
+  git_push(remote = "origin")
   
   message("✅ Cambios subidos con éxito: ", commit_message)
   
