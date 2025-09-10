@@ -5,6 +5,10 @@
 
 # PARA PODER CORRER ESTE SCIPT HAY QUE TENER INSTALADO GIT
 
+# Establece el directorio de trabajo en la ubicación del script actual
+# Esto funciona si el script se ejecuta con 'source'
+base::setwd("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/_Github_out/ces-bcsf.github.io")
+
 commit_message <- base::paste("Auto-update:", base::Sys.time()) # PARA NOMBRAR EL CAMBIO
 
 base::tryCatch({ 
