@@ -20,7 +20,7 @@ if (base::is.null(commit_message) || base::nchar(commit_message) == 0) {
   base::message("⚠️ No se ingresó un mensaje. Usando el mensaje predeterminado: ", commit_message)
 }
 
-commit_message <- base::paste("Auto-update:", base::Sys.time()) # PARA NOMBRAR EL CAMBIO
+#commit_message <- base::paste("Auto-update:", base::Sys.time()) # PARA NOMBRAR EL CAMBIO
 
 base::tryCatch({ 
    gert::git_status() 
