@@ -21,10 +21,17 @@ body {
 header {
   text-align: center;
   margin-bottom: 3rem;
-  padding: 2rem 0;
+  /*padding: 2rem 0;*/
   background: white;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(12, 76, 28, 0.1);
+}
+
+.header-banner { 
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  width: 100%;
 }
 
 .logo {
@@ -40,13 +47,23 @@ header {
   margin-bottom: 1rem;
 }
 
-.welcome-message {
+.welcome-message-old {
   background: #0c4c1c;
   color: white;
   padding: 1.5rem;
   border-radius: 10px;
   margin-bottom: 3rem;
   text-align: center;
+}
+
+.welcome-message {
+  background: white; /* Cambia el fondo a blanco */
+  color: #000;      /* Cambia el color del texto a un gris oscuro para que sea legible sobre blanco */
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  text-align: center;
+  box-shadow: 0 0 1rem 0.2rem #0c4c1c;
 }
 
 .welcome-message h2 {
