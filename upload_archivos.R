@@ -5,8 +5,8 @@
 
 # PARA PODER CORRER ESTE SCIPT HAY QUE TENER INSTALADO GIT
 
-# Establece el directorio de trabajo en la ubicación del script actual
-# Esto funciona si el script se ejecuta con 'source'
+# ESTABLECE EL DIRECTORIO DE TRABAJO
+# ESTO FUNCIONA YA QUE ESTE SCRIPT SERA EJECUTADO CON "SOURCE" DESDE LA CARPETA DONDE ESTAN LOS ARCHIVOS A SUBIR
 base::setwd("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/_Github_out/ces-bcsf.github.io")
 
 commit_message <- svDialogs::dlg_input(
@@ -14,13 +14,11 @@ commit_message <- svDialogs::dlg_input(
   "Auto-update: Datos actualizados"
 )$res
 
-# Si el usuario no ingresó nada o canceló, usamos un mensaje por defecto
+# SI EL USUARIO NO INGRESA NADA O CANCELA, SE USA UN MENSAJE POR DEFECTO
 if (base::is.null(commit_message) || base::nchar(commit_message) == 0) {
   commit_message <- base::paste("Auto-update:", base::Sys.time())
-  base::message("⚠️ No se ingresó un mensaje. Usando el mensaje predeterminado: ", commit_message)
+  base::message("No se ingresó un mensaje. Usando el mensaje predeterminado: ", commit_message)
 }
-
-#commit_message <- base::paste("Auto-update:", base::Sys.time()) # PARA NOMBRAR EL CAMBIO
 
 base::tryCatch({ 
    gert::git_status() 
@@ -28,7 +26,7 @@ base::tryCatch({
    gert::git_commit(commit_message)
    gert::git_branch_list()
    gert::git_push(remote = "origin") # LA NUBE
-   base::message("✅ Cambios subidos con éxito: ", commit_message)
+   base::message("Cambios subidos con Exito: ", commit_message)
   }, error = function(e) {
-  base::message("❌ Error al subir: ", e$message)
+  base::message("Error al subir: ", e$message)
 })
