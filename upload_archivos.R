@@ -9,6 +9,17 @@
 # Esto funciona si el script se ejecuta con 'source'
 base::setwd("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/_Github_out/ces-bcsf.github.io")
 
+commit_message <- svDialogs::dlg_input(
+  "Ingresa tu mensaje de commit:",
+  "Auto-update: Datos actualizados"
+)$res
+
+# Si el usuario no ingresó nada o canceló, usamos un mensaje por defecto
+if (base::is.null(commit_message) || base::nchar(commit_message) == 0) {
+  commit_message <- base::paste("Auto-update:", base::Sys.time())
+  base::message("⚠️ No se ingresó un mensaje. Usando el mensaje predeterminado: ", commit_message)
+}
+
 commit_message <- base::paste("Auto-update:", base::Sys.time()) # PARA NOMBRAR EL CAMBIO
 
 base::tryCatch({ 
