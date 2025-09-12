@@ -236,6 +236,12 @@ footer {
   margin-bottom: 1rem;
 }
 
+.link-container {
+    max-width: 100%; /* Limita el ancho máximo al contenedor padre */
+    word-wrap: break-word; /* Permite que el texto se ajuste si es muy largo */
+    margin-top: 1rem; /* Espaciado opcional */
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
