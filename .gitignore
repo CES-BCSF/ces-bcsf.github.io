@@ -1,3 +1,6 @@
+#IDE files
+.vscode*
+
 # History files
 .Rhistory
 .Rapp.history
