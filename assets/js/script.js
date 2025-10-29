@@ -105,3 +105,32 @@ document.addEventListener("keydown", (e) => {
     }
   }
 })
+
+
+/*  Indicadores */
+function filtrarIndicadores() {
+    // 1. Obtener el texto del buscador y pasarlo a mayúsculas
+    let input = document.getElementById('searchInput');
+    let filter = input.value.toUpperCase();
+
+    // 2. Obtener el contenedor de la lista y todos los items
+    let listContainer = document.getElementById('listaDeIndicadores');
+    let items = listContainer.getElementsByClassName('indicator-item');
+
+    // 3. Recorrer cada item de la lista
+    for (let i = 0; i < items.length; i++) {
+        // 4. Buscar el título (h3) dentro del item
+        let h3 = items[i].getElementsByTagName("h3")[0];
+        if (h3) {
+            let txtValue = h3.textContent || h3.innerText;
+            // 5. Comprobar si el texto del buscador está en el título
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                // Si está, se muestra el item
+                items[i].style.display = ""; 
+            } else {
+                // Si no está, se oculta
+                items[i].style.display = "none"; 
+            }
+        }
+    }
+}

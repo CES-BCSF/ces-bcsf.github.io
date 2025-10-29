@@ -259,3 +259,89 @@ footer {
     font-size: 2rem;
   }
 }
+
+/* --- Estilos para el Buscador --- */
+.search-container {
+    width: 100%;
+    margin-bottom: 2rem; /* Espacio antes de la lista */
+}
+
+.search-container input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
+}
+
+/* --- Estilos para la Nueva Lista de Indicadores --- */
+.indicadores-list-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Apila los items verticalmente */
+    gap: 1rem; /* Espacio entre items */
+}
+
+.indicator-item {
+    display: flex;
+    align-items: center; /* Centra todo verticalmente */
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.indicator-icon {
+    margin-right: 1rem;
+}
+
+.indicator-icon img {
+    width: 4rem;  /* Más pequeño que en la tarjeta */
+    height: 4rem;
+    border-radius: 50%;
+}
+
+.indicator-info {
+    flex: 1; /* <-- ¡Esta es la clave! */
+    /* Ocupa todo el espacio disponible, empujando los botones a la derecha */
+    margin-right: 1rem;
+}
+
+.indicator-info h3 {
+    margin: 0 0 0.25rem 0; /* Título pegado arriba */
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.indicator-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.indicator-buttons {
+    display: flex;
+    gap: 0.5rem; /* Espacio entre los dos botones */
+}
+
+/* * Opcional: Hacemos los botones un poco más pequeños 
+ * para que queden mejor en la lista.
+ */
+.indicator-buttons .nav-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+    min-width: 60px; /* Ancho mínimo para que se lea "PDF" "HTML" */
+    text-align: center;
+}
+
+/* Heredamos el estilo secundario que definimos antes */
+.indicator-buttons .nav-button.secondary {
+    background-color: #F40F02;
+}
+.indicator-buttons .nav-button.secondary:hover {
+    background-color: #FF4F52;
+}
