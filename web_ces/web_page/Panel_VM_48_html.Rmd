@@ -1,0 +1,304 @@
+---
+title: "Panel VM - ICA-SFE"
+date: ""
+output:
+  html_document:
+    self_contained: true
+    css: "styles-paneles.css"
+    includes:
+      in_header:
+        - "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/_Recursos/icons/favicon.html"
+knit: (function(input_file, encoding) {rmarkdown::render(input_file,encoding=encoding, output_file='Panel_VM.html') })
+---
+
+```{r volver_al_indice, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+volver_al_indice <- paste('<div class="back-to-index-container">
+                              <a href="#seccion-toc" class="back-to-index-btn">
+                                <span class="btn-icon">↑</span>
+                                <span class="btn-text">Volver al índice</span>
+                              </a>
+                            </div>')
+
+```
+
+```{=html}
+<div class="container-fluid main-container" id="seccion-toc">
+
+<div class="banner-wrapper">
+  <div class="logo-container">
+    <img src="encabezado_informes_generales_página_interior.png"/> 
+  </div>
+</div>
+```
+
+```{r uno, echo = F, message = F, warning = F}
+#position: absolute; # esto estaba en logo, primera fila
+nombres <- base::as.character(readxl::read_excel("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/Panel ICA-SFE/Archivos necesarios/DF_paneles.xlsx", # NOMBRES DE LA SERIE
+                        sheet = "mensuales",
+                        range = "a1:i1", col_names = F)) # AL CARGAR UNA NUEVA SERIE, SE DEBE MODIFICAR EL RANGO PARA INCLURLA
+
+# CARGAR Y PREPARAR LOS DATOS
+base <- readxl::read_excel("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/Panel ICA-SFE/Archivos necesarios/DF_paneles.xlsx", # 
+                        sheet = "mensuales",
+                        range = "a362:i433", col_names = F) # 362 ES ENERO DE 2020 | AL CARGAR UNA NUEVA SERIE, SE DEBE MODIFICAR EL RANGO PARA INCLURLA
+base::names(base) <- nombres
+
+media <- readxl::read_excel("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/Panel ICA-SFE/Archivos necesarios/DF_paneles.xlsx", # CALCULO DE MEDIA
+                     sheet = "mensuales", col_names = T) |>
+  dplyr::select(-Fecha) |>                
+  dplyr::summarise(dplyr::across(dplyr::everything(), ~ mean(.x, na.rm = TRUE)))|>
+  tidyr::pivot_longer(dplyr::everything(), names_to = "Indicadores", values_to = "μ")
+
+desvio <- readxl::read_excel("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/Panel ICA-SFE/Archivos necesarios/DF_paneles.xlsx", # CALCULO DE SD
+                     sheet = "mensuales", col_names = T) |>
+  dplyr::select(-Fecha) |>                
+  dplyr::summarise(dplyr::across(dplyr::everything(), ~ sd(.x, na.rm = TRUE)))|>
+  tidyr::pivot_longer(dplyr::everything(), names_to = "Indicadores", values_to = "σ")
+
+estadisticos <- base::data.frame(media, σ = desvio$σ) # JUNTANDO AMBOS ESTADÍSTICOS
+
+base_filtrada <- utils::tail(base[1:max(base::which(base::rowSums(!base::is.na(base[-1])) > 0)),],48) # 48 MESES
+base_larga <- base_filtrada |>
+  tidyr::pivot_longer(
+    cols = -Fecha,  # Todas las columnas excepto 'Fecha'
+    names_to = "Indicadores", # Crear una columna 'Indicadores' con los nombres de las series
+    values_to = "Valor" # Los valores de las series en una columna 'Valor'
+)
+
+base_pivoteada <- base_larga |>
+  tidyr::pivot_wider(
+    names_from = Fecha,
+    values_from = Valor
+  ) |>
+  dplyr::rename_with(
+    ~ base::ifelse(.x == "Indicadores" | base::is.na(lubridate::ymd(.x, quiet = TRUE)),
+             .x,
+             base::format(lubridate::ymd(.x),
+                    "%b-%y")) # "%b-%y" EXPRESA MES-AÑO
+  )
+
+base_total <- clasif |>
+  dplyr::left_join(base_pivoteada, by = "Indicadores") |>
+  dplyr::select(-c(Carpeta, Descripcion, nombre)) |>
+  dplyr::select(Indicadores, Sector, dplyr::everything()) |>
+  dplyr::rename("Grupo" = Sector) |>
+  dplyr::mutate(Grupo_orden = base::as.numeric(gsub("G", "", Grupo))) |> # Extraer la parte numérica de "Grupo"
+  dplyr::arrange(Grupo_orden) |> # Ordenar por la parte numérica
+  dplyr::select(-Grupo_orden) |> # Eliminar la columna auxiliar si no es necesaria
+  dplyr::left_join(estadisticos, by = "Indicadores") |> # incorpora los estadísticos media y desvío calculados
+  dplyr::select(Indicadores, Grupo, μ, σ, dplyr::everything()) # ordena las columnas
+
+```
+
+```{r configura tabla, echo = F, warning = F, message = F}
+
+base_def <- base_total |>
+  dplyr::mutate(Indicadores = base::paste0('<a href="', Enlace, '" target="_blank">', Indicadores, '</a>')) |>
+  dplyr::select(-Enlace)  
+
+# Detectar cambios de mes y año
+years <- base::sapply(base::names(base_def), function(x) base::ifelse(base::grepl("-", x), base::substr(x, base::nchar(x) - 1, base::nchar(x)), NA))
+
+# Identificar las posiciones donde cambiará el borde
+month_positions <- base::seq(3, base::length(base::names(base_def)))  # Desde la tercera columna (primer mes)
+year_positions <- base::which(years[-1] != years[-base::length(years)]) + 1  # Donde cambia el año
+
+```
+
+```{=html}
+<h2 class="main-title" style="line-height: 1.5;">
+Series componentes del ICA-SFE. Variaciones mensuales (%).
+<br>
+Series desestacionalizadas. Últimos 48 meses.
+</h2>
+
+<p class="update-date"> Datos actualizados al <u>`r format(Sys.Date(), "%d de %B de %Y")`</u>.</p>
+
+<div class="info-box">
+La información expuesta en el panel puede contener cifras levemente distintas a las publicadas en los reportes escritos.
+Dichas diferencias se fundan en que los paneles se actualizan periódicamente con datos a lo largo de todo el mes calendario, mientras que los informes mensuales se generan con una “foto” de los datos disponibles en la fecha de publicación.
+</div>
+
+<div class="table-info-container">
+  <p class="table-info-text"> Ver <a href="#referencias">referencias</a> | Haga clic en el código de cada indicador para más información de la serie.</p>
+</div>
+
+<!-- <div id="table-container"> -->
+```
+
+```{r tabla corta 2 | col 1-2 fijas | scrolling der, echo = F, message = F, warning = F}
+ 
+library(DT)
+
+datatable(
+  base_def,
+  rownames = FALSE,
+  escape = FALSE,
+  extensions = 'FixedColumns',
+  options = list(
+    pageLength = -1,
+    dom = '<"dt-top"f>t',                      # use a named wrapper for easier styling
+    language = list(search = "Buscar sector o indicador:"),
+    #scrollY = "40vh",                          # use viewport height for responsiveness
+    scrollY = FALSE,
+    scrollX = TRUE,
+    #scrollCollapse = FALSE,
+    scrollCollapse = TRUE,
+    autoWidth = TRUE,                         # let CSS control widths
+    fixedColumns = base::list(leftColumns = 4),
+    columnDefs = base::list(
+      list(width = "80px", targets = base::c(0)), 
+      list(width = "50px", targets = base::c(1)),
+      list(width = "30px", targets = if (base::ncol(base_def) > 2) base::seq(2, base::ncol(base_def) - 1) else integer(0))
+      #list(width = "30px", targets = "_all")  # consistent pixel widths
+    ),
+    initComplete = htmlwidgets::JS(
+      "function(settings, json) {",
+      "  var $wrapper = $('.dataTables_wrapper');",
+      "  $wrapper.addClass('custom-dt');",
+      "  $('.dataTables_scrollHeadInner').css({'overflow': 'visible'});",
+      "  $('.dataTables_scrollHeadInner table').css({'margin-bottom': '0'});",
+      "  $wrapper.css({'max-width': '100%'});",
+      "  var $scrollBody = $('.dataTables_scrollBody');",
+      "  if ($scrollBody.length) {",
+      "    $scrollBody.css({'overflow-x': 'auto'});",
+      "    // scroll to rightmost column on load",
+      "    try { $scrollBody.scrollLeft($scrollBody[0].scrollWidth); } catch(e) {}",
+      "  }",
+      "  $('.dataTables_filter').css({'float': 'left', 'text-align': 'left', 'margin-bottom': '10px'});",
+      "  // hide loading overlay if present",
+      "  $('.dataTables_wrapper .loading-overlay').remove();",
+      " try { if (window.setResponsiveColWidth) window.setResponsiveColWidth(); } catch(e) {}",
+      "}"
+    ),
+    headerCallback = htmlwidgets::JS(
+      "function(thead, data, start, end, display){",
+      "  $(thead).css({'background-color': '#cacaca', 'color': 'black', 'font-weight': 'bold'});",
+      "}"
+    )
+  ),
+  class = 'stripe row-border',
+  width = NULL   # remove fixed inline width so CSS handles layout
+) |>
+  formatRound(
+    columns = c(names(base_def)[3:4], names(base_def)[5:length(names(base_def))]), digits = 1
+    ) |>
+  formatStyle(
+  columns = names(base_def)[5:length(names(base_def))], 
+  backgroundColor = styleInterval(0, c("#CD5555", "darkseagreen")),
+  color = styleInterval(0, c("white", "black")),
+  textAlign = "center",
+  fontWeight = "bold"
+) |>
+  formatStyle(
+    columns = names(base_def)[1:4], 
+    textAlign = "left",
+    color = "#234e5f",
+    `vertical-align` = "middle",
+    fontWeight = "bold"
+  ) |>
+  DT::formatStyle(
+    columns = 1,
+    `border-right` = "1px solid black"
+  ) |>
+  DT::formatStyle(
+  columns = 3,
+  `border-left` = "1px solid black"
+  ) %>%
+  purrr::reduce(month_positions[-1], function(table, col) {
+    table %>%
+      formatStyle(
+      columns = col, 
+      `border-left` = "1px solid black"
+    )
+  }, .init = .) %>%
+  purrr::reduce(year_positions, function(table, col) {
+    table |>
+      formatStyle(
+      columns = col, 
+      `border-left` = "3px solid black"
+    )
+  }, .init = .)
+
+```
+
+```{r tabla referencia , echo = F}
+
+tabla <- clasif |>  # TABLA DE CLASIFICADORES PARA LEYENDA
+  dplyr::left_join(base_pivoteada, by = "Indicadores") |>
+  dplyr::select(Indicadores, Sector, nombre) |>
+  dplyr::mutate(Grupo_orden = as.numeric(gsub("G", "", Sector))) |> # Extraer la parte numérica de "Grupo"
+  dplyr::arrange(Grupo_orden) |> # Ordenar por la parte numérica
+  dplyr::select(-Grupo_orden) |> # Eliminar la columna auxiliar si no es necesaria  
+  dplyr::select(-Sector)
+
+```
+
+```{r dos, echo=FALSE, results='asis'}
+# Generar texto de los indicadores con negrita en los nombres
+glosario_indicadores <- paste0(
+  "  <strong>", tabla$Indicadores, "</strong>: ", tabla$nombre, collapse = "<br>\n"
+)
+```
+
+```{=html}
+<!-- </div> -->
+
+<div class="referencias-section" id="referencias">
+  <h2>Referencias</h2>
+  
+
+  <div style="text-align: justify;">
+    
+  - <b>Variaciones mensuales (%)</b> 
+
+    Con datos desestacionalizados, las variaciones mensuales representan el cambio porcentual relativo de una serie de un mes a otro.  
+    Dado un indicador $Y$, en el mes $t$, el cálculo se realiza:  
+
+  </div>
+
+
+<div class="texto-latex">
+$$VM_t\% = \frac{Y_{(t)}-Y_{(t-1)}}{Y_{(t-1)}} \times 100$$
+</div>
+
+<p>
+- <b>Estadísticos</b><br>
+  <b>μ</b>: Promedio histórico de las variaciones mensuales de la serie.<br>
+  <b>σ</b>: Desvío estándar de las variaciones mensuales de la serie.
+  
+  
+- <b>Indicadores</b>
+
+```
+
+```{r indicadores print, echo=FALSE, results='asis'}
+
+cat(glosario_indicadores)
+
+```
+
+```{=html}
+- <b>Grupos</b><br>
+
+  <b>G1</b>: Producto y actividad económica <br>
+  <b>G2</b>: Percepción macroeconómica <br>
+  <b>G3</b>: Mercado inmobiliario y sector de la construcción <br>
+  <b>G4</b>: Mercado de trabajo <br>
+  <b>G5</b>: Industria <br>
+  <b>G6</b>: Sector externo <br>
+  <b>G7</b>: Recursos y gastos del sector público de la provincia de Santa Fe <br>
+  <b>G8</b>: Mercado de capitales <br>
+  <b>G9</b>: Patentamientos, transferencias y circulación vehicular <br>
+  <b>G10</b>: Consumo minorista <br>
+  <b>G11</b>: Otros indicadores <br>
+  </p>
+  `r volver_al_indice`
+  <hr>
+    <div class="h4_new">© Bolsa de Comercio de Santa Fe | Derechos reservados</div>
+  </div>
+</div>
+
+<script src="script-paneles.js" defer></script>
+```

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Economic Monitor – BYMA-style template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <!-- Replace with your logo -->
+        <img src="images/soloLogoCES.png" alt="Logo" class="logo-image" />
+        <a href="#hero">CENTRO DE ESTUDIOS Y SERVICIOS</a>
+      </div>
+      <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="navbar-links" id="navbar-links">
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#paneles">Paneles</a></li>
+        <li><a href="#referencias">Referencias</a></li>
+      </ul>
+    </nav>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  </header>
+
+  <!-- Hero section -->
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1>Series componentes del ICA-SFE. Variaciones mensuales (%).</h1>
+        <h3>
+          Series desestacionalizadas. Últimos 48 meses.
+        </h3>
+        <div class="hero-actions">
+          <a href="#paneles" class="btn btn-primary">Ver paneles</a>
+          <a href="#referencias" class="btn btn-secondary">Referencias</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <!-- Placeholder for a highlight card, chart preview or image -->
+        <div class="hero-card">
+          <h2>Ultima Actualización</h2>
+          <p class="hero-card-value"><!-- inject:update_date --></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-light notice-section">
+      <div class="notice-card">
+        <h4>Aclaración sobre los datos</h4>
+        <p>
+          La información expuesta en el panel puede contener cifras levemente distintas a las publicadas en los reportes
+          escritos.
+          Dichas diferencias se fundan en que los paneles se actualizan periódicamente con datos a lo largo de todo el
+          mes calendario, mientras que los informes mensuales se generan con una “foto” de los datos disponibles en la
+          fecha de publicación.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- Services / sections (like BYMA products) -->
+    <section id="paneles" class="section section-dark">
+      <div class="section-header">
+        <h2>Indicadores</h2>
+        <p>
+          Haga clic en el código de cada indicador para más información de la serie.
+        </p>
+      </div>
+
+      <div class="data-panel" id="datatable-panel">
+        <!-- inject:datatable_panel -->
+      </div>
+    </section>
+
+    <section id="referencias" class="section section-light">
+      <div class="section-header">
+        <h2>Referencias</h2>
+        <p>Conceptos utilizados en el panel, fórmulas y clasificaciones.</p>
+      </div>
+
+      <div class="methodology-text">
+        <h3>Variaciones mensuales (%)</h3>
+        <p>
+          Con datos desestacionalizados, las variaciones mensuales representan el cambio porcentual
+          de una serie respecto del mes previo.
+          Dado un indicador $Y$, en el mes $t$, el cálculo se realiza:
+        </p>
+
+        <div class="texto-latex">
+          $$VM_t\% = \frac{Y_{(t)}-Y_{(t-1)}}{Y_{(t-1)}} \times 100$$
+        </div>
+
+        <h3>Estadísticos</h3>
+        <p>
+          μ: Promedio histórico de las variaciones mensuales de la serie. <br>
+          σ: Desvío estándar de las variaciones mensuales de la serie.
+        </p>
+
+        <h3>Indicadores</h3>
+        <div id="glosario-indicadores">
+          <!-- inject:glosario_indicadores -->
+        </div>
+
+        <h3>Grupos</h3>
+        <ul>
+          <li>G1: Producto y actividad económica</li>
+          <li>G2: Percepción macroeconómica</li>
+          <li>G3: Mercado inmobiliario y sector de la construcción</li>
+          <li>G4: Mercado de trabajo</li>
+          <li>G5: Industria</li>
+          <li>G6: Sector externo</li>
+          <li>G7: Recursos y gastos del sector público provincial</li>
+          <li>G8: Mercado de capitales</li>
+          <li>G9: Patentamientos, transferencias y circulación vehicular</li>
+          <li>G10: Consumo minorista</li>
+          <li>G11: Otros indicadores</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>© Bolsa de Comercio de Santa Fe | Derechos reservados</p>
+      <div class="footer-links">
+        <a href="#hero">Volver al Inicio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
