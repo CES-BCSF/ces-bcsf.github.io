@@ -107,11 +107,11 @@ dt <- datatable(
     scrollCollapse = TRUE,
     autoWidth = TRUE,
     fixedColumns = list(leftColumns = 4),
-    columnDefs = list(
-      list(targets = 0, width = "120px"),  
-      list(targets = 1:3, width = "60px"),                      # primeras 4 columnas
-      list(targets = 4:(ncol(base_def)-1), width = "60px")       # meses
-    ),
+    # columnDefs = list(
+    #   list(targets = 0, width = "120px"),  
+    #   list(targets = 1:3, width = "60px"),                      # primeras 4 columnas
+    #   list(targets = 4:(ncol(base_def)-1), width = "60px")       # meses
+    # ),
     initComplete = JS(
       "function(settings, json) {
          var $scrollBody = $('.dataTables_scrollBody');
@@ -150,23 +150,6 @@ formatStyle(
   `vertical-align` = "middle",
   fontWeight = "bold"
 )
-
-htmltools::tags$style(htmltools::HTML("
-  table.dataTable {
-    border: 2px solid #234e5f !important;  /* borde exterior */
-  }
-
-  table.dataTable th, 
-  table.dataTable td {
-    border-right: 1px solid #d1d5db !important; /* líneas verticales */
-  }
-
-  table.dataTable th:last-child, 
-  table.dataTable td:last-child {
-    border-right: none !important;  /* opcional: evita borde doble al final */
-  }
-"))
-
 
 htmlwidgets::saveWidget(
   dt,

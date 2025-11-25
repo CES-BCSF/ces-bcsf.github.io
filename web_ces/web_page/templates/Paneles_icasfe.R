@@ -221,8 +221,8 @@ base::source("injects.r")
 rmarkdown::pandoc_convert(
   "paneles_template.html",
   to = "html",
-  output = "index.html",
-  options = c("--standalone", "--self-contained")
+  output = "../index.html",
+  options = c("--self-contained")
 )
 
 
