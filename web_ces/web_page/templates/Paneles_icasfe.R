@@ -217,13 +217,13 @@ variacion_interanual <- function(serie, nombre) {
 base::source("salidas.r")
 
 base::source("injects.r")
-
-rmarkdown::pandoc_convert(
-  "paneles_template.html",
-  to = "html",
-  output = "../index.html",
-  options = c("--self-contained")
-)
+# 
+# rmarkdown::pandoc_convert(
+#   "paneles_template.html",
+#   to = "html",
+#   output = "../index.html",
+#   options = c("--self-contained")
+# )
 
 
 

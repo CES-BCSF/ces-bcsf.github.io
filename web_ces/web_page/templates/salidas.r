@@ -167,6 +167,24 @@ frag <- readLines("temp_dt.html", warn = FALSE)
 
 frag <- frag[!grepl("^<!DOCTYPE|<html|</html>|<head>|</head>|<body>|</body>|<style>|</style>|<div id=\"htmlwidget_container\">|<meta", frag)]
 
-# 4) Guardarlo listo para inyección
+# 4) GUARDADO PARA INYECCION
 writeLines(frag, "datatable_panel.html")
+
+
+#### GENERA LA LISTA DE INDICADORES ####
+tabla <- clasif |>  # TABLA DE CLASIFICADORES PARA LEYENDA
+  dplyr::left_join(base_pivoteada, by = "Indicadores") |>
+  dplyr::select(Indicadores, Sector, nombre) |>
+  dplyr::mutate(Grupo_orden = as.numeric(gsub("G", "", Sector))) |> # Extraer la parte numérica de "Grupo"
+  dplyr::arrange(Grupo_orden) |> # Ordenar por la parte numérica
+  dplyr::select(-Grupo_orden) |> # Eliminar la columna auxiliar si no es necesaria  
+  dplyr::select(-Sector)
+
+# GENERAR TEXTO DE LOS INDICADORES EN NEGRITA
+glosario_indicadores <- paste0(
+  "  <strong>", tabla$Indicadores, "</strong>: ", tabla$nombre, collapse = "<br>\n"
+)
+
+#### GENERA LA SALIDA DE LA LISTA DE INDICADORES ####
+writeLines(glosario_indicadores, "fragments/glosario_indicadores.html")
 

@@ -46,8 +46,11 @@ html {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 img {
@@ -136,8 +139,8 @@ img {
 .hero {
   max-width: clamp(900px, 100%, 1200px);
   margin: 0 auto;
-  padding: 2rem 1.5rem 1rem;
-  display: grid;
+  padding: 2rem 1.5rem 2rem;
+  /* display: grid; */
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
   gap: 2.5rem;
   align-items: center;
@@ -146,10 +149,14 @@ img {
 .hero-content h1 {
   font-size: clamp(1.9rem, 2.8vw, 2.6rem);
   margin-bottom: 1rem;
+  line-height: 1;
+  leading-trim: both;
+  text-edge: cap;   /* recorta exactamente la caja visible */
 }
 
 .hero-content h3 {
   margin-bottom: 0rem;
+  color: var(--color-standard);
 }
 
 .hero-content p {
@@ -497,15 +504,20 @@ img {
 .notice-card {
   background: #ffffff;
   padding: 1.2rem 1.5rem;
+  margin-top: clamp(1rem, 3vw, 1.5rem);
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
   justify-self: left;
 }
 
 .notice-card h4 {
-  margin-top: 0;
+  margin: 0px;
   margin-bottom: 0rem;
   font-size: 1rem;
+}
+
+.notice-card p {
+  margin: 0px;
 }
 
 .notice-card h3 {
@@ -591,6 +603,20 @@ table.dataTable thead th.sorting_desc {
 }
 
 /* ============================================================
+   PERSONALIZACION DEL COLOR DEL TEXTO
+   ============================================================ */
+
+/* .dataTables_wrapper table.dataTable tbody td:nth-child(1){
+  color: #F00 !important;
+} */
+
+  .dataTables_wrapper table.dataTable tbody td:nth-child(2),
+  .dataTables_wrapper table.dataTable tbody td:nth-child(3),
+  .dataTables_wrapper table.dataTable tbody td:nth-child(4){
+    color: black !important;
+  }
+
+/* ============================================================
    HEADER
    ============================================================ */
 .dataTables_wrapper table.dataTable thead th {
@@ -625,35 +651,7 @@ table.dataTable thead th.sorting_desc {
 /* ============================================================
    ANCHOS DE COLUMNAS (header + body)
    ============================================================ */
-/*
-th[name="Indicadores"], td:nth-child(1) {
-  width: 100px !important;
-  min-width: 100px !important;
-  max-width: 100px !important;
-  text-align: left !important;
-  font-size: 0.85rem ;
-}
 
-th[name="Grupo"], td:nth-child(2) {
-  width: 55px !important;
-  min-width: 55px !important;
-  max-width: 55px !important;
-  text-align: left !important;
-}
-th[name="μ"], td:nth-child(3) {
-  width: 45px !important;
-  min-width: 45px !important;
-  max-width: 45px !important;
-  text-align: left !important;
-}
-
-th[name="σ"], td:nth-child(4) {
-  width: 45px !important;
-  min-width: 45px !important;
-  max-width: 45px !important;
-  text-align: left !important;
-} 
-*/
 th[name="Series"], td:nth-child(1),
 th[name="Grupo"], td:nth-child(2),
 th[name="μ"], td:nth-child(3),
@@ -663,6 +661,8 @@ th[name="σ"], td:nth-child(4) {
   max-width: max-content !important;
   white-space: nowrap !important;
 } 
+
+
 
 /* ============================================================
    FIJAR ANCHOS TAMBIÉN EN EL HEADER CLONADO DE FIXEDCOLUMNS
@@ -675,32 +675,6 @@ th[name="σ"], td:nth-child(4) {
   max-width: max-content !important;
   white-space: nowrap !important;
 } 
-
-
-/* 
-.DTFC_LeftWrapper th[name="Indicadores"],
-.DTFC_LeftWrapper td:nth-child(1) {
-  width: 160px !important;
-}
-
-.DTFC_LeftWrapper th[name="Grupo"],
-.DTFC_LeftWrapper td:nth-child(2) {
-  width: 55px !important;
-}
-
-.DTFC_LeftWrapper th[name="μ"],
-.DTFC_LeftWrapper td:nth-child(3),
-.DTFC_LeftWrapper th[name="σ"],
-.DTFC_LeftWrapper td:nth-child(4) {
-  width: 65px !important;
-}
-
-.DTFC_LeftWrapper th,
-.DTFC_LeftWrapper td {
-  max-width: none !important;
-  min-width: inherit !important;
-  box-sizing: border-box !important;
-} */
 
 /* ============================================================
    FIX DE ESPACIO ENTRE HEADER Y BODY
@@ -735,33 +709,36 @@ th[name="σ"], td:nth-child(4) {
 }
 
 .texto-latex {
-  text-align: center;
+  text-align: left;
   margin: 1em 0;
+}
+
+/* MathJax v2 */
+.texto-latex .MathJax_Display {
+  text-align: left !important;
+}
+
+/* MathJax v3 */
+.texto-latex mjx-container[jax="CHTML"][display="true"] {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+/* KaTeX */
+.texto-latex MathJax CtxtMenu_Attached_0 {
+  text-align: left !important;
 }
 
 #hero {
   scroll-margin-top: 80px;  /* reemplazá 80px si tu header mide otra cosa */
 }
 
-/* Responsive */
-/* @media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-  .hero-side {
-    justify-content: flex-start;
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-} */
-
 @media (max-width: 900px) {
   /* layout: stack columns, reduce gaps and paddings slightly */
   .hero {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    padding: clamp(1rem, 3vw, 1.5rem) 1rem 0.75rem;
+    padding: clamp(1rem, 3vw, 1.5rem);
   }
 
   .hero-side {
@@ -834,6 +811,10 @@ th[name="σ"], td:nth-child(4) {
   .hero-content p {
     font-size: clamp(0.95rem, 3.6vw, 1.05rem);
     max-width: 100%;
+  }
+
+  .section {
+    padding: 1rem !important; 
   }
 
   /* Cards / grids */
