@@ -546,40 +546,10 @@ table.dataTable td {
   border-right: 1px solid #d1d5db !important;
 }
 
-table.dataTable th{
-  text-align: left !important;
-}
- 
 table.dataTable th:last-child, 
 table.dataTable td:last-child {
   border-right: none !important;
 }
-
-
-table.dataTable thead .sorting:after,
-table.dataTable thead .sorting:before,
-table.dataTable thead .sorting_asc:after,
-table.dataTable thead .sorting_asc:before,
-table.dataTable thead .sorting_desc:after,
-table.dataTable thead .sorting_desc:before {
-    display: none !important;
-}
-
-table.dataTable thead th.sorting,
-table.dataTable thead th.sorting_asc,
-table.dataTable thead th.sorting_desc {
-    padding-right: 5px !important;   
-    padding-left: 5px !important;
-    /* background: none !important; */
-}
-
-.DTFC_LeftWrapper thead th.sorting,
-.DTFC_LeftWrapper thead th.sorting_asc,
-.DTFC_LeftWrapper thead th.sorting_desc {
-    padding-right: 5px !important;
-    padding-left: 5px !important;
-    background: none !important;
-} 
 
 /* ============================================================
    ALTURA UNIFORME (body)
@@ -625,7 +595,8 @@ table.dataTable thead th.sorting_desc {
 /* ============================================================
    ANCHOS DE COLUMNAS (header + body)
    ============================================================ */
-/*
+
+/* INDICADORES */
 th[name="Indicadores"], td:nth-child(1) {
   width: 100px !important;
   min-width: 100px !important;
@@ -634,12 +605,14 @@ th[name="Indicadores"], td:nth-child(1) {
   font-size: 0.85rem ;
 }
 
+/* GRUPO */
 th[name="Grupo"], td:nth-child(2) {
   width: 55px !important;
   min-width: 55px !important;
   max-width: 55px !important;
   text-align: left !important;
 }
+/* μ */
 th[name="μ"], td:nth-child(3) {
   width: 45px !important;
   min-width: 45px !important;
@@ -647,37 +620,18 @@ th[name="μ"], td:nth-child(3) {
   text-align: left !important;
 }
 
+/* σ */
 th[name="σ"], td:nth-child(4) {
   width: 45px !important;
   min-width: 45px !important;
   max-width: 45px !important;
   text-align: left !important;
-} 
-*/
-th[name="Series"], td:nth-child(1),
-th[name="Grupo"], td:nth-child(2),
-th[name="μ"], td:nth-child(3),
-th[name="σ"], td:nth-child(4) {
-  width: auto !important;
-  min-width: min-content !important;
-  max-width: max-content !important;
-  white-space: nowrap !important;
-} 
+}
 
 /* ============================================================
    FIJAR ANCHOS TAMBIÉN EN EL HEADER CLONADO DE FIXEDCOLUMNS
    ============================================================ */
 
-.DTFC_LeftWrapper th,
-.DTFC_LeftWrapper td {
-  width: auto !important;
-  min-width: min-content !important;
-  max-width: max-content !important;
-  white-space: nowrap !important;
-} 
-
-
-/* 
 .DTFC_LeftWrapper th[name="Indicadores"],
 .DTFC_LeftWrapper td:nth-child(1) {
   width: 160px !important;
@@ -695,12 +649,13 @@ th[name="σ"], td:nth-child(4) {
   width: 65px !important;
 }
 
+/* aseguramos que FixedColumns no genere anchos automáticos */
 .DTFC_LeftWrapper th,
 .DTFC_LeftWrapper td {
   max-width: none !important;
   min-width: inherit !important;
   box-sizing: border-box !important;
-} */
+}
 
 /* ============================================================
    FIX DE ESPACIO ENTRE HEADER Y BODY
@@ -859,7 +814,7 @@ th[name="σ"], td:nth-child(4) {
   /* Panel */
   .data-panel {
     padding: 0.5rem !important;
-    font-size: clamp(0.6rem, 3.4vw, 0.7rem);
+    font-size: 0.75rem ;
     max-width: 100% !important;
   }
 
@@ -868,12 +823,14 @@ th[name="σ"], td:nth-child(4) {
     padding: 4px 6px ;
     height: 30px ;
     line-height: 1rem ;
+    font-size: 0.75rem;
   }
 
   /* Header */
   .dataTables_wrapper table.dataTable thead th {
     padding: 6px ;
     height: 26px ;
+    font-size: 0.75rem;
   }
 
   /* Scrollbar reducido */
@@ -881,14 +838,69 @@ th[name="σ"], td:nth-child(4) {
     height: 0px !important;
     padding: 0px !important;
   }
- 
+
+  /* ============================================
+     ANCHOS DE COLUMNAS — versión compacta
+     ============================================ */
+
+  /* INDICADORES */
+  th[name="Indicadores"], td:nth-child(1) {
+    width: 80px !important;
+    min-width: 80px !important;
+    max-width: 80px !important;
+    font-size: 0.5rem ; /* más pequeño para que entre mejor - no anda */
+  }
+
+  /* GRUPO */
+  th[name="Grupo"], td:nth-child(2) {
+    width: 30px !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
+  }
+
+  /* μ */
+  th[name="μ"], td:nth-child(3) {
+    width: 30px !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
+  }
+
+  /* σ */
+  th[name="σ"], td:nth-child(4) {
+    width: 30px !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
+  }
+
+  /* ============================================
+     FixedColumns — ANCHOS REDUCIDOS EN EL CLON
+     ============================================ */
+
+  .DTFC_LeftWrapper th[name="Indicadores"],
+  .DTFC_LeftWrapper td:nth-child(1) {
+    width: 45px !important;
+    font-size: 0.2rem !important;
+  }
+
+  .DTFC_LeftWrapper th[name="Grupo"],
+  .DTFC_LeftWrapper td:nth-child(2) {
+    width: 30px !important;
+  }
+
+  .DTFC_LeftWrapper th[name="μ"],
+  .DTFC_LeftWrapper td:nth-child(3),
+  .DTFC_LeftWrapper th[name="σ"],
+  .DTFC_LeftWrapper td:nth-child(4) {
+    width: 30px !important;
+  }
+
   /* regras complementarias para evitar saltos */
-  /* .DTFC_LeftWrapper th,
+  .DTFC_LeftWrapper th,
   .DTFC_LeftWrapper td {
     max-width: none !important;
     min-width: inherit !important;
     box-sizing: border-box !important;
-  } */
+  }
 
   /* Footer */
   .footer-content {
@@ -903,7 +915,7 @@ th[name="σ"], td:nth-child(4) {
     font-size: 16px;
   }
   p, a, li {
-    font-size: clamp(0.6rem, 3.4vw, 0.75rem);
+    font-size: clamp(0.95rem, 3.4vw, 1rem);
   }
 
   /* small tweaks */
@@ -914,4 +926,29 @@ th[name="σ"], td:nth-child(4) {
     grid-template-columns: 1fr;
   }
 }
+
+/* @media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: #020617;
+    flex-direction: column;
+    padding: 0.75rem 1.5rem 1rem;
+    gap: 0.75rem;
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+  }
+  .navbar-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+} */
 

@@ -81,7 +81,8 @@ base_total <- clasif |>
 
 base_def <- base_total |>
   dplyr::mutate(Indicadores = base::paste0('<a href="', Enlace, '" target="_blank">', Indicadores, '</a>')) |>
-  dplyr::select(-Enlace)  
+  dplyr::select(-Enlace) |>
+  dplyr::rename(Series = Indicadores)
 
 # DETECTA CAMBIO DE FECHA Y AÑO
 years <- base::sapply(base::names(base_def), function(x) base::ifelse(base::grepl("-", x), base::substr(x, base::nchar(x) - 1, base::nchar(x)), NA))
@@ -107,6 +108,9 @@ dt <- datatable(
     scrollCollapse = TRUE,
     autoWidth = TRUE,
     fixedColumns = list(leftColumns = 4),
+    columDefs = list(
+      list(targets = 0:3, autoWidth = TRUE)
+    ),
     # columnDefs = list(
     #   list(targets = 0, width = "120px"),  
     #   list(targets = 1:3, width = "60px"),                      # primeras 4 columnas
