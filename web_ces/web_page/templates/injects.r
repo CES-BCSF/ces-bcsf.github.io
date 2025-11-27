@@ -28,6 +28,13 @@ inject_fragment(
 )
 
 inject_fragment(
+  template_path = "../paneles.html", #A PARTIR DEL SEGUNDO LLAMADO YA TIENE LOS PLACEHOLDERS ASI QUE PARA NO SOBREESCRIBIR LOS QUE ESTAN REEMPLAZADOS, SE LLAMA AL TEMPLATE FINAL.
+  fragment_path = "datatable_panel_ia.html",
+  placeholder = "<!-- inject:datatable_panel_ia -->",
+  output_path = "../paneles.html"
+)
+
+inject_fragment(
   template_path = "../paneles.html",
   fragment_path = "fragments/glosario_indicadores.html",
   placeholder = "<!-- inject:glosario_indicadores -->",

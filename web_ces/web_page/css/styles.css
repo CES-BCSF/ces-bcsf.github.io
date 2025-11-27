@@ -33,12 +33,13 @@ body {
   font-family: var(--font-main);
   color: var(--color-text);
   background: var(--color-bg);
-  line-height: 1.6;
+  line-height: 1.5 !important;
 }
 
 h1 {
   margin-block-start: 0em;
   margin-block-end: 0.2em;
+  line-height: 1.5;
 }
 
 html { 
@@ -46,11 +47,16 @@ html {
 }
 
 a {
+  color: var(--color-standard);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+p {
+  text-align: justify;
 }
 
 img {
@@ -149,7 +155,6 @@ img {
 .hero-content h1 {
   font-size: clamp(1.9rem, 2.8vw, 2.6rem);
   margin-bottom: 1rem;
-  line-height: 1;
   leading-trim: both;
   text-edge: cap;   /* recorta exactamente la caja visible */
 }
@@ -543,7 +548,7 @@ img {
    ============================================================ */
 .data-panel {
   max-width: clamp(900px, 100%, 1152px) !important;
-  margin: 0 auto !important;
+  margin: 0 auto;
   padding: 1rem !important;
   background: #fff;
   box-shadow: var(--shadow-soft);
@@ -562,10 +567,10 @@ table.dataTable th{
   text-align: left !important;
 }
  
-table.dataTable th:last-child, 
+/* table.dataTable th:last-child, 
 table.dataTable td:last-child {
   border-right: none !important;
-}
+} */
 
 
 table.dataTable thead .sorting:after,
@@ -644,8 +649,14 @@ table.dataTable thead th.sorting_desc {
 }
 
 .dataTables_scrollBody::-webkit-scrollbar-thumb {
-  background: #cbd5e1 !important;
+  background: #000 !important;
   border-radius: 4px !important;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-track {
+  background: #ffF !important; 
+  border-radius: 4px !important;
+  /* border: 2px solid #8a8a8a;   */
 }
 
 /* ============================================================
@@ -701,7 +712,6 @@ th[name="σ"], td:nth-child(4) {
   margin: 0 auto !important;
   padding: 0rem !important;
   font-size: 1.05rem;
-  line-height: 1.5;
 }
 
 .methodology-text h3 {
@@ -730,7 +740,7 @@ th[name="σ"], td:nth-child(4) {
 }
 
 #hero {
-  scroll-margin-top: 80px;  /* reemplazá 80px si tu header mide otra cosa */
+  scroll-margin-top: clamp(60px, 10vw, 100px);
 }
 
 @media (max-width: 900px) {
@@ -862,14 +872,6 @@ th[name="σ"], td:nth-child(4) {
     height: 0px !important;
     padding: 0px !important;
   }
- 
-  /* regras complementarias para evitar saltos */
-  /* .DTFC_LeftWrapper th,
-  .DTFC_LeftWrapper td {
-    max-width: none !important;
-    min-width: inherit !important;
-    box-sizing: border-box !important;
-  } */
 
   /* Footer */
   .footer-content {

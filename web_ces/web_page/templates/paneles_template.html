@@ -45,9 +45,9 @@
   <main>
     <section id="hero" class="hero">
       <div class="hero-content">
-        <h1>Dinámica de series componentes del ICA-SFE.</h1>
+        <h1>Dinámica de las series del ICA-SFE</h1>
         <h3>
-          <!-- inject:update_date -->
+          Actualizado al <!-- inject:update_date -->
         </h3>
       </div>
       <div class="notice-card">
@@ -63,7 +63,7 @@
     <!-- Services / sections (like BYMA products) -->
     <section id="paneles" class="section section-dark">
       <div class="section-header">
-        <h2>Panel 1 | Variaciones mensuales (%)</h2>
+        <h2>Panel | Variaciones mensuales (%)</h2>
         <p>
           Haga clic en el código de cada serie para ampliar
         </p>
@@ -72,9 +72,9 @@
         <!-- inject:datatable_panel -->
       </div>
       <div class="section-header">
-        <h2>Panel 2 | Variaciones interanuales (%)</h2>
+        <h2 style="margin-top: 1rem;">Panel | Variaciones interanuales (%)</h2>
         <p>
-          Haga clic en el código de cada indicador para más información de la serie.
+          Haga clic en el código de cada serie para ampliar
         </p>
       </div>
       <div class="data-panel" id="datatable-panel">
@@ -83,14 +83,9 @@
     </section>
 
     <section id="referencias" class="section section-light">
-      <!-- <section class="section-light notice-section"> -->
-      <!-- </section> -->
-      <div class="section-header">
-        <h2 style="padding-top: 1.5rem">Referencias</h2>
-        <p>Conceptos utilizados en los paneles, fórmulas y clasificaciones.</p>
-      </div>
-
       <div class="methodology-text">
+        <h3>Referencias</h3>
+        <p>Conceptos utilizados en los paneles, fórmulas y clasificaciones</p>
         <h3>Variaciones mensuales (%)</h3>
         <p>
           Con datos desestacionalizados, las variaciones mensuales representan el cambio porcentual
@@ -102,32 +97,40 @@
           $$VM_t\% = \frac{Y_{(t)}-Y_{(t-1)}}{Y_{(t-1)}} \times 100$$
         </div>
 
-        <h3>Estadísticos</h3>
+        <h3>Variaciones interanuales (%)</h3>
         <p>
-          μ: Promedio histórico de las variaciones mensuales/interanuales de la serie. <br>
-          σ: Desvío estándar de las variaciones mensuales/interanuales de la serie.
+          Con datos desestacionalizados, las variaciones interanuales representan el cambio porcentual relativo de una serie de un
+          mes respecto al mismo mes del año previo.
+          Dado un indicador $Y$, en el mes $t$, el cálculo se realiza:
         </p>
 
-        <h3>Indicadores</h3>
-        <br>
-        <div id="glosario-indicadores">
-          <!-- inject:glosario_indicadores -->
+        <div class="texto-latex">
+          $$VIA_t\% = \left\{\frac{Y_{(t)}-Y_{(t-12)}}{Y_{(t-12)}}\right\} \times 100$$
         </div>
-        <br>
+
+        <h3>Estadísticos</h3>
+        <p>
+          μ: Promedio histórico de las variaciones mensuales/interanuales de la serie <br>
+          σ: Desvío estándar de las variaciones mensuales/interanuales de la serie
+        </p>
+        <h3>Indicadores</h3>
+        <p id="glosario-indicadores">
+          <!-- inject:glosario_indicadores -->
+        </p>
         <h3>Grupos</h3>
-        <ul>
-          <li>G1: Producto y actividad económica</li>
-          <li>G2: Percepción macroeconómica</li>
-          <li>G3: Mercado inmobiliario y sector de la construcción</li>
-          <li>G4: Mercado de trabajo</li>
-          <li>G5: Industria</li>
-          <li>G6: Sector externo</li>
-          <li>G7: Recursos y gastos del sector público provincial</li>
-          <li>G8: Mercado de capitales</li>
-          <li>G9: Patentamientos, transferencias y circulación vehicular</li>
-          <li>G10: Consumo minorista</li>
-          <li>G11: Otros indicadores</li>
-        </ul>
+        <p style="margin-bottom: 0px !important;">
+        G1: Producto y actividad económica<br>
+        G2: Percepción macroeconómica<br>
+        G3: Mercado inmobiliario y sector de la construcción<br>
+        G4: Mercado de trabajo<br>
+        G5: Industria<br>
+        G6: Sector externo<br>
+        G7: Recursos y gastos del sector público provincial<br>
+        G8: Mercado de capitales<br>
+        G9: Patentamientos, transferencias y circulación vehicular<br>
+        G10: Consumo minorista<br>
+        G11: Otros indicadores<br>
+        </p>
       </div>
     </section>
   </main>
