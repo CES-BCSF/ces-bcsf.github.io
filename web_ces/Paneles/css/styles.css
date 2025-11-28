@@ -776,6 +776,39 @@ th[name="σ"], td:nth-child(4) {
 /* responsive: mobile (max-width: 768px) */
 @media (max-width: 768px) {
   /* Navbar */
+  .logo-image
+  {
+    width: 40%;
+    max-width: 50%;
+  }
+
+  h1 {
+    font-size: clamp(1.05rem, 100%, 1.2rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(0.8rem, 100%, 1rem) !important;
+  }
+
+  h3 {
+    font-size: clamp(0.6rem, 100%, 0.8rem) !important;
+  }
+
+  body {
+    font-size: 16px;
+  }
+  p, a, li {
+    font-size: clamp(0.65rem, 3.4vw, 0.75rem);
+  }
+
+  /* small tweaks */
+  .hero-card {
+    max-width: 100%;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
   .navbar {
     padding: 0.5rem 1rem;
     max-width: 100%;
@@ -790,6 +823,7 @@ th[name="σ"], td:nth-child(4) {
     left: 0;
     background: var(--color-bg-dark);
     flex-direction: column;
+    margin-top: 0px;
     padding: 0.75rem 1rem;
     gap: 0.5rem;
     transform: translateY(-6px);
@@ -811,10 +845,6 @@ th[name="σ"], td:nth-child(4) {
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 1rem;
-  }
-
-  .hero-content h1 {
-    font-size: clamp(1.1rem, 6vw, 1.6rem);
   }
 
   .hero-content p {
@@ -872,28 +902,18 @@ th[name="σ"], td:nth-child(4) {
     padding: 0px !important;
   }
 
+  .texto-latex {
+    font-size: 0.75rem;
+    text-align: left;
+    margin: 1em 0;
+  }
+
   /* Footer */
   .footer-content {
     padding: 0.75rem 1rem !important;
     gap: 0.5rem;
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  /* Typography adjustments: escala general para mejor legibilidad en móvil */
-  body {
-    font-size: 16px;
-  }
-  p, a, li {
-    font-size: clamp(0.6rem, 3.4vw, 0.75rem);
-  }
-
-  /* small tweaks */
-  .hero-card {
-    max-width: 100%;
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
   }
 }
 
