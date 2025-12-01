@@ -739,10 +739,6 @@ th[name="σ"], td:nth-child(4) {
   text-align: left !important;
 }
 
-#hero {
-  scroll-margin-top: clamp(60px, 10vw, 100px);
-}
-
 @media (max-width: 900px) {
   /* layout: stack columns, reduce gaps and paddings slightly */
   .hero {
@@ -820,7 +816,7 @@ th[name="σ"], td:nth-child(4) {
     top: 100%;
     right: 0;
     left: 0;
-    background: var(--color-bg-dark);
+    background: #000;
     flex-direction: column;
     margin-top: 0px;
     padding: 0.75rem 1rem;
