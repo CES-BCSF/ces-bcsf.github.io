@@ -86,7 +86,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative !important;  /* clave para ubicar el logo */
+  position: relative !important;  
   z-index: 10;
 }
 
@@ -141,6 +141,9 @@ img {
   margin: 4px 0;
   background: #ffffff;
 }
+
+
+
 
 /* Hero */
 .hero {
@@ -256,7 +259,6 @@ img {
 
 .section-header p {
   margin: 0;
-  max-width: 36rem;
   color: var(--color-text-soft);
 }
 
@@ -440,14 +442,13 @@ img {
 .site-footer {
   background: var(--color-standard);
   color: #9ca3af;
-  /*padding: 1.2rem 1.5rem;*/
 }
 
 .footer-content {
   max-width: clamp(900px, 100%, 1200px);
   margin: 0 auto;
   padding: 1rem 1.5rem 1rem !important;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -705,6 +706,7 @@ th[name="σ"], td:nth-child(4) {
   text-align: left !important;
 }
 
+
 @media (max-width: 900px) {
   /* layout: stack columns, reduce gaps and paddings slightly */
   .hero {
@@ -749,6 +751,7 @@ th[name="σ"], td:nth-child(4) {
 
   h2 {
     font-size: clamp(0.8rem, 100%, 1rem) !important;
+    scroll-margin-top: 8rem !important; 
   }
 
   h3 {
