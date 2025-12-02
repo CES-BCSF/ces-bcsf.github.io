@@ -1,0 +1,18 @@
+/* IMPORTAR ESTILOS BASES */
+@import url('../../../assets/css/styles.css');
+
+/* =======================
+   CLASES PROPIAS DE PANEL
+======================= */
+
+.dataTables_scrollBody {
+  max-height: 600px !important; 
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+.dataTables_scrollBody::-webkit-scrollbar {
+  height: 8px !important;
+  width: 8px !important;
+}
