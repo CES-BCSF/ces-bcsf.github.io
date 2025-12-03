@@ -1,0 +1,245 @@
+---
+title: "Calendario de publicaciones"
+author:
+output:
+  html_document:
+    self_contained: true
+    highlight: textmate
+    css: "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/_Recursos/css/style.css"
+    includes:
+      in_header: "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/_Recursos/icons/favicon.html"
+runtime: shiny
+knit: (function(input_file, encoding) {rmarkdown::render(input_file,encoding=encoding, output_file='Calendario.html') })
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+```{r datos}
+df_calendario <- readxl::read_excel("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/Seguimiento Manual.xlsx", range = "OUT_Calendario!B2:I300", col_names = TRUE)
+
+```
+
+```{r limpieza de datos}
+
+df_limpio <- df_calendario |>
+  dplyr::filter(!base::is.na(`Categoría`) & `Categoría` != "") |>
+  dplyr::mutate(
+    `Fecha de publicación conocida` = dplyr::case_when(
+      suppressWarnings(!base::is.na(base::as.numeric(`Fecha de publicación conocida`))) ~ base::as.Date(base::as.numeric(`Fecha de publicación conocida`), origin = "1899-12-30"),
+      suppressWarnings(!base::is.na(lubridate::dmy(`Fecha de publicación conocida`))) ~ lubridate::dmy(`Fecha de publicación conocida`),
+      TRUE ~ lubridate::NA_Date_
+    ),
+    `Fecha de publicación estimada` = dplyr::case_when(
+      suppressWarnings(!base::is.na(base::as.numeric(`Fecha de publicación estimada`))) ~ format(base::as.Date(base::as.numeric(`Fecha de publicación estimada`), origin = "1899/12/30"), "%d/%m/%Y"),
+      suppressWarnings(!base::is.na(lubridate::dmy(`Fecha de publicación estimada`))) ~ format(lubridate::dmy(`Fecha de publicación estimada`), "%d/%m/%Y"),
+      TRUE ~ as.character(`Fecha de publicación estimada`)
+      ),
+    `Último dato` = dplyr::case_when(
+      # Caso para datos mensuales
+      `Frecuencia` == "Mensual" ~ {
+        year <- stringr::str_extract(`Último dato`, "^\\d{4}")
+        # Corrige la expresión regular para extraer los últimos dos dígitos
+        month_num <- base::as.numeric(stringr::str_extract(`Último dato`, "\\d{2}$"))
+        base::paste0(year, ".M", month_num)
+      },
+      # Caso para datos trimestrales
+      `Frecuencia` == "Trimestral" ~ {
+        year <- stringr::str_extract(`Último dato`, "^\\d{4}")
+        # Corrige la expresión regular para extraer los últimos dos dígitos
+        month_num <- base::as.numeric(stringr::str_extract(`Último dato`, "\\d$"))
+        base::paste0(year, ".T", month_num)
+      },
+      # Caso para datos semestrales
+      `Frecuencia` == "Semestral" ~ {
+        year <- stringr::str_extract(`Último dato`, "^\\d{4}")
+        # Corrige la expresión regular para extraer los últimos dos dígitos
+        month_num <- base::as.numeric(stringr::str_extract(`Último dato`, "\\d$"))
+        base::paste0(year, ".S", month_num)
+      },
+      # El resto de los casos (incluyendo anuales) no se modifican
+      TRUE ~ `Último dato`
+    )
+  )
+  # |> dplyr::select(-`Fecha de publicacion as Date`)
+```
+
+```{r volver_al_indice, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+  volver_al_indice <- paste('<div class="back-to-index-container">
+                              <a href="#ref_notas" class="back-to-index-btn">
+                                <span class="btn-icon">↑</span>
+                                <span class="btn-text">Volver al índice</span>
+                              </a>
+                            </div>')
+
+```
+
+```{=html}
+<div class="page-container">
+
+<div class="header-banner">
+  <img src="C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/_Recursos/icons/encabezado_informes_generales_página_interior.png" alt="Logo"/>
+</div>
+
+<div class="titulo-principal">CALENDARIO DE ACTUALIZACIÓN DE DATOS</div>
+
+<div class="fecha-encabezado"> Datos actualizados al `r base::format(base::Sys.Date(), '%d')` de `r base::format(base::Sys.Date(), '%B')` de `r base::format(base::Sys.Date(), '%Y')`
+</div>
+
+<hr>
+
+<h2>Alcance</h2>
+<p>El calendario de publicaciones presenta las fechas previstas de actualización para cada uno de los indicadores clave vinculados al proyecto de ciclos económicos de la provincia de Santa Fe. 
+Adicionalmente, provee información sobre las fuentes utilizadas, la frecuencia de publicación, el último dato disponible y el alcance de cada variable. La información estadística de cada indicador se encuentra a disposición en nuestra <a href="https://www.bcsf.com.ar/ces/base-datos/preview/1/base-de-datos-estadisticos-de-la-provincia-de-santa-fe" target="_blank">base de datos</a> (la cual se actualiza en la web todos los meses).</p>
+
+<hr>
+```
+
+```{r filtros} 
+shared_df <- crosstalk::SharedData$new(df_limpio)
+
+htmltools::div(
+  crosstalk::bscols(
+    widths = base::c(4, 4, 4),
+    crosstalk::filter_select("Categoría", "Categoría", shared_df, ~`Categoría`),
+    crosstalk::filter_select("Fuente", "Fuente", shared_df, ~Fuente),
+    crosstalk::filter_select("Alcance geográfico", "Alcance geográfico", shared_df, ~`Alcance geográfico`)
+  )
+)
+```
+
+```{=html}
+<p id="ref_notas">Ver <a href="#referencias">notas</a> en relación a Categoría/Fuente/Alcance geográfico. Además, al final del cuadro se lista un <a href="#ref_glosario">glosario</a> de indicadores, fuentes y abreviaciones.</p>
+
+<hr>
+```
+
+```{r tabla}
+DT::datatable(
+  shared_df,
+  rownames = FALSE,
+  filter = "none",
+  options = base::list(
+    pageLength = 150,
+    dom = "ft",
+    scrollX = TRUE,
+    fixedHeader = TRUE,
+    autoWidth = TRUE,
+    order = base::list(base::list(0, "asc"), base::list(1, "asc")),  # Ordenar por la primera columna "Indicador"
+    columnDefs = base::list(
+      base::list(className = "dt-center", targets = "_all"),
+      base::list(
+        targets = 3, # columnas de fecha
+        render = DT::JS(
+          "function(data, type, row, meta) {",
+          "  if(type === 'sort') {",
+          "    if(data === null || data === '' || data === '-') { return '9999-12-31'; }",
+          "    return data;",
+          "  }",
+          "  if(type === 'display') {",
+          "    if(data === null || data === '') { return '-'; }",
+          "    var d = new Date(data);",
+          "    if(isNaN(d)) { return data; }",
+          "    var day = ('0' + (d.getUTCDate())).slice(-2);",
+          "    var month = ('0' + (d.getUTCMonth()+1)).slice(-2);",
+          "    var year = d.getFullYear();",
+          "    return day + '/' + month + '/' + year;",
+          "  }",
+          "  return data;",
+          "}"
+        )
+      )
+    ),
+    language = base::list(
+      search = "Buscador general (identifica cualquier texto dentro de la tabla)",
+      searchPlaceholder = "Escriba aquí para buscar...",
+      paginate = base::list(previous = "", `next` = ""),
+      info = ""
+    )
+  ),
+  class = "calendario-dataTable compact stripe hover"
+)
+```
+
+```{=html}
+<hr>
+<h2 id=ref_glosario><u>Glosario de indicadores, fuentes y abreviaciones</u></h2>
+<!-- <a href="#ref_notas" class="calendario-toc-section"> -->
+<!--    <i class="fas fa-arrow-up"></i> 🔝 Volver al inicio -->
+<!-- </a> -->
+<p><b>ADEFA</b> | Asociación de Fábricas de Automotores<br>
+<b>AFCP</b> | Asociación de Fabricantes de Cemento Portland<br>
+<b>API</b> | Administración Provincial de Impuestos (Santa Fe)<br>
+<b>ARCA</b> | Agencia de Recaudación y Control Aduanero (ex-AFIP)<br>
+<b>ART</b> | Aseguradoras de Riesgos del Trabajo<br>
+<b>BCSF</b> | Bolsa de Comercio de Santa Fe<br>
+<b>BCRA</b> | Banco Central de la República Argentina<br>
+<b>BYMA</b> | Bolsas y Mercados Argentinos<br>
+<b>CAME</b> | Confederación Argentina de la Mediana Empresa<br>
+<b>CAMMESA</b> | Compañía Administradora del Mercado Mayorista Eléctrico Sociedad Anónima<br>
+<b>CCL</b> | Contado con Liquidación (tipo de cambio implícito obtenido a través de la compra de activos en el mercado local y posterior venta en el internacional)<br>
+<b>CICEC</b> | Centro de Investigación del Ciclo Económico (Bolsas de Comercio de Rosario y Santa Fe)<br>
+<b>CIFRAS</b> | Centro de Información y Formación Regional para la Actividad de la Construcción (Región Litoral)<br>
+<b>CLAL</b> | Consultora italiana especializada en el sector lácteo, referente internacional<br>
+<b>CNV</b> | Comisión Nacional de Valores<br>
+<b>CREEBBA</b> | Centro Regional de Estudios Económicos de Bahía Blanca Argentina<br>
+<b>DNRPA</b> | Dirección Nacional de los Registros de la Propiedad del Automotor<br>
+<b>EMAE</b> | Estimador Mensual de Actividad Económica<br>
+<b>ENARGAS</b> | Ente Nacional Regulador del Gas<br>
+<b>EPH</b> | Encuesta Permanente de Hogares<br>
+<b>EPE</b> | Empresa Provincial de la Energía (Santa Fe)<br>
+<b>ETH Zurich</b> | Escuela Politécnica Federal de Zúrich (por sus siglas en alemán Eidgenössische Technische Hochschule Zürich)<br>
+<b>FIEL</b> | Fundación de Investigaciones Económicas Latinoamericanas<br>
+<b>FRED</b> | Federal Reserve Economic Data (Reserva Federal de St. Louis, EE.UU.)<br>
+<b>ICA-ARG</b> | Índice Compuesto de Actividad de Argentina (Centro de Investigación del Ciclo Económico)<br>
+<b>ICA-SFE</b> | Índice Compuesto de Actividad de Santa Fe (Bolsa de Comercio de Santa Fe)<br>
+<b>IGA</b> | Índice General de Actividad (Orlando J. Ferreres & Asociados)<br>
+<b>IERIC</b> | Instituto de Estadística y Registro de la Industria de la Construcción<br>
+<b>IMAE</b> | Indicador Mensual de Actividad Económica (Instituto Provincial de Estadística y Censos)<br>
+<b>INDEC</b> | Instituto Nacional de Estadística y Censos<br>
+<b>IPC</b> | Índice de Precios al Consumidor<br>
+<b>IPIM</b> | Índice de Precios Internos Mayoristas<br>
+<b>IPEC</b> | Instituto Provincial de Estadística y Censos (Santa Fe)<br>
+<b>ITCRM</b> | Índice de Tipo de Cambio Real Multilateral<br>
+<b>IVA</b> | Impuesto al Valor Agregado<br>
+<b>MAE</b> | Mercado Abierto Electrónico<br>
+<b>MECON</b> | Ministerio de Economía de la Nación<br>
+<b>MEP</b> | Tipo de cambio implícito obtenido a través de operaciones con bonos en el Mercado Electrónico de Pagos<br>
+<b>Merval</b> | Mercado de Valores de Buenos Aires<br>
+<b>OJF</b> | Consultora Orlando J. Ferreres & Asociados<br>
+<b>OEDE</b> | Observatorio de Empleo y Dinámica Empresarial<br>
+<b>PBG</b> | Producto Bruto Geográfico<br>
+<b>PEA</b> | Población Económicamente Activa<br>
+<b>PIB</b> | Producto Interno Bruto<br>
+<b>S&P</b> | Standard & Poor’s (agencia internacional de calificación de riesgo y proveedora de índices financieros)<br>
+<b>SIPA</b> | Sistema Integrado Previsional Argentino<br>
+<b>TC</b> | Tipo de Cambio<br>
+<b>TCRB</b> | Tipo de Cambio Real Bilateral<br>
+<b>UTDT</b> | Universidad Torcuato Di Tella<br>
+<b>EQUILIBRA</b> | Centro de Análisis Económico</p>
+
+`r volver_al_indice`
+
+<!-- <p> -->
+
+<hr>
+<h2 id=referencias><u>Notas</u></h2>
+<!--   <a href="#ref_notas" class="calendario-toc-section"> -->
+<!--    <i class="fas fa-arrow-up"></i> 🔝 Volver al inicio -->
+<!--   </a> -->
+<!-- </p> -->
+
+<p><strong>Categoría:</strong> clasificación propia para agrupar indicadores.<br>
+<strong>Indicador:</strong> señala el nombre del indicador. <br>
+<strong>Fuente:</strong> organismo o entidad que representa la fuente primaria de la información.<br>
+<strong>Alcance geográfico:</strong> especifica el área geográfica de referencia (cuando se menciona Santa Fe, se refiere a la provincia, salvo que se indique expresamente lo contrario).<br>
+<strong>Fecha de publicación conocida:</strong> informada directamente por la fuente primaria.<br>
+<strong>Fecha de publicación estimada:</strong> calculada por el equipo del CES a partir del comportamiento histórico.</p>
+
+`r volver_al_indice`
+
+</div>
+<script src="animated-toc.js"></script>
+```
+
