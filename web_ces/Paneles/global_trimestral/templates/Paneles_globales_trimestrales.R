@@ -1,6 +1,6 @@
 # SERIES DESESTACIONALIZADAS DE LOS MAESTROS ####
 
-clasif <- readxl::read_excel("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/Panel global trimestral/Archivos necesarios/Clasificador.xlsx",
+clasif <- readxl::read_excel("../input/Clasificador.xlsx",
                      sheet = "Clasificador",
                      col_names = T) |>
   dplyr::mutate(Enlace = base::paste0("https://ces-bcsf.github.io/web_ces/indicadores/", Indicadores, "_views.html"))
@@ -209,7 +209,7 @@ variacion_interanual <- function(serie, nombre) {
       "trimestrales" = df_variaciones_trimestrales,
       "i.a." = df_variaciones_interanuales
     ),
-    path = "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/Panel global trimestral/Archivos necesarios/DF_paneles.xlsx"
+    path = "../input/DF_paneles.xlsx"
   )
 
   #
