@@ -220,16 +220,59 @@ CLASES PERSONALIZADAS
   color: rgba(255, 255, 255, 0.7);
 }
 
+
+.notice-card {
+  background: #ffffff;
+  padding: 1.2rem 1.5rem;
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  justify-self: left;
+}
+
+.notice-card h4 {
+  margin: 0px;
+  margin-bottom: 0rem;
+  font-size: 1rem;
+}
+
+.notice-card p {
+  margin: 0px;
+}
+
+.notice-card h3 {
+  margin: 0px;
+}
+
+.notice-card-secondary {
+  width: 100%;
+  background: #f1f5f9;
+  padding: 0.9rem 0rem;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  justify-self: left;
+}
+
+.notice-card-secondary a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
 /* Sections */
 .section {
   padding: 1rem 1rem;
 }
 
-.section-dark {
+.section-dark-top {
   margin: 0 auto !important;
-  padding: 1rem 1.5rem 1rem;
   background: #000;
   color: #e5e7eb;
+}
+
+.section-dark {
+  max-width: clamp(900px, 100%, 1200px);
+  margin: 0 auto !important;
+  padding: 1rem 1.5rem 1rem;
 }
 
 .section-dark p {
@@ -238,6 +281,10 @@ CLASES PERSONALIZADAS
 
 .section-dark .card {
   background: #0b1728;
+}
+
+.section-dark a {
+  color: #70cc70;
 }
 
 .section-header {
@@ -257,6 +304,22 @@ CLASES PERSONALIZADAS
 }
 
 /* =======================
+  FILTROS
+  ======================= */
+
+/* Filtros Crosstalk en fila
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.col-sm-4 {
+  flex: 1 1 calc(33.333% - 1rem);
+  min-width: 250px;
+} */
+
+/* =======================
   DATA-PANEL
   ======================= */
   
@@ -266,6 +329,10 @@ table {
   font-family: Arial, sans-serif;
   font-size: 14px;
   border: 3px solid #cacaca !important;
+}
+
+table.dataTable {
+  margin: 0px !important;
 }
 
 th, td {
@@ -325,7 +392,7 @@ table.dataTable thead th.sorting_desc {
    ALTURA UNIFORME (BODY)
    ============================================================ */
 .dataTables_wrapper table.dataTable tbody td {
-  padding: 6px 8px !important;
+  padding: 0.5rem 0.5rem !important;
   line-height: 1rem ;
 }
 
@@ -353,14 +420,15 @@ table.dataTable thead th.sorting_desc {
   float: none !important;
   display: flex !important;
   max-width: clamp(900px, 100%, 1200px) !important;
-  margin: 0 auto ;
-  padding: 2rem 1.5rem 2rem;
+  margin: 0 auto !important;
+  padding: 0rem 0rem 1.5rem;
   background-color: #000 !important;
   color: #fff !important;
 }
 
 /* Label separado un poco */
 .dataTables_filter label {
+  text-align: left;
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
@@ -390,19 +458,15 @@ table.dataTable thead th.sorting_desc {
 /* ============================================================
   SCROLL
   ============================================================ */
-
-.dataTables_scrollHead{
-  max-width: clamp(900px, 100%, 1200px);  /* igual que el hero y section-header */
+.dataTables_scrollHead,
+.dataTables_scrollBody {
   max-height: auto !important;
-  margin: 0 auto !important;
-  padding: 0rem 1.5rem 0rem;
+  margin: 0px !important;
+  padding: 0px !important;
 }
 
 .dataTables_scrollBody {
-  max-width: clamp(900px, 100%, 1200px);  /* igual que el hero y section-header */
-  max-height: auto !important;
-  margin: 0 auto !important;
-  padding: 0rem 1.5rem 0.5rem;
+  padding-bottom: 0.5rem !important;
   background-color: transparent; /* fondo detrás del scrollbar */
 }
 
@@ -436,7 +500,7 @@ table.dataTable thead th.sorting_desc {
 /* < Footer > */
 .site-footer {
   background: var(--color-standard);
-  color: #9ca3af;
+  color: #FFF;
 }
 
 .footer-content {
@@ -444,10 +508,19 @@ table.dataTable thead th.sorting_desc {
   margin: 0 auto;
   padding: 1rem 1.5rem 1rem !important;
   /* display: flex; */
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.methodology-text p{
+  align-items: left !important;
+  margin: 0px !important;
+}
+
+.methodology-text h3 {
+  margin: 1rem 0rem 0.5rem 0rem !important;
 }
 
 .footer-links {
@@ -456,11 +529,7 @@ table.dataTable thead th.sorting_desc {
   font-size: 0.85rem;
 }
 
-.footer-links a {
-  color: #9ca3af;
-}
-
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
@@ -512,11 +581,24 @@ table.dataTable thead th.sorting_desc {
     padding: 1.5rem 1rem;
   }
 
-} 
+}  */
 
 
 /* responsive: mobile (max-width: 768px) */
 @media (max-width: 768px) {
+
+  .hero {
+    padding: 1rem 0.8rem 1rem;
+  }
+
+  .section {
+    padding: 1rem 0.8rem 1rem !important;
+  }
+
+  .site-footer{
+    padding: 1rem 0.8rem 1rem !important;
+  }
+
   .navbar {
     padding: 0.75rem 1rem;
   }
@@ -537,7 +619,7 @@ table.dataTable thead th.sorting_desc {
   }
 
   .logo-image {
-    width: 70%;
+    width: 50%;
   }
 
   .hero-card {
@@ -551,23 +633,40 @@ table.dataTable thead th.sorting_desc {
 
   .section-dark,
   .section-light {
-    padding: 1rem;
-  }
-
-  .dataTables_filter input {
-    width: 100% !important;
+    padding: 0rem;
   }
 
   table {
     font-size: 11px;
   }
 
+  .dataTables_wrapper table.dataTable tbody td {
+    padding: 0.2rem 0.2rem !important;
+    line-height: 0.7rem;
+  }
+
   .dataTables_filter {
     padding: 0rem 0rem 1.5rem !important;
   }
 
+  .dataTables_filter input {
+    width: 100% !important;
+  }
+
   .dataTables_scrollBody::-webkit-scrollbar {
     display: none !important;
+  }
+
+  .text-izq {
+    text-align: left !important;
+  }
+
+  .texto-mediano {
+    font-size: 0.9rem !important;
+  }
+
+  .site-footer p {
+    font-size: 0.7rem !important;
   }
 
   .footer-links {
@@ -576,7 +675,7 @@ table.dataTable thead th.sorting_desc {
   }
 
   .footer-content {
-    padding: 1rem;
+    padding: 0rem !important;
   }
 }
 

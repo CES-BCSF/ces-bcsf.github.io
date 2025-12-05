@@ -166,7 +166,7 @@ tabla <- DT::datatable(
       )
     ),
     language = base::list(
-      search = "Buscador general (identifica cualquier texto dentro de la tabla)",
+      search = "Buscador general (cualquier texto en la tabla)",
       searchPlaceholder = "Escriba aquí para buscar...",
       paginate = base::list(previous = "", `next` = ""),
       info = ""
