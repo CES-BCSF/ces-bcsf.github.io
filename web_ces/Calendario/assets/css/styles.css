@@ -64,13 +64,11 @@ img {
   max-width: 100%;
   display: block;
 }
+/* -------------------------------------------
+CLASES PERSONALIZADAS
+------------------------------------------- */
+/* < HEADER > */
 
-.logo-image{
-  width: 50%;
-  max-width: 100%;
-}
-
-/* Header / Navbar */
 .site-header {
   position: sticky;
   top: 0;
@@ -96,6 +94,26 @@ img {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.9rem;
+}
+
+.logo-image{
+  width: 50%;
+  max-width: 100%;
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-toggle .bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 4px 0;
+  background: #ffffff;
 }
 
 .navbar-links {
@@ -126,26 +144,7 @@ img {
   width: 100%;
 }
 
-/* Mobile nav toggle */
-.navbar-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.navbar-toggle .bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  margin: 4px 0;
-  background: #ffffff;
-}
-
-
-
-
-/* Hero */
+/* < MAIN > */
 .hero {
   max-width: clamp(900px, 100%, 1200px);
   margin: 0 auto;
@@ -158,8 +157,6 @@ img {
 
 .hero-content h1 {
   margin-bottom: 1rem;
-  leading-trim: both;
-  text-edge: cap;   /* recorta exactamente la caja visible */
 }
 
 .hero-content h3 {
@@ -228,16 +225,9 @@ img {
   padding: 1rem 1rem;
 }
 
-.section-light {
-  max-width: clamp(900px, 100%, 1200px) !important;
-  margin: 0 auto !important;
-  padding: 1.5rem 1.5rem 1.5rem !important;
-  background: var(--color-bg);
-}
-
 .section-dark {
   margin: 0 auto !important;
-  padding: 1rem 1.5rem 1rem !important;
+  padding: 1rem 1.5rem 1rem;
   background: #000;
   color: #e5e7eb;
 }
@@ -246,10 +236,14 @@ img {
   color: #9ca3af;
 }
 
+.section-dark .card {
+  background: #0b1728;
+}
+
 .section-header {
-  max-width: clamp(900px, 100%, 1152px) !important;
+  max-width: clamp(900px, 100%, 1152px);
   margin: 0 auto !important;
-  padding: 0rem 0rem 1rem !important;
+  padding: 0rem 0rem 1rem;
 }
 
 .section-header h2 {
@@ -262,183 +256,184 @@ img {
   color: var(--color-text-soft);
 }
 
-/* Cards grid */
-.cards-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+/* =======================
+  DATA-PANEL
+  ======================= */
+  
+table {
+  max-width: clamp(900px, 100%, 1200px) !important;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  border: 3px solid #cacaca !important;
 }
 
-.cards-grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+th, td {
+  border: 1px solid #000000;
+  /* padding: 0.7em; */
+  box-sizing: border-box;
 }
 
-.card {
-  background: var(--color-bg-light);
-  border-radius: var(--radius-card);
-  padding: 1.4rem 1.4rem 1.2rem;
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+td {
+  background-color: #ffffff;
+  color: #000000;
 }
 
-.section-dark .card {
-  background: #0b1728;
+thead th {
+  background-color: #0c4c1c;
+  color: white;
 }
 
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
-}
-
-.card h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1rem;
-}
-
-.card p {
-  margin: 0.15rem 0;
-  font-size: 0.92rem;
-}
-
-/* Indicator cards */
-.card-indicator .card-value {
-  font-size: 1.6rem;
-  margin-top: 0.2rem;
-}
-
-.card-value {
-  font-size: 1.5rem;
-  margin: 0.3rem 0;
-}
-
-.card-change {
-  font-size: 0.9rem;
-  margin: 0.1rem 0;
-  font-weight: 500;
-}
-
-.card-change.positive {
-  color: var(--color-accent);
-}
-
-.card-change.negative {
-  color: var(--color-negative);
-}
-
-.card-meta {
-  font-size: 0.8rem;
-  color: var(--color-text-soft);
-}
-
-/* Service cards */
-.card-service {
-  border: 1px solid rgba(148, 163, 184, 0.2);
-}
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 0.55rem 1.3rem;
-  font-size: 0.92rem;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: background-color 0.15s ease-out, color 0.15s ease-out,
-    border-color 0.15s ease-out, transform 0.08s ease-out;
-}
-
-.btn-primary {
-  background: var(--color-primary);
-  color: #ffffff;
-  border-color: var(--color-primary);
-}
-
-.btn-primary:hover {
-  background: #1659d6;
-  border-color: #1659d6;
-  transform: translateY(-1px);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--color-text);
-  border-color: var(--color-border-soft);
-}
-
-.btn-secondary:hover {
-  background: var(--color-primary-soft);
-}
-
-/* Widget container */
-.widget-container {
-  max-width: clamp(900px, 100%, 1200px);
-  margin: 0 auto;
-}
-
-.widget-placeholder {
-  background: rgba(15, 23, 42, 0.65);
-  border-radius: var(--radius-card);
-  padding: 2rem;
+/* Alineación de celdas */
+td:first-child {
   text-align: center;
-  color: #e5e7eb;
-  border: 1px dashed rgba(148, 163, 184, 0.6);
+  font-weight: bold;
 }
 
-/* Contact section */
-.contact-grid {
-  max-width: clamp(900px, 100%, 1200px);
-  margin: 0 auto;
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+td:not(:first-child) {
+  text-align: right;
 }
 
-.contact-form {
-  background: var(--color-bg-light);
-  border-radius: var(--radius-card);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-soft);
+/* ============================================================
+   SORTING
+   ============================================================ */
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before {
+  display: none !important;
 }
 
-.form-group {
-  margin-bottom: 1rem;
+table.dataTable thead th.sorting,
+table.dataTable thead th.sorting_asc,
+table.dataTable thead th.sorting_desc {
+  padding-right: 2px !important;
+  padding-left: 2px !important;
+  /* background: none !important; */
 }
 
-.form-group label {
-  display: block;
-  font-size: 0.85rem;
-  margin-bottom: 0.25rem;
+.DTFC_LeftWrapper thead th.sorting,
+.DTFC_LeftWrapper thead th.sorting_asc,
+.DTFC_LeftWrapper thead th.sorting_desc {
+  padding-right: 2px !important;
+  padding-left: 2px !important;
+  background: none !important;
+}
+/* ============================================================
+   ALTURA UNIFORME (BODY)
+   ============================================================ */
+.dataTables_wrapper table.dataTable tbody td {
+  padding: 6px 8px !important;
+  line-height: 1rem ;
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.6rem 0.7rem;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  border: 1px solid var(--color-border-soft);
-  outline: none;
+/* .dataTables_scrollBody table td:nth-child(1){
+  padding: 0 !important;
+  line-height: 1rem !important;
+  width: 7rem !important;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--color-primary);
+.dataTables_scrollHead table th:nth-child(1){
+  padding: 0px !important;
+  line-height: 1.5rem !important;
+  width: 7rem !important;
+} */
+
+.dt-center sorting {
+  line-height: 5rem !important;
 }
 
-.contact-info {
-  font-size: 0.9rem;
-  color: var(--color-text-soft);
+/* ============================================================
+   FILTER
+   ============================================================ */
+.dataTables_filter {
+  clear: both !important;
+  float: none !important;
+  display: flex !important;
+  max-width: clamp(900px, 100%, 1200px) !important;
+  margin: 0 auto ;
+  padding: 2rem 1.5rem 2rem;
+  background-color: #000 !important;
+  color: #fff !important;
 }
 
-.contact-details {
-  margin-top: 0.8rem;
+/* Label separado un poco */
+.dataTables_filter label {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  font-weight: 500;
+  color: #fff !important;
 }
 
-/* Footer */
+/* Input: alineado a la izquierda y tamaño fijo */
+.dataTables_filter input {
+  width: 260px !important;      
+  margin: 1rem 0rem 0rem 0rem !important;
+  max-width: 100% !important;
+  background-color: #fff !important;
+  border: 1px solid #CCC !important;
+  border-radius: 4px !important;
+  padding: 6px 8px !important;
+}
+
+.dataTables_filter input::placeholder {
+  font-weight: 300; 
+  font-style: italic; 
+  color: #000;       
+  font-family: inherit; /* Usa la fuente del resto de la tabla */
+}
+
+/* ============================================================
+  SCROLL
+  ============================================================ */
+
+.dataTables_scrollHead{
+  max-width: clamp(900px, 100%, 1200px);  /* igual que el hero y section-header */
+  max-height: auto !important;
+  margin: 0 auto !important;
+  padding: 0rem 1.5rem 0rem;
+}
+
+.dataTables_scrollBody {
+  max-width: clamp(900px, 100%, 1200px);  /* igual que el hero y section-header */
+  max-height: auto !important;
+  margin: 0 auto !important;
+  padding: 0rem 1.5rem 0.5rem;
+  background-color: transparent; /* fondo detrás del scrollbar */
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+.dataTables_scrollBody::-webkit-scrollbar {
+  height: 0.5rem ;
+  width: 0.5rem ;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-thumb {
+  background: var(--color-standard);
+  border-radius: 1rem;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-track {
+  background: #ffF ; 
+  border-radius: 1rem ;
+} 
+
+/* section light */
+
+.section-light {
+  max-width: clamp(900px, 100%, 1200px) !important;
+  margin: 0 auto !important;
+  padding: 1.5rem 1.5rem 1.5rem !important;
+  background: var(--color-bg);
+}
+
+/* < Footer > */
 .site-footer {
   background: var(--color-standard);
   color: #9ca3af;
@@ -465,385 +460,125 @@ img {
   color: #9ca3af;
 }
 
-.notice-section {
-  max-width: clamp(900px, 100%, 1200px);  /* igual que el hero y section-header */
-  margin: 0 auto;
-  padding: 1rem 1.5rem 1rem;
-  display: grid;
-  gap: 1rem;
-  text-align: justify;
-}
-
-.notice-card {
-  background: #ffffff;
-  padding: 1.2rem 1.5rem;
-  margin-top: clamp(1rem, 3vw, 1.5rem);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-  justify-self: left;
-}
-
-.notice-card h4 {
-  margin: 0px;
-  margin-bottom: 0rem;
-  font-size: 1rem;
-}
-
-.notice-card p {
-  margin: 0px;
-}
-
-.notice-card h3 {
-  margin: 0px;
-}
-
-.notice-card-secondary {
-  width: 100%;
-  background: #f1f5f9;
-  padding: 0.9rem 0rem;
-  border-radius: 14px;
-  font-size: 0.9rem;
-  justify-self: left;
-}
-
-.notice-card-secondary a {
-  color: var(--color-primary);
-  font-weight: 600;
-}
-
-/* ============================================================
-   ALTURA UNIFORME (body)
-   ============================================================ */
-.dataTables_wrapper table.dataTable tbody td {
-  padding: 6px 8px !important;
-  line-height: 1.2rem !important;
-  height: 36px !important;
-}
-
-.dataTables_scrollHead{
-  max-width: clamp(900px, 100%, 1200px);  /* igual que el hero y section-header */
-  max-height: auto !important;
-  margin: 0 auto;
-  padding: 1rem 1.5rem 0rem !important;
-  border: 0 !important; 
-}
-
-.dataTables_scrollBody {
-  max-width: clamp(900px, 100%, 1200px);  /* igual que el hero y section-header */
-  max-height: auto !important;
-  margin: 0 auto;
-  padding: 0rem 1.5rem 1rem !important;
-  border: 0 !important; 
-}
-
-/* =======================
-  Tablas y Filas
-  ======================= */
-/* Fila con borde superior grueso */
-.borde-superior-grueso td { 
-  border-top: 3px solid #cacaca;
-} 
-
-.borde-inferior-grueso td { 
-  border-bottom: 3px solid #cacaca;
-} 
-
-table {
-  border-collapse: collapse;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  text-align: center;
-  border: 3px solid #cacaca;
-}
-
-.dataTables_filter {
-  clear: both !important;
-  float: none !important;
-  display: flex !important;
-  max-width: clamp(900px, 100%, 1200px) !important;
-  margin: 0 auto !important;
-  padding: 0rem 1.5rem 0rem !important;
-  background-color: #000 !important;
-  color: #fff !important;
-}
-
-/* Label separado un poco */
-.dataTables_filter label {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  width: 100% !important;
-  font-weight: 500;
-  color: #fff !important;
-}
-
-/* Input: alineado a la izquierda y tamaño fijo */
-.dataTables_filter input {
-  width: 260px !important;      
-  margin: 1rem 0 0 0 !important;
-  max-width: 100% !important;
-  background-color: #fff !important;
-  border: 1px solid #CCC !important;
-  border-radius: 4px !important;
-  padding: 6px 8px !important;
-}
-
-.dataTables_filter input::placeholder {
-  font-weight: 300; 
-  font-style: italic; 
-  color: #000;       
-  font-family: inherit; /* Usa la fuente del resto de la tabla */
-}
-
-.calendario-table-container {
-  max-width: 100%;
-  overflow-x: auto;
-  margin: 0 auto;
-  box-sizing: border-box; 
-}
-
-.calendario-dataTable {
-  max-width: clamp(900px, 100%, 1200px) !important;  /* igual que el hero y section-header */
-  table-layout: auto !important;
-  font-size: 0.95em !important; /* Tamaño de fuente en em es 0.72 */
-}
-
-.calendario-dataTable, table {
-  overflow-wrap: break-word;
-}
-
-.calendario-dataTable td, .calendario-dataTable th {
-  vertical-align: middle !important;
-  text-align: center !important;
-}
-
-table.estrecha {
-  margin-bottom: -10px !important;
-}
-
-th, td {
-  border: 1px solid #000000;
-  padding: 0.7em;
-  box-sizing: border-box;
-}
-
-td {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-thead th {
-  background-color: #0c4c1c;
-  color: white;
-}
-
-/* Alineación de celdas */
-td:first-child {
-  text-align: center;
-  font-weight: bold;
-}
-
-td:not(:first-child) {
-  text-align: right;
-}
-
-table tr:last-child td {
-  border-bottom: 3px solid #cacaca;
-}
-
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
-.dataTables_scrollBody::-webkit-scrollbar {
-  height: 8px !important;
-  width: 8px !important;
-}
-
-.dataTables_scrollBody::-webkit-scrollbar-thumb {
-  background: #000 !important;
-  border-radius: 4px !important;
-}
-
-.dataTables_scrollBody::-webkit-scrollbar-track {
-  background: #ffF !important; 
-  border-radius: 4px !important;
-  /* border: 2px solid #8a8a8a;   */
-}
-
 @media (max-width: 900px) {
-  /* layout: stack columns, reduce gaps and paddings slightly */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
   .hero {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: clamp(1rem, 3vw, 1.5rem);
+    grid-template-columns: 1fr !important;
+    padding: 1.2rem 1rem;
   }
 
   .hero-side {
-    justify-content: flex-start;
+    justify-content: center;
+    margin-top: 2rem;
   }
 
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cards-grid,
-  .cards-grid-3 {
-    gap: 1rem;
-  }
-
-  .notice-section,
-  .section-header,
-  .news-list,
-  .widget-container {
-    padding: clamp(0.75rem, 2.5vw, 1rem);
-  }
-}
-
-/* responsive: mobile (max-width: 768px) */
-@media (max-width: 768px) {
-  /* Navbar */
-  .logo-image
-  {
-    width: 40%;
-    max-width: 50%;
-  }
-
-  h1 {
-    font-size: clamp(1.05rem, 100%, 1.2rem) !important;
-  }
-
-  h2 {
-    font-size: clamp(0.8rem, 100%, 1rem) !important;
-    scroll-margin-top: 8rem !important; 
-  }
-
-  h3 {
-    font-size: clamp(0.6rem, 100%, 0.8rem) !important;
-  }
-
-  body {
-    font-size: 16px;
-  }
-  p, a, li {
-    font-size: clamp(0.65rem, 3.4vw, 0.75rem);
-  }
-
-  /* small tweaks */
-  .hero-card {
-    max-width: 100%;
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .navbar {
-    padding: 0.5rem 1rem;
-    max-width: 100%;
-  }
-  .navbar-toggle {
-    display: block;
-  }
-  .navbar-links {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    background: #000;
+  .hero-actions {
     flex-direction: column;
-    margin-top: 0px;
-    padding: 0.75rem 1rem;
+    align-items: stretch;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.5rem;
-    transform: translateY(-6px);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.12s ease-out, opacity 0.12s ease-out;
-  }
-  .navbar-links.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .navbar-links a {
-    padding: 0.4rem 0;
-    font-size: 0.95rem;
   }
 
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
+  .footer-links {
+    flex-wrap: wrap;
   }
 
-  .hero-content p {
-    font-size: clamp(0.95rem, 3.6vw, 1.05rem);
-    max-width: 100%;
+  .dataTables_filter {
+    flex-direction: column !important;
+  }
+
+  .dataTables_filter label,
+  .dataTables_filter input {
+    width: 100% !important;
   }
 
   .section {
-    padding: 1rem !important; 
+    padding: 1.5rem 1rem;
   }
 
-  /* Cards / grids */
-  .cards-grid,
-  .cards-grid-3 {
-    gap: 0.75rem;
-  }
-  .card,
-  .notice-card,
-  .news-item,
-  .widget-placeholder {
-    padding: 1rem;
-  }
+} 
 
-  /* Notice / section spacing */
-  .notice-section,
-  .section-header,
-  .news-list,
-  .widget-container {
+
+/* responsive: mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .navbar {
     padding: 0.75rem 1rem;
   }
 
-  /* Panel */
-  .data-panel {
-    padding: 0.5rem !important;
-    font-size: clamp(0.6rem, 3.4vw, 0.7rem);
-    max-width: 100% !important;
+  .navbar-toggle {
+    display: block;
   }
 
-
-
-  /* Body de la tabla */
-  .dataTables_wrapper table.dataTable tbody td {
-    padding: 4px 6px ;
-    height: 30px ;
-    line-height: 1rem ;
-  }
-
-  /* Header */
-  .dataTables_wrapper table.dataTable thead th {
-    padding: 6px ;
-    height: 26px ;
-  }
-
-  /* Scrollbar reducido */
-  .dataTables_scrollBody::-webkit-scrollbar {
-    height: 0px !important;
-    padding: 0px !important;
-  }
-
-  .texto-latex {
-    font-size: 0.75rem;
-    text-align: left;
-    margin: 1em 0;
-  }
-
-  /* Footer */
-  .footer-content {
-    padding: 0.75rem 1rem !important;
-    gap: 0.5rem;
+  .navbar-links {
+    display: none;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .logo-image {
+    width: 70%;
+  }
+
+  .hero-card {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .section-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .section-dark,
+  .section-light {
+    padding: 1rem;
+  }
+
+  .dataTables_filter input {
+    width: 100% !important;
+  }
+
+  table {
+    font-size: 11px;
+  }
+
+  .dataTables_filter {
+    padding: 0rem 0rem 1.5rem !important;
+  }
+
+  .dataTables_scrollBody::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-content {
+    padding: 1rem;
   }
 }
+
 
 /* FRANCO OCAMPO - CES BCSF */
