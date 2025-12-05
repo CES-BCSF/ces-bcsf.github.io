@@ -441,7 +441,7 @@ img {
 /* Footer */
 .site-footer {
   background: var(--color-standard);
-  color: #9ca3af;
+  color: #FFF;
 }
 
 .footer-content {
@@ -883,6 +883,18 @@ th[name="σ"], td:nth-child(4) {
     gap: 0.5rem;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .text-izq {
+    text-align: left !important;
+  }
+
+  .texto-mediano {
+    font-size: 0.9rem !important;
+  }
+
+  .site-footer p {
+    font-size: 0.7rem !important;
   }
 }
 
