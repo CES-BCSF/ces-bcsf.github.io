@@ -531,6 +531,7 @@ table.dataTable {
   margin: 0 0 !important;
 }
 
+
 table.dataTable th, 
 table.dataTable td {
   border-right: 1px solid #d1d5db;
@@ -558,16 +559,16 @@ table.dataTable thead .sorting_desc:before {
 table.dataTable thead th.sorting,
 table.dataTable thead th.sorting_asc,
 table.dataTable thead th.sorting_desc {
-    padding-right: 5px !important;   
-    padding-left: 5px !important;
+    padding-right: 0px !important;   
+    padding-left: 0px !important;
     /* background: none !important; */
 }
 
 .DTFC_LeftWrapper thead th.sorting,
 .DTFC_LeftWrapper thead th.sorting_asc,
 .DTFC_LeftWrapper thead th.sorting_desc {
-    padding-right: 5px !important;
-    padding-left: 5px !important;
+    padding-right: 0px !important;
+    padding-left: 0% !important;
     background: none !important;
 } 
 
@@ -575,9 +576,13 @@ table.dataTable thead th.sorting_desc {
    ALTURA UNIFORME (body)
    ============================================================ */
 .dataTables_wrapper table.dataTable tbody td {
-  padding: 6px 8px !important;
+  /* padding: 6px 8px !important; */
   line-height: 1.2rem !important;
   height: 36px !important;
+}
+
+.dataTables_scrollBody {
+  max-height: 600px !important; 
 }
 
 /* ============================================================
@@ -619,6 +624,7 @@ table.dataTable thead th.sorting_desc {
    ============================================================ */
 .dataTables_scrollBody::-webkit-scrollbar {
   height: 8px !important;
+  width: 8px !important;
 }
 
 .dataTables_scrollBody::-webkit-scrollbar-thumb {

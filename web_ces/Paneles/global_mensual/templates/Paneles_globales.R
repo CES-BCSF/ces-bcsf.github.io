@@ -1,16 +1,13 @@
 # SERIES DESESTACIONALIZADAS DE LOS MAESTROS ####
 
-clasif <- readxl::read_excel("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/Panel global trimestral/Archivos necesarios/Clasificador.xlsx",
+clasif <- readxl::read_excel("../input/Clasificador.xlsx",
                      sheet = "Clasificador",
                      col_names = T) |>
   dplyr::mutate(Enlace = base::paste0("https://ces-bcsf.github.io/web_ces/indicadores/", Indicadores, "_views.html"))
 
 directorio <- "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/Output_R" # DIRECTORIO DEL CUAL TOMA EL INPUT DE CADA INDICADOR
 
-archivos <- base::list.files(path = directorio, pattern = "*.xlsx", full.names = TRUE) |>
-  purrr::keep(~ any(stringr::str_detect(.x, clasif$Indicadores)))
-
-# LISTADO DE ARCHIVOS A LEER
+archivos <- base::list.files(path = directorio, pattern = "*.xlsx", full.names = TRUE) # LISTADO DE ARCHIVOS A LEER
 
 lista_datos <- base::list() # LISTA DE DATOS DESESTACIONALIZADOS
 valores_c5 <- base::list() # LISTA DE DESCRIPCIONES DE SERIE
@@ -39,6 +36,8 @@ for (archivo in archivos) {
     valores_c5[[nombre_columna]] <- NA  # ASIGNAR NA SI NO HAY DATOS
   }
 } # LOOP PARA LEER E INCORPORAR A LAS LISTAS ANTERIORES
+
+lista_datos["HP"] <- NULL  # Equivalente al método anterior
 
 df_combinado <- dplyr::bind_cols(lista_datos) # COMBINAR SERIES DESESTACIONALIZADAS
 
@@ -86,6 +85,8 @@ for (archivo in archivos) {
   lista_inicio[[nombre_columna]] <- datos
 }
 
+lista_inicio["HP"] <- NULL  # Equivalente al método anterior
+
 df_combinado_inicio <- dplyr::bind_cols(lista_inicio) # UNIR FECHAS DE INICIO
 
 base::length(df_combinado_inicio) # ARROJA LA CANTIDAD DE SERIES QUE CONSIDERA EL SISTEMA | TE PERMITE VERIFICAR QUE SE BARRIO TODA LISTA DE CLASIFICADOR
@@ -100,7 +101,7 @@ list_df <- clasif |> # LISTA DE SECTORES AGRUPADOS EN SECCIONES EN CORRESPONDECI
   magrittr::set_names(clasif$Carpeta[!base::duplicated(clasif$Carpeta)])  # ASIGNAR NOMBRES A CADA ELEMENTO DE LA LISTA BASADO EN CARPETA
 
 lista_ts_desest <- base::lapply(list_df, function(df) { 
-  purrr::map(df, ~stats::ts(.x, start=base::c(1990, 01), frequency=4)) # CAMBIAR 4 POR 12 PARA PASAR DE TRIMESTRAL A MENSUAL
+  purrr::map(df, ~stats::ts(.x, start=base::c(1990, 01), frequency=12))
 }) # PASANDO A OBJETO TS A CADA UNA DE LAS SERIES
 
 ## PRODUCCION EN UN UNICO EXCEL DE LAS SERIES DESESTACIONALIZADAS  ####
@@ -114,7 +115,7 @@ df_combinado_inicio <- df_combinado_inicio |> # SE PARTE DEL EXCEL CON INICIOS D
   
 extender_serie <- function(ts_data, nombre_serie, fecha_inicio) { 
   datos <- tsibble::tsibble(
-    Fecha = base::seq(fecha_inicio, by = "quarter", length = base::length(ts_data)), # CAMBIAR QUARTER POR MONTH PARA PASAR DE TRIMESTRAL A MENSUAL
+    Fecha = base::seq(fecha_inicio, by = "month", length = base::length(ts_data)),
     Valor = ts_data,
     .name_repair = "minimal"
     ) |>
@@ -128,9 +129,9 @@ extender_serie <- function(ts_data, nombre_serie, fecha_inicio) {
  } # FUNCION PARA EXTENDER CADA SERIE
   
 
-df_fechas <- tsibble::tibble(Fecha = base::seq(lubridate::ymd("1970-01-01"),  # CREANDO UN TIBBLE PARA RANGO COMPLETO DE FECHAS
+df_fechas <- tsibble::tibble(Fecha = base::seq(lubridate::ymd("1990-01-01"),  # CREANDO UN TIBBLE PARA RANGO COMPLETO DE FECHAS
                                                lubridate::ymd("2025-12-01"),
-                                               by = "quarter")) # CAMBIAR QUARTER POR MONTH PARA PASAR DE TRIMESTRAL A MENSUAL
+                                               by = "month"))
 
 df_final <- df_fechas # CREANDO EL OBJETO FINAL
   
@@ -154,7 +155,7 @@ variacion_mensual <- function(serie, nombre) {
 
 variacion_interanual <- function(serie, nombre) {
     serie |>
-    dplyr::transmute(!!nombre := (serie[[1]] / dplyr::lag(serie[[1]], 4) - 1) * 100) # cambiar 4 por 12 para hacer
+    dplyr::transmute(!!nombre := (serie[[1]] / dplyr::lag(serie[[1]], 12) - 1) * 100)
   } # FUNCION DE VARIACION I.A.
 
 ## CREACION DE LISTAS ####
@@ -184,11 +185,11 @@ variacion_interanual <- function(serie, nombre) {
   }
   
   # EXTENDER LAS LISTAS DE VARIACIONES
-  variaciones_trimestrales_ext <- extender_variaciones(variaciones_mensuales, df_combinado_inicio)
+  variaciones_mensuales_ext <- extender_variaciones(variaciones_mensuales, df_combinado_inicio)
   variaciones_interanuales_ext <- extender_variaciones(variaciones_interanuales, df_combinado_inicio)
   
   # COMBINAR LAS VARIACIONES EN DATAFRAME
-  df_variaciones_trimestrales <- purrr::reduce(variaciones_trimestrales_ext, dplyr::left_join, by = "Fecha")
+  df_variaciones_mensuales <- purrr::reduce(variaciones_mensuales_ext, dplyr::left_join, by = "Fecha")
   df_variaciones_interanuales <- purrr::reduce(variaciones_interanuales_ext, dplyr::left_join, by = "Fecha")
 
 # ORDEN DE LAS COLUMNAS
@@ -196,7 +197,7 @@ variacion_interanual <- function(serie, nombre) {
   orden_columnas <- base::c("Fecha", base::setdiff(base::names(df_final), "Fecha"))
   
   # REORDENA COLUMNAS
-  df_variaciones_trimestrales <- df_variaciones_trimestrales |>
+  df_variaciones_mensuales <- df_variaciones_mensuales |>
     dplyr::select(dplyr::all_of(orden_columnas))
   
   df_variaciones_interanuales <- df_variaciones_interanuales |>
@@ -206,10 +207,10 @@ variacion_interanual <- function(serie, nombre) {
   writexl::write_xlsx(
     list(
       "nivel" = df_final,
-      "trimestrales" = df_variaciones_trimestrales,
+      "mensuales" = df_variaciones_mensuales,
       "i.a." = df_variaciones_interanuales
     ),
-    path = "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/Panel global trimestral/Archivos necesarios/DF_paneles.xlsx"
+    path = "../input/DF_paneles.xlsx"
   )
 
   #
