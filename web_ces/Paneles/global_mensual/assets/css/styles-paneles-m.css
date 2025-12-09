@@ -16,3 +16,17 @@
   height: 8px !important;
   width: 8px !important;
 }
+
+.data-panel {
+  padding: 0 !important;
+}
+
+.dataTables_filter {
+  margin-bottom: 1rem;
+  background-color: #fff;
+  padding: 0.7rem !important;
+  border-radius: 8px;
+  justify-self: left;
+  float: left !important;
+}
+
