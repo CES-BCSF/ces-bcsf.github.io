@@ -296,10 +296,14 @@ img {
 .data-panel {
   max-width: clamp(900px, 100%, 1152px) !important;
   margin: 0 auto;
-  padding: 1rem !important;
-  background: #fff;
+  padding: 1rem;
   box-shadow: var(--shadow-soft);
   font-size: 0.8rem ;
+}
+
+.dataTables_scroll {
+  background-color: #fff;
+  padding: 0.5rem !important;
 }
 
 /* ============================================================
