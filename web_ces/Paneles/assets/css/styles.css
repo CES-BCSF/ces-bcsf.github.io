@@ -350,6 +350,10 @@ table.dataTable thead th.sorting_desc {
     background: none !important;
 } 
 
+.dtfc-right-top-blocker {
+  display: none !important;
+}
+
 /* ============================================================
    ALTURA UNIFORME (body)
    ============================================================ */
