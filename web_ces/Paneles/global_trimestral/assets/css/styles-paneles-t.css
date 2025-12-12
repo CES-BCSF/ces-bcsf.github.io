@@ -16,3 +16,7 @@
   height: 8px !important;
   width: 8px !important;
 }
+
+.data-panel {
+  padding: 0 !important;
+}
