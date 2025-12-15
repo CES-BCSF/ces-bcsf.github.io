@@ -28,13 +28,11 @@
   border-radius: 8px;
   justify-self: left;
   float: left !important;
-  width: 22rem;
   text-align: left !important;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .dataTables_filter input {
-  width: 17.5rem;
-  min-width: max-content !important;
+  width: max-content !important;
   font-size: 1em;
 }
