@@ -296,7 +296,7 @@ img {
 .data-panel {
   max-width: clamp(900px, 100%, 1152px) !important;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0;
   box-shadow: var(--shadow-soft);
   font-size: 0.8rem ;
 }
@@ -616,7 +616,6 @@ th:nth-child(3), th:nth-child(4) {
 
   /* Panel */
   .data-panel {
-    padding: 0.5rem !important;
     max-width: 100% !important;
   }
 
