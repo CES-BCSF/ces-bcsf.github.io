@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Calendario de publicaciones</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" type="image/png" href="assets/images/soloLogoBCSF.png" />
+</head>
+
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <!-- Replace with your logo -->
+        <a href="https://www.bcsf.com.ar/ces/base_datos_epsf.php" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/soloLogoCES.png" alt="Logo" class="logo-image" />
+        </a>
+        <a href="https://www.bcsf.com.ar/ces/base_datos_epsf.php" target="_blank" rel="noopener noreferrer">CENTRO
+          DE ESTUDIOS Y SERVICIOS</a>
+      </div>
+      <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="navbar-links" id="navbar-links">
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#calendario">Calendario</a></li>
+        <li><a href="#glosario">Glosario</a></li>
+        <li><a href="#notas">Notas</a></li>
+      </ul>
+    </nav>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  </header>
+
+  <!-- Hero section -->
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1>Calendario de actualización de datos</h1>
+        <h3>
+          Actualizado al <!-- inject:update_date -->
+        </h3>
+      </div>
+      <div class="notice-card">
+        <p>
+          El calendario de publicaciones presenta las fechas previstas de actualización para cada uno de los indicadores
+          clave
+          vinculados al proyecto de ciclos económicos de la provincia de Santa Fe.
+          Adicionalmente, provee información sobre las fuentes utilizadas, la frecuencia de publicación, el último dato
+          disponible y el alcance de cada variable. La información estadística de cada indicador se encuentra a
+          disposición en
+          nuestra <a
+            href="https://www.bcsf.com.ar/ces/base_datos_epsf.php"
+            target="_blank">base de datos</a> (la cual se actualiza en la web todos los meses).
+        </p>
+      </div>
+
+    </section>
+    
+    <section id="calendario" class="section section-dark">
+      <div class="section-header">
+        <h2 id="ref_notas">Tabla de indicadores</h2>
+        <p>Pulse el título de cada columna para reordenar</p>
+        <p>Al final de la tabla se presenta un glosario y notas explicativas</p>
+      </div>
+      <div class="data-panel" id="datatable-panel">
+        <!-- inject:tabla -->
+      </div>
+    </section>
+
+    <section id="glosario" class="section section-light">
+      <div class="methodology-text">
+        <h3 id=ref_glosario style="margin-top: 0px !important;">Glosario de indicadores, fuentes y abreviaciones</h3>
+        <p>
+          ADEFA | Asociación de Fábricas de Automotores<br>
+          AFCP | Asociación de Fabricantes de Cemento Portland<br>
+          API | Administración Provincial de Impuestos (Santa Fe)<br>
+          ARCA | Agencia de Recaudación y Control Aduanero (ex-AFIP)<br>
+          ART | Aseguradoras de Riesgos del Trabajo<br>
+          BCSF | Bolsa de Comercio de Santa Fe<br>
+          BCRA | Banco Central de la República Argentina<br>
+          BYMA | Bolsas y Mercados Argentinos<br>
+          CAME | Confederación Argentina de la Mediana Empresa<br>
+          CAMMESA | Compañía Administradora del Mercado Mayorista Eléctrico Sociedad Anónima<br>
+          CCL | Contado con Liquidación (tipo de cambio implícito obtenido a través de la compra de activos en el
+          mercado local y posterior venta en el internacional)<br>
+          CICEC | Centro de Investigación del Ciclo Económico (Bolsas de Comercio de Rosario y Santa Fe)<br>
+          CIFRAS | Centro de Información y Formación Regional para la Actividad de la Construcción (Región
+          Litoral)<br>
+          CLAL | Consultora italiana especializada en el sector lácteo, referente internacional<br>
+          CNV | Comisión Nacional de Valores<br>
+          CREEBBA | Centro Regional de Estudios Económicos de Bahía Blanca Argentina<br>
+          DNRPA | Dirección Nacional de los Registros de la Propiedad del Automotor<br>
+          EMAE | Estimador Mensual de Actividad Económica<br>
+          ENARGAS | Ente Nacional Regulador del Gas<br>
+          EPH | Encuesta Permanente de Hogares<br>
+          EPE | Empresa Provincial de la Energía (Santa Fe)<br>
+          ETH Zurich | Escuela Politécnica Federal de Zúrich (por sus siglas en alemán Eidgenössische Technische
+          Hochschule Zürich)<br>
+          FIEL | Fundación de Investigaciones Económicas Latinoamericanas<br>
+          FRED | Federal Reserve Economic Data (Reserva Federal de St. Louis, EE.UU.)<br>
+          ICA-ARG | Índice Compuesto de Actividad de Argentina (Centro de Investigación del Ciclo Económico)<br>
+          ICA-SFE | Índice Compuesto de Actividad de Santa Fe (Bolsa de Comercio de Santa Fe)<br>
+          IGA | Índice General de Actividad (Orlando J. Ferreres & Asociados)<br>
+          IERIC | Instituto de Estadística y Registro de la Industria de la Construcción<br>
+          IMAE | Indicador Mensual de Actividad Económica (Instituto Provincial de Estadística y Censos)<br>
+          INDEC | Instituto Nacional de Estadística y Censos<br>
+          IPC | Índice de Precios al Consumidor<br>
+          IPIM | Índice de Precios Internos Mayoristas<br>
+          IPEC | Instituto Provincial de Estadística y Censos (Santa Fe)<br>
+          ITCRM | Índice de Tipo de Cambio Real Multilateral<br>
+          IVA | Impuesto al Valor Agregado<br>
+          MAE | Mercado Abierto Electrónico<br>
+          MECON | Ministerio de Economía de la Nación<br>
+          MEP | Tipo de cambio implícito obtenido a través de operaciones con bonos en el Mercado Electrónico de
+          Pagos<br>
+          Merval | Mercado de Valores de Buenos Aires<br>
+          OJF | Consultora Orlando J. Ferreres & Asociados<br>
+          OEDE | Observatorio de Empleo y Dinámica Empresarial<br>
+          PBG | Producto Bruto Geográfico<br>
+          PEA | Población Económicamente Activa<br>
+          PIB | Producto Interno Bruto<br>
+          S&P | Standard & Poor’s (agencia internacional de calificación de riesgo y proveedora de índices
+          financieros)<br>
+          SIPA | Sistema Integrado Previsional Argentino<br>
+          TC | Tipo de Cambio<br>
+          TCRB | Tipo de Cambio Real Bilateral<br>
+          UTDT | Universidad Torcuato Di Tella<br>
+          EQUILIBRA | Centro de Análisis Económico
+        </p>
+        <h3 id=notas>Notas</h3>
+        <p>
+          Categoría: clasificación propia para agrupar indicadores.<br>
+          Indicador: señala el nombre del indicador. <br>
+          Fuente: organismo o entidad que representa la fuente primaria de la información.<br>
+          Alcance geográfico: especifica el área geográfica de referencia (cuando se menciona Santa Fe,
+          se refiere a la provincia, salvo que se indique expresamente lo contrario).<br>
+          Fecha de publicación conocida: informada directamente por la fuente primaria.<br>
+          Fecha de publicación estimada: calculada por el equipo del CES a partir del comportamiento histórico.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="texto-mediano">Centro de Estudios y Servicios</p>
+      <p style="margin: 0;">San Martín 2231 (S3000FRW) · Santa Fe · República Argentina<br>
+        Teléfono: +54 342 4845800<br>
+        Correo electrónico: ces@bcsf.com.ar<br>
+        © BCSF · Todos los derechos reservados
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
