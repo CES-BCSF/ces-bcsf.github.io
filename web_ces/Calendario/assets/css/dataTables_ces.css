@@ -38,6 +38,10 @@ table.dataTable {
   line-height: 1rem;
 }
 
+.dataTables_scrollHead .dataTable thead th:nth-child(2){
+  text-align: left;
+}
+
 .dataTables_scrollBody {
   border: 3px solid #fff !important;
   border-top: none !important;
@@ -106,7 +110,7 @@ table.dataTable thead th.sorting_desc {
 }
 
 .dataTables_filter input {
-  width: 10rem !important;
+  width: 13rem !important;
   font-size: 1em;
 }
 

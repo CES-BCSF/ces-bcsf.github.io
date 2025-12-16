@@ -15,6 +15,7 @@
   --color-standard-light: #0f7f4f;
   --color-standard: #0c4c1c;
   --color-gray-bootstrap: #6c757d;
+  --color-green-a: #49ac17;
   --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.08);
   --radius-card: 16px;
 
@@ -58,7 +59,7 @@ h3 {
 }
 
 a {
-  color: var(--color-standard);
+  color: var(--color-green-a);
   text-decoration: none;
 }
 
@@ -424,17 +425,22 @@ img {
   .news-item,
   .widget-placeholder {
     padding: 1rem;
+
   }
 
-  /* Notice / section spacing */
   .notice-section,
   .section-header,
   .news-list,
   .widget-container {
     padding: 0.75rem 1rem;
   }
-
+  
   /* Panel */
+  
+  .dataTables_filter label {
+    font-size: 1rem;
+  }
+
   .data-panel {
     max-width: 100% !important;
   }
