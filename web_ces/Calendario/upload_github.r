@@ -8,6 +8,7 @@ rmarkdown::render("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/Ci
 
 # VARIABLES ####
 archivo <- "Calendario.html"
+path_actual <- getwd()
 carpeta_origen <- "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/Calendario"
 carpeta_destino <- "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/_Github_out/ces-bcsf.github.io/web_ces/calendario_publicaciones"
 

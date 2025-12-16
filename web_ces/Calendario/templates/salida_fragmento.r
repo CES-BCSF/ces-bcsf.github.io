@@ -129,7 +129,7 @@ htmltools::save_html(
 
 limpiar_widget_html("../filtros.html", "../filtros.html")
 
-#### TABLA INTERACTIVA ####
+#### TABLA INTERACTIVA (DEFINICION Y EXPORTACION) ####
 tabla <- DT::datatable(
   shared_df,
   rownames = FALSE,
@@ -166,17 +166,15 @@ tabla <- DT::datatable(
       )
     ),
     language = base::list(
-      search = "Buscador general (cualquier texto en la tabla)",
-      searchPlaceholder = "Escriba aquí para buscar...",
+      search = "Buscar",
+      searchPlaceholder = "texto en tabla",
       paginate = base::list(previous = "", `next` = ""),
       info = ""
     )
   ),
-  class = "calendario-dataTable compact stripe hover"
+  class = "compact stripe hover"
 )
 
-
-#### EXPORTAR TABLA ####
 htmlwidgets::saveWidget(
   tabla,
   file = "../tabla.html",
@@ -187,9 +185,7 @@ htmlwidgets::saveWidget(
 
 limpiar_widget_html("../tabla.html", "../tabla.html")
 
-#### CREACION DE FECHA ####
-
-#### GENERA UNA SALIDA PARA LA FECHA ####
+#### CREACION Y SALIDA DE LA FECHA ####
 fecha_html <- sprintf(format(Sys.Date(), "%d de %B de %Y"))
 
 writeLines(fecha_html, "update_date.html")
