@@ -1,6 +1,9 @@
 ### CALENDARIO
 ### CERRAR EL EXCEL MANUAL PARA QUE PUEDA CORRERSE ESTE ARCHIVO ###
 
+# ACTUALIZAR LA TABLA Y EL HTML ####
+base::source("templates/salida_fragmento.r")
+
 # VARIABLES ####
 carpeta_origen <- "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/calendario_publicaciones"
 carpeta_destino <- "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/_Github_out/ces-bcsf.github.io/web_ces"
