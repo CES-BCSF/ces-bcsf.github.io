@@ -1,8 +1,13 @@
 ### CALENDARIO
 ### CERRAR EL EXCEL MANUAL PARA QUE PUEDA CORRERSE ESTE ARCHIVO ###
 
+path_1 <- base::getwd()
+
+# ESTABLECER LA RAIZ DE TRABAJO ####
+base::setwd("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/calendario_publicaciones/")
+
 # ACTUALIZAR LA TABLA Y EL HTML ####
-base::source("templates/salida_fragmento.r")
+base::source("templates/salida_fragmento.r") #USAR SIEMPRE PATH RELATIVOS AL PATH RAIZ
 
 # VARIABLES ####
 carpeta_origen <- "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/calendario_publicaciones"
@@ -21,7 +26,7 @@ base::Sys.sleep(0.7)
 
 # SCRIPT PARA SUBIR EL ARCHIVO A GITHUB EN LA NUBE ####
 ## CAMBIO LA UBICACION BASE DE R PARA EJECUTAR DESDE LA CARPETA DE GITHUB 
-path_viejo <- base::getwd()
+# path_2 <- base::getwd()
 base::setwd("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/_Github_out/ces-bcsf.github.io")
 
 # PIDE AL USUARIO UN MENSAJE DE COMMIT PARA SUBIR A GITHUB
@@ -51,4 +56,4 @@ base::tryCatch({
 })
 
 # VUELVO A LA CARPETA ORIGINAL
-base::setwd(path_viejo)
+base::setwd(path_1)

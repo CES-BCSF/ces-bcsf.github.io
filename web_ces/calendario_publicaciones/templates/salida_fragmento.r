@@ -52,16 +52,15 @@ limpiar_widget_html <- function(path_in, path_out) {
   writeLines(frag, path_out)
   message("[OK] Widget limpiado y guardado en: ", path_out)
 }
-#### INPUT DATOS ####
-df_calendario <- readxl::read_excel("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/Seguimiento Manual.xlsx", range = "OUT_Calendario!B2:I300", col_names = TRUE)
 
-#### VOLVER AL INDICE ####
 volver_al_indice <- paste('<div class="back-to-index-container">
                               <a href="#ref_notas" class="back-to-index-btn">
                                 <span class="btn-icon">↑</span>
                                 <span class="btn-text">Volver al índice</span>
                               </a>
                             </div>')
+#### INPUT DATOS ####
+df_calendario <- readxl::read_excel("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/Seguimiento Manual.xlsx", range = "OUT_Calendario!B2:I300", col_names = TRUE)
 
 #### LIMPIEZA DE DATOS ####
 df_limpio <- df_calendario |>
@@ -123,11 +122,11 @@ filtros <- htmltools::tagList(
 
 htmltools::save_html(
   filtros,
-  file = "../filtros.html",
+  file = "filtros.html",
   background = "transparent"
 )
 
-limpiar_widget_html("../filtros.html", "../filtros.html")
+limpiar_widget_html("filtros.html", "filtros.html")
 
 #### TABLA INTERACTIVA (DEFINICION Y EXPORTACION) ####
 tabla <- DT::datatable(
@@ -177,17 +176,17 @@ tabla <- DT::datatable(
 
 htmlwidgets::saveWidget(
   tabla,
-  file = "../tabla.html",
+  file = "tabla.html",
   libdir = "tabla_files",
   selfcontained = FALSE,    # <---- IMPORTANTE PARA QUE NO ROMPA EL LAYOUT
   title = NULL
 )
 
-limpiar_widget_html("../tabla.html", "../tabla.html")
+limpiar_widget_html("tabla.html", "tabla.html")
 
 #### CREACION Y SALIDA DE LA FECHA ####
 fecha_html <- sprintf(format(Sys.Date(), "%d de %B de %Y"))
 
-writeLines(fecha_html, "update_date.html")
+writeLines(fecha_html, "templates/update_date.html")
 #### INYECCIÓN EN CALENDARIO ####
-base::source("injects.r")
+base::source("templates/injects.r")

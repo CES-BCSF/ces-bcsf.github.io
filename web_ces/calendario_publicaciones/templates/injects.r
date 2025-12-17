@@ -14,24 +14,24 @@ inject_fragment <- function(template_path, fragment_path, placeholder, output_pa
 }
 
 inject_fragment(
-  template_path = "calendario_template.html",
-  fragment_path = "../tabla.html",
+  template_path = "templates/calendario_template.html",
+  fragment_path = "tabla.html",
   placeholder = "<!-- inject:tabla -->",
-  output_path = "../calendario.html"
+  output_path = "calendario.html"
 )
 
 inject_fragment(
-  template_path = "../calendario.html",
-  fragment_path = "update_date.html",
+  template_path = "calendario.html",
+  fragment_path = "templates/update_date.html",
   placeholder = "<!-- inject:update_date -->",
-  output_path = "../calendario.html"
+  output_path = "calendario.html"
 )
 
 inject_fragment(
-  template_path = "../calendario.html",
-  fragment_path = "../filtros.html",
+  template_path = "calendario.html",
+  fragment_path = "filtros.html",
   placeholder = "<!-- inject:filtros -->",
-  output_path = "../calendario.html"
+  output_path = "calendario.html"
 )
 
 
