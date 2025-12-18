@@ -1,9 +1,8 @@
 ### CALENDARIO
 ### CERRAR EL EXCEL MANUAL PARA QUE PUEDA CORRERSE ESTE ARCHIVO ###
 
-path_1 <- base::getwd()
-
 # ESTABLECER LA RAIZ DE TRABAJO ####
+path_1 <- base::getwd()
 base::setwd("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/calendario_publicaciones/")
 
 # ACTUALIZAR LA TABLA Y EL HTML ####
