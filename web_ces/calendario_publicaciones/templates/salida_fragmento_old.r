@@ -1,7 +1,3 @@
-#### CONFIGURACIÓN DE PATH ####
-path_0 <- getwd()
-setwd("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/calendario_publicaciones")
-
 ### FUNCIONES ####
 limpiar_widget_html <- function(path_in, path_out) {
   frag <- readLines(path_in, warn = FALSE)
@@ -70,9 +66,6 @@ df_calendario <- readxl::read_excel("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo C
 df_limpio <- df_calendario |>
   dplyr::filter(!base::is.na(`Categoría`) & `Categoría` != "") |>
   dplyr::mutate(
-    `Último dato` = stringr::str_squish(`Último dato`)
-  ) |>
-  dplyr::mutate(
     `Fecha de publicación conocida` = dplyr::case_when(
       suppressWarnings(!base::is.na(base::as.numeric(`Fecha de publicación conocida`))) ~ base::as.Date(base::as.numeric(`Fecha de publicación conocida`), origin = "1899-12-30"),
       suppressWarnings(!base::is.na(lubridate::dmy(`Fecha de publicación conocida`))) ~ lubridate::dmy(`Fecha de publicación conocida`),
@@ -83,33 +76,32 @@ df_limpio <- df_calendario |>
       suppressWarnings(!base::is.na(lubridate::dmy(`Fecha de publicación estimada`))) ~ format(lubridate::dmy(`Fecha de publicación estimada`), "%d/%m/%Y"),
       TRUE ~ as.character(`Fecha de publicación estimada`)
     ),
-    
-    year = base::as.integer(stringr::str_extract(`Último dato`, "^\\d{4}")),
-      
-    segundo_str = dplyr::if_else(
-        `Frecuencia` == 'Mensual',
-        base::as.integer(stringr::str_extract(`Último dato`, "(?<=,)\\d+")),
-        (dplyr::if_else( 
-          `Frecuencia` == "Trimestral" | `Frecuencia` == "Semestral",
-          base::as.integer(stringr::str_extract(`Último dato`, "(?<=,)\\d+")),
-          NA_integer_)
-         )
-      ),
-      
-    month = dplyr::case_when(
-      `Frecuencia` == "Censal" ~ 1L,
-      `Frecuencia` == "Anual" ~ 1L,
-      `Frecuencia` == "Mensual" ~ segundo_str,
-      `Frecuencia` == "Trimestral" ~ segundo_str * 3L,
-      `Frecuencia` == "Semestral" ~ segundo_str * 6L,
-      TRUE ~ NA_integer_
-      ),
-    
-    orden_fecha = year * 100 + month,
-    
-    `Último dato` = orden_fecha #UNA VEZ ESTABILIZADO EL CALENDARIO REEMPLAZAR LA LOGICA DE ORDEN DE FECHA PARA ULTIMO DATO ASI SE LIBERA DE CREAR UNA COLUMNA REDUNDANTE
-    
-    )    
+    `Último dato` = dplyr::case_when(
+      # Caso para datos mensuales
+      `Frecuencia` == "Mensual" ~ {
+        year <- stringr::str_extract(`Último dato`, "^\\d{4}")
+        # Corrige la expresión regular para extraer los últimos dos dígitos
+        month_num <- base::as.numeric(stringr::str_extract(`Último dato`, "\\d{2}$"))
+        base::paste0(year, ".M", month_num)
+      },
+      # Caso para datos trimestrales
+      `Frecuencia` == "Trimestral" ~ {
+        year <- stringr::str_extract(`Último dato`, "^\\d{4}")
+        # Corrige la expresión regular para extraer los últimos dos dígitos
+        month_num <- base::as.numeric(stringr::str_extract(`Último dato`, "\\d$"))
+        base::paste0(year, ".T", month_num)
+      },
+      # Caso para datos semestrales
+      `Frecuencia` == "Semestral" ~ {
+        year <- stringr::str_extract(`Último dato`, "^\\d{4}")
+        # Corrige la expresión regular para extraer los últimos dos dígitos
+        month_num <- base::as.numeric(stringr::str_extract(`Último dato`, "\\d$"))
+        base::paste0(year, ".S", month_num)
+      },
+      # El resto de los casos (incluyendo anuales) no se modifican
+      TRUE ~ `Último dato`
+    )
+  )
 
 #### FILTROS ####
 shared_df <- crosstalk::SharedData$new(df_limpio)
@@ -137,8 +129,6 @@ htmltools::save_html(
 limpiar_widget_html("filtros.html", "filtros.html")
 
 #### TABLA INTERACTIVA (DEFINICION Y EXPORTACION) ####
-idx_frecuencia <- which(colnames(df_limpio) == "Frecuencia") - 1
-
 tabla <- DT::datatable(
   shared_df,
   rownames = FALSE,
@@ -151,10 +141,6 @@ tabla <- DT::datatable(
     autoWidth = TRUE,
     order = base::list(base::list(0, "asc"), base::list(1, "asc")),  # Ordenar por la primera columna "Indicador"
     columnDefs = base::list(
-      base::list(
-        targets= which(colnames(df_limpio) %in% c("year", "segundo_str", "month", "orden_fecha")) - 1,
-        visible= FALSE
-                   ),
       base::list(className = "dt-center", targets = "_all"),
       base::list(
         targets = 3, # columnas de fecha
@@ -172,53 +158,6 @@ tabla <- DT::datatable(
           "    var month = ('0' + (d.getUTCMonth()+1)).slice(-2);",
           "    var year = d.getFullYear();",
           "    return day + '/' + month + '/' + year;",
-          "  }",
-          "  return data;",
-          "}"
-        )
-      ),
-      # base::list(
-      #   targets = which(colnames(df_limpio) == "orden_fecha") - 1,
-      #   render = DT::JS(
-      #     "function(data, type, row, meta) {",
-      #     "  if (data === null || data === '') { return '-'; }",
-      #     "  if (type === 'display') {",
-      #     "    var s = data.toString();",
-      #     "    if (s.length === 6) {",
-      #     "      var anio = s.substring(0, 4);",
-      #     "      var valor = s.substring(4, 6);",
-      #     "      var frec = row[", idx_frecuencia, "];", # Accedemos a la columna Frecuencia
-      #     "      ",
-      #     "      if (frec === 'Mensual') return anio + '.M' + valor;",
-      #     "      if (frec === 'Trimestral') return anio + '.T' + (parseInt(valor)/3);",
-      #     "      if (frec === 'Semestral') return anio + '.S' + (parseInt(valor)/6);",
-      #     "      if (frec === 'Anual' || frec === 'Censal' ) return anio;",
-      #     "      ",
-      #     "      return anio + '.' + valor;", # Por si hay otra frecuencia no contemplada
-      #     "    }",
-      #     "  }",
-      #     "  return data;",
-      #     "}"
-      #   )
-      # ),
-      base::list(
-        targets = which(colnames(df_limpio) == "Último dato") - 1,
-        render = DT::JS(
-          "function(data, type, row, meta) {",
-          "  if (data === null || data === '') { return '-'; }",
-          "  if (type === 'display') {",
-          "    var s = data.toString();",
-          "    if (s.length === 6) {",
-          "      var anio = s.substring(0, 4);",
-          "      var valor = parseInt(s.substring(4, 6));",
-          "      var frec = row[", idx_frecuencia, "];", # Accedemos a la columna Frecuencia
-          "      if (frec === 'Mensual') return anio + '.M' + valor;",
-          "      if (frec === 'Trimestral') return anio + '.T' + (parseInt(valor)/3);",
-          "      if (frec === 'Semestral') return anio + '.S' + (parseInt(valor)/6);",
-          "      if (frec === 'Anual' || frec === 'Censal' ) return anio;",
-          "      ",
-          "      return anio + '.' + valor;", # Por si hay otra frecuencia no contemplada
-          "    }",
           "  }",
           "  return data;",
           "}"
@@ -251,6 +190,3 @@ fecha_html <- sprintf(format(Sys.Date(), "%d de %B de %Y"))
 writeLines(fecha_html, "templates/update_date.html")
 #### INYECCIÓN EN CALENDARIO ####
 base::source("templates/injects.r")
-
-
-setwd(path_0)
