@@ -111,8 +111,8 @@ df_limpio <- df_calendario |>
     
     )    
 
-#### FILTROS ####
 shared_df <- crosstalk::SharedData$new(df_limpio)
+#### FILTROS ####
 
 filtros <- htmltools::tagList(
   htmltools::div(class = "row",
