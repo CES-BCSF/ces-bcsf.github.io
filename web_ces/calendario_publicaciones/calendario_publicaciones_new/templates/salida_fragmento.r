@@ -1,6 +1,6 @@
 #### CONFIGURACIÓN DE PATH ####
-path_0 <- getwd()
-setwd("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/calendario_publicaciones/calendario_publicaciones_new")
+# path_0 <- getwd()
+# setwd("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/calendario_publicaciones/calendario_publicaciones_new")
 
 #### INPUT DATOS ####
 df_calendario <- readxl::read_excel("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/Seguimiento Manual.xlsx", range = "OUT_Calendario!B2:I300", col_names = TRUE)
@@ -53,9 +53,6 @@ df_limpio <- df_calendario |>
 shared_df <- crosstalk::SharedData$new(df_limpio)
 #### TABLA INTERACTIVA (DEFINICION Y EXPORTACION) ####
 idx_frecuencia <- which(colnames(df_limpio) == "Frecuencia") - 1
-
-mi_css <- readLines("assets/css/styles-interno-datatable.css")
-# mi_script <- readLines("../assets/js/script-interno-datatable.js")
 
 mi_script <- "
 (function() {
@@ -158,12 +155,15 @@ tabla <- DT::datatable(
   class = "compact stripe hover"
 )
 
+mi_css <- readLines("../assets/css/styles-interno-datatable.css")
+# mi_script <- readLines("../assets/js/script-interno-datatable.js")
+
 tabla <- htmlwidgets::prependContent(tabla, htmltools::tags$style(htmltools::HTML(mi_css)))
 tabla <- htmlwidgets::prependContent(tabla, htmltools::tags$script(htmltools::HTML(mi_script)))
 
 htmlwidgets::saveWidget(
   tabla,
-  file = "templates/tabla.html",
+  file = "tabla.html",
   selfcontained = TRUE,
   title = NULL
 )
@@ -176,12 +176,13 @@ htmlwidgets::saveWidget(
 fecha_texto <- format(Sys.Date(), "%d de %B de %Y")
 
 # Leer la plantilla principal
-template <- readLines("Calendario.html", encoding = "UTF-8")
+template <- readLines("../Calendario.html", encoding = "UTF-8")
 
 # Reemplazar la marca por la fecha real
 html_final <- gsub("{{FECHA_ACTUAL}}", fecha_texto, template, fixed = TRUE)
 
 # Guardar el HTML final
-writeLines(html_final, "Calendario.html", useBytes = TRUE)
+writeLines(html_final, "../Calendario.html", useBytes = TRUE)
 
-setwd(path_0)
+# 
+# setwd(path_0)

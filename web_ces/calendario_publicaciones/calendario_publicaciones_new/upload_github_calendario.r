@@ -2,18 +2,22 @@
 
 # ESTABLECER LA RAIZ DE TRABAJO ####
 path_1 <- base::getwd()
-base::setwd("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/calendario_publicaciones/calendario_publicaciones_new")
+base::setwd("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/calendario_publicaciones/calendario_publicaciones_new/templates")
 
 # ACTUALIZAR LA TABLA Y EL HTML ####
-base::source("templates/salida_fragmento.r") #USAR SIEMPRE PATH RELATIVOS AL PATH RAIZ
+base::source("salida_fragmento.r") #USAR SIEMPRE PATH RELATIVOS AL PATH RAIZ
 
+base::setwd("C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/calendario_publicaciones/calendario_publicaciones_new")
 # VARIABLES ####
 carpeta_origen <- "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/calendario_publicaciones/calendario_publicaciones_new"
-carpeta_destino <- "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/_Github_out/ces-bcsf.github.io/web_ces"
+carpeta_destino <- "C:/mysyncfolders/bcsf.com.ar/BCSF - Grupo CES - Documentos/CicSFE_sp/_Reportes rmd/_Github_out/ces-bcsf.github.io/web_ces/calendario_publicaciones"
+
+#LISTA DE TODOS LOS ARCHIVOS DENTRO DE LA CARPETA ORIGEN
+archivos_a_copiar <- list.files(carpeta_origen, full.names = TRUE)
 
 # COPIA EL HTML DESDE _Reportes rmd A _Github_out
 base::file.copy(
-  from = carpeta_origen,
+  from = archivos_a_copiar,
   to   = carpeta_destino,
   recursive = TRUE,
   overwrite = TRUE
@@ -22,7 +26,7 @@ base::file.copy(
 # ESPERA 1 SEGUNDO PARA QUE TERMINE DE GUARDAR EL ARCHIVO
 base::Sys.sleep(0.7)
 
-message("Copia completa realizada en: ", destino)
+message("Copia completa realizada en: ", carpeta_destino)
 
 # ELIMINAMOS ARCHIVOS INNECESARIOS DE LA CARPETA DE GITHUB ANTES DE SUBIR ####
 
@@ -30,10 +34,10 @@ archivos_a_borrar <- c(
   base::file.path(carpeta_destino, "upload_github_calendario.r"),
   base::file.path(carpeta_destino, "Ejecución de Calendario.txt"),
   base::file.path(carpeta_destino, "ejecutar_Actualizar-calendario.bat"),
-  base::file.path(base::paste0(carpeta_destino,"/templates"), "salida_fragmento.r"),
+  base::file.path(base::paste0(carpeta_destino,"/templates"), "salida_fragmento.r")
 )
 
-base::for (archivo in archivos_a_borrar) {
+for (archivo in archivos_a_borrar) {
   if(base::file.exists(archivo)){
     base::unlink(archivo, recursive = TRUE, force = TRUE)
     message("Eliminado: ", archivo)
