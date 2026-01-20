@@ -1,0 +1,52 @@
+GLOSARIO DE SIGLAS EN EL CALENDARIO
+
+ADEFA| Asociación de Fábricas de Automotores
+AFCP| Asociación de Fabricantes de Cemento Portland
+API| Administración Provincial de Impuestos (Santa Fe)
+ARCA| Agencia de Recaudación y Control Aduanero (ex-AFIP)
+ART| Aseguradoras de Riesgos del Trabajo
+BCSF| Bolsa de Comercio de Santa Fe
+BCRA| Banco Central de la República Argentina
+BYMA| Bolsas y Mercados Argentinos
+CAME| Confederación Argentina de la Mediana Empresa
+CAMMESA| Compañía Administradora del Mercado Mayorista Eléctrico Sociedad Anónima
+CCL| Contado con Liquidación (tipo de cambio implícito obtenido a través de la compra de activos en el mercado local y posterior venta en el internacional)
+CICEC| Centro de Investigación del Ciclo Económico (Bolsas de Comercio de Rosario y Santa Fe)
+CIFRAS| Centro de Información y Formación Regional para la Actividad de la Construcción (Región Litoral)
+CLAL| Consultora italiana especializada en el sector lácteo, referente internacional
+CNV| Comisión Nacional de Valores
+CREEBBA| Centro Regional de Estudios Económicos de Bahía Blanca Argentina
+DNRPA| Dirección Nacional de los Registros de la Propiedad del Automotor
+EMAE| Estimador Mensual de Actividad Económica
+ENARGAS| Ente Nacional Regulador del Gas
+EPH| Encuesta Permanente de Hogares
+EPE| Empresa Provincial de la Energía (Santa Fe)
+ETH Zurich| Escuela Politécnica Federal de Zúrich (por sus siglas en alemán Eidgenössische Technische Hochschule Zürich)
+FIEL| Fundación de Investigaciones Económicas Latinoamericanas
+FRED| Federal Reserve Economic Data (Reserva Federal de St. Louis, EE.UU.)
+ICA-ARG| Índice Compuesto de Actividad de Argentina (Centro de Investigación del Ciclo Económico)
+ICA-SFE| Índice Compuesto de Actividad de Santa Fe (Bolsa de Comercio de Santa Fe)
+IGA| Índice General de Actividad (Orlando J. Ferreres & Asociados)
+IERIC| Instituto de Estadística y Registro de la Industria de la Construcción
+IMAE| Indicador Mensual de Actividad Económica (Instituto Provincial de Estadística y Censos)
+INDEC| Instituto Nacional de Estadística y Censos
+IPC| Índice de Precios al Consumidor
+IPIM| Índice de Precios Internos Mayoristas
+IPEC| Instituto Provincial de Estadística y Censos (Santa Fe)
+ITCRM| Índice de Tipo de Cambio Real Multilateral
+IVA| Impuesto al Valor Agregado
+MAE| Mercado Abierto Electrónico
+MECON| Ministerio de Economía de la Nación
+MEP| Tipo de cambio implícito obtenido a través de operaciones con bonos en el Mercado Electrónico de Pagos
+Merval| Mercado de Valores de Buenos Aires
+OJF| Consultora Orlando J. Ferreres & Asociados 
+OEDE| Observatorio de Empleo y Dinámica Empresarial
+PBG| Producto Bruto Geográfico
+PEA| Población Económicamente Activa
+PIB| Producto Interno Bruto
+S&P| Standard & Poor’s (agencia internacional de calificación de riesgo y proveedora de índices financieros)
+SIPA| Sistema Integrado Previsional Argentino
+TC| Tipo de Cambio
+TCRB| Tipo de Cambio Real Bilateral
+UTDT| Universidad Torcuato Di Tella
+EQUILIBRA| Centro de Análisis Económico
