@@ -7,7 +7,6 @@ REM * RUTA DEL EJECUTABLE DE R (Rscript.exe)
 set RSCRIPT="C:\Program Files\R\R-4.5.1\bin\Rscript.exe"
 
 REM * Ejecuta Rscript con el script de R. >nul 2>&1 oculta la ventana de la consola.
-%RSCRIPT% %SCRIPT_R% >nul 2>&1
-
+%RSCRIPT% %SCRIPT_R% 
 
 exit
