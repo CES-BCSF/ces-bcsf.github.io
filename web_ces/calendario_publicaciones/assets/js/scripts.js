@@ -1,5 +1,4 @@
 function actualizarFecha() {
-    // Reemplaza 'fecha.html' por la ruta real de tu archivo
     fetch('templates/update_date.html')
       .then(response => {
         if (!response.ok) throw new Error('Error al cargar la fecha');
