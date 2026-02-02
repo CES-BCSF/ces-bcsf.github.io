@@ -27,3 +27,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Mostrar el botón cuando el usuario baja 300px
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    const btn = document.getElementById("btnScrollTop");
+    if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+      btn.classList.add("show")
+      // btn.style.display = "block";
+    } else {
+      btn.classList.remove("show")
+      // btn.style.display = "none";
+    }
+}
+
+// Función que se ejecuta al hacer clic
+function scrollTopPage() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Esto hace que el movimiento sea suave 
+    });
+}
+

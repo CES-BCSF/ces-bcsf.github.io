@@ -500,6 +500,34 @@ th:nth-child(3), th:nth-child(4) {
   text-align: left !important;
 }
 
+/* ============================================================
+  BOTON DE SCROLL TOP
+  ============================================================ */
+
+.scrollTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    /* display: none; */
+    z-index: 999;
+
+    /* Configuración de suavizado */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.scrollTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.flechaarriba {
+    width: 50px; /* Ajusta el tamaño de tu flecha */
+    height: auto;
+}
+
 
 @media (max-width: 900px) {
   /* layout: stack columns, reduce gaps and paddings slightly */
