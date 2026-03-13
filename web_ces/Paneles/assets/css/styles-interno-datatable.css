@@ -1,0 +1,236 @@
+/* =======================
+  Variables CSS
+  ======================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Onest:wght@400&display=swap');
+
+:root {
+  --color-bg: #f5f7fb;
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #061428;
+  --color-primary: #2674ff;
+  --color-primary-soft: #d7e4ff;
+  --color-accent: #00c48c;
+  --color-negative: #ff4d4f;
+  --color-text: #1f2933;
+  --color-text-soft: #6b7280;
+  --color-border-soft: #e2e8f0;
+  --color-standard-light: #0f7f4f;
+  --color-standard: #0c4c1c;
+  --color-gray-bootstrap: #6c757d;
+  --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --radius-card: 16px;
+
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* =======================
+  CORE (iframe context)
+  ======================= */
+html {
+  scroll-behavior: smooth;
+  font-size: 100%
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: var(--font-main);
+  line-height: 1.5 !important;
+  background-color: transparent !important;
+}
+
+a {
+  color: var(--color-standard);
+  text-decoration: none;
+}
+
+.dataTables_scroll {
+  background-color: #fff;
+  padding: 0.5rem !important;
+  font-size: 0.8rem;
+}
+
+/* ============================================================
+   TABLA BASE
+   ============================================================ */
+table.dataTable {
+  margin: 0 0 !important;
+}
+
+table.dataTable th,
+table.dataTable td {
+  border-right: 1px solid #d1d5db;
+}
+
+table.dataTable th {
+  text-align: left;
+}
+
+table.dataTable th:last-child,
+table.dataTable td:last-child {
+  border-right: none !important;
+}
+
+/* ============================================================
+   SORTING
+   ============================================================ */
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before {
+  display: none !important;
+}
+
+table.dataTable thead th.sorting,
+table.dataTable thead th.sorting_asc,
+table.dataTable thead th.sorting_desc {
+  padding-right: 5px !important;
+  padding-left: 5px !important;
+}
+
+.DTFC_LeftWrapper thead th.sorting,
+.DTFC_LeftWrapper thead th.sorting_asc,
+.DTFC_LeftWrapper thead th.sorting_desc {
+  padding-right: 5px !important;
+  padding-left: 5px !important;
+  background: none !important;
+}
+
+.dtfc-right-top-blocker {
+  display: none !important;
+}
+
+/* ============================================================
+   ALTURA UNIFORME (body)
+   ============================================================ */
+.dataTables_wrapper table.dataTable tbody td {
+  padding: 6px 8px !important;
+  line-height: 1.2rem !important;
+  height: 36px !important;
+}
+
+/* ============================================================
+   PERSONALIZACION DEL COLOR DEL TEXTO
+   ============================================================ */
+.dataTables_wrapper table.dataTable tbody td:nth-child(2),
+.dataTables_wrapper table.dataTable tbody td:nth-child(3),
+.dataTables_wrapper table.dataTable tbody td:nth-child(4) {
+  color: black !important;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.dataTables_wrapper table.dataTable thead th {
+  padding: 8px;
+  height: 30px;
+  white-space: nowrap !important;
+}
+
+/* evita que DT genere altura fantasma arriba del header */
+.dataTables_scrollBody th {
+  height: 0 !important;
+}
+
+/* evita margen entre header y cuerpo */
+.dataTables_scrollHeadInner table {
+  margin-bottom: 0 !important;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+.dataTables_scrollBody::-webkit-scrollbar {
+  height: 8px !important;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-thumb {
+  background: #000 !important;
+  border-radius: 4px !important;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-track {
+  background: #fff !important;
+  border-radius: 4px !important;
+}
+
+/* ============================================================
+   ANCHOS DE COLUMNAS (header + body)
+   ============================================================ */
+th[name="Series"], td:nth-child(1),
+th[name="Grupo"], td:nth-child(2),
+th[name="μ"], td:nth-child(3),
+th[name="σ"], td:nth-child(4) {
+  width: auto !important;
+  min-width: min-content !important;
+  max-width: max-content !important;
+  white-space: nowrap !important;
+}
+
+th:nth-child(3), th:nth-child(4) {
+  text-align: center !important;
+}
+
+/* ============================================================
+   FIJAR ANCHOS EN EL HEADER CLONADO DE FIXEDCOLUMNS
+   ============================================================ */
+.DTFC_LeftWrapper th,
+.DTFC_LeftWrapper td {
+  width: auto !important;
+  min-width: min-content !important;
+  max-width: max-content !important;
+  white-space: nowrap !important;
+}
+
+/* ============================================================
+   FIX DE ESPACIO ENTRE HEADER Y BODY
+   ============================================================ */
+.dataTables_scrollHead,
+.dataTables_scrollHeadInner {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  height: auto !important;
+}
+
+.dataTables_scrollBody {
+  margin-top: 0 !important;
+}
+
+/* evita espacio por altura del clon */
+.DTFC_ScrollWrapper {
+  margin-top: 0 !important;
+}
+
+/* ============================================================
+   RESPONSIVE (mobile)
+   ============================================================ */
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  .data-panel {
+    max-width: 100% !important;
+  }
+
+  .dataTables_wrapper table.dataTable tbody td {
+    padding: 4px 6px;
+    height: 30px;
+    line-height: 1rem;
+  }
+
+  .dataTables_wrapper table.dataTable thead th {
+    padding: 6px;
+    height: 26px;
+  }
+
+  .dataTables_scrollBody::-webkit-scrollbar {
+    height: 0px !important;
+    padding: 0px !important;
+  }
+}
+
+/* FRANCO OCAMPO - CES BCSF */
