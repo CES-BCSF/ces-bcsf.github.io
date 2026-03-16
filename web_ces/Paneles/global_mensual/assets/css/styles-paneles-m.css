@@ -7,7 +7,7 @@
 ======================= */
 
 .dataTables_scrollBody {
-  max-height: 600px !important; 
+  max-height: 600px !important; /* ALTURA DE LA TABLA EN EL HTML SE BASA EN ESTO + ALTURA DEL HEAD QUE CONVIENE NO TOCAR*/
 }
 
 /* ============================================================
