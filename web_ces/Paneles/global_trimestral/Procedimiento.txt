@@ -1,0 +1,4 @@
+Incorporar codigo y carpeta dentro del excel input/Clasificador.xlsx
+
+Ingresar a template/salidas.r y extender las columnas que lee de input/DF_paneles.xlsx. Esto se hace dos veces, bajo el subtitulo #### PREPARA LOS DATOS PARA EL DATATABLE VAR_VT #### en los objetos "DF_paneles_path" y "base". y en el subtítulo #### PREPARA LOS DATOS PARA EL DATATABLE VAR_IA ####, en los objetos "nombres" y "base".
+
