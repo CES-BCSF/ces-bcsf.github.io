@@ -31,28 +31,10 @@ function actualizarGlosario() {
     });
 }
 
-function actualizarGrupos() {
-  var el = document.getElementById('grupos-clasificacion');
-  if (!el) return;
-  fetch('templates/grupos_clasificacion.html')
-    .then(response => {
-      if (!response.ok) throw new Error('Error al cargar los grupos');
-      return response.text();
-    })
-    .then(html => {
-      el.innerHTML = html;
-    })
-    .catch(error => {
-      console.error('Hubo un problema:', error);
-      el.innerText = "Error al cargar";
-    });
-}
-
 // Ejecutar al cargar la página
 window.onload = function() {
   actualizarFecha();
   actualizarGlosario();
-  actualizarGrupos();
 };
 
 // Ajuste dinámico de la altura de los iframes según el contenido
