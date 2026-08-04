@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario — CES · BCSF</title>
+  <link rel="icon" type="image/png" href="../../assets/img/logoCES.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+
+  <header class="ces-topbar">
+    <div class="ces-topbar-inner">
+      <a href="../../index.html" class="ces-brand">
+        <span class="ces-logo-badge"><img src="../../assets/img/logo-depto.png.png" alt="Logo CES"></span>
+        <span class="ces-brand-text">CES · BCSF<small>Bolsa de Comercio de Santa Fe</small></span>
+      </a>
+      <button class="ces-nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="ces-nav" id="siteNav">
+        <a href="../../index.html">Inicio</a>
+        <a href="../informes/index.html">Informes</a>
+        <a href="../paneles/index.html">Paneles</a>
+        <a href="../graficas/index.html">Gráficas</a>
+        <a href="../calendario/index.html" aria-current="page">Calendario</a>
+        <a href="../documentos/index.html">Documentos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="ces-wrap ces-page-header">
+      <a href="../../index.html" class="ces-back">&larr; Volver al inicio</a>
+      <p class="ces-eyebrow">Calendario</p>
+      <h1>Sabé cuándo se publica cada dato</h1>
+      <p>Fechas de carga de series y estado de los datos actuales.</p>
+    </section>
+
+    <section class="ces-wrap">
+      <div class="ces-list" id="listaItems"></div>
+    </section>
+  </main>
+
+  <footer class="ces-footer">
+    <div class="ces-wrap">
+      <p><strong>CES · BCSF</strong><br>Centro de Estudios y Servicios — Bolsa de Comercio de Santa Fe</p>
+      <small>&copy; 2026 CES. Datos sujetos a cambios.</small>
+    </div>
+  </footer>
+
+  <script>window.CES_ROOT = "../../"; window.CES_CATEGORY = "calendario";</script>
+  <script src="../assets/js/site.js"></script>
+</body>
+</html>

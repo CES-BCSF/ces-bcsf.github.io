@@ -1,128 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CES - BCSF</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="icon" type="image/png" href="/assets/img/logoCES.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CES · BCSF — Centro de Estudios y Servicios</title>
+  <meta name="description" content="Informes, paneles dinámicos y calendario de publicaciones del Centro de Estudios y Servicios de la Bolsa de Comercio de Santa Fe.">
+  <link rel="icon" type="image/png" href="assets/img/logoCES.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="web_page/assets/css/site.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div>
-                <img src="assets/img/encabezado_informes_generales_página_interior.png" alt="Encabezado-CES-BCSF" class="header-banner">
-            </div>
-        </header>
 
-        <div class="welcome-message">
-            <h2>Repositorio en GitHub del Centro de Estudios y Servicios de la Bolsa de Comercio de Santa Fe</h2>
-        </div>
-
-        <div class="navigation-grid">
-            <div class="nav-card">
-                <div class="nav-card-icon">
-                    <img src="assets/img/icono_RA_margenes.png" alt="Margenes Agropecuarios" style="width: 10rem; height: 10rem; border-radius: 50%;">
-                </div>
-                <h3>Margenes Agropecuarios</h3>
-                <p>Complementa el análisis de la actividad económica y da a conocer en forma periódica la evolución de variables agropecuarias representativas de la región pampeana.</p>
-                <a href="web_ces/RA/RA_MA.html" class="nav-button">Ver Reporte</a>
-            </div>
-            <div class="nav-card">
-                <div class="nav-card-icon">
-                    <img src="assets/img/icono_RA.png" alt="Escrituras" style="width: 10rem; height: 10rem; border-radius: 50%;">
-                </div>
-                <h3>Escrituras</h3>
-                <p>Información suministrada por las dos circunscripciones del Colegio de Escribanos de la provincia de Santa Fe.</p>
-                <a href="web_ces/RA/RA_Escrituras.html" class="nav-button">Ver Reporte</a>
-            </div>
-            <!-- <div class="nav-card">
-                <div class="nav-card-icon">
-                    <img src="assets/img/icono_excels.png" alt="Descargar Archivo Excel" style="width: 10rem; height: 10rem; border-radius: 50%;">
-                </div>
-                <h3>Descargar Archivo Excel</h3>
-                <p>Este excel es solo de prueba.</p>
-                <a href="web_ces/bases_de_datos/prueba.xlsx" class="nav-button" download>Descargar</a>
-                <div class="link-container">
-                    <p>El siguiente link permite descargar el archivo directamente: 
-                        <a href="https://github.com/CES-BCSF/ces-bcsf.github.io/raw/refs/heads/main/assets/data/prueba.xlsx" download>
-                            https://github.com/CES-BCSF/ces-bcsf.github.io/raw/refs/heads/main/assets/data/prueba.xlsx
-                        </a>
-                    </p>
-                </div>
-            </div> -->
-            <div class="nav-card">
-                <div class="nav-card-icon">
-                    <img src="assets/img/icono_RA.png" alt="Ver Panel de Commodities" style="width: 10rem; height: 10rem; border-radius: 50%;">
-                </div>
-                <h3>Panel de precio Commodities</h3>
-                <p>Graficas e indices de precios de commodities y su desagregación</p>
-                <a href="web_ces/Precio_commodities/AUX_commodities_BM.html" class="nav-button">Ver Paneles</a>
-            </div>
-            <div class="nav-card">
-                <div class="nav-card-icon">
-                    <img src="assets/img/icono_RA.png" alt="Varios" style="width: 10rem; height: 10rem; border-radius: 50%;">
-                </div>
-                <h3>Paneles ICA-SFE</h3>
-                <p>Dinámica de las series del ICA-SFE</p>
-                <a href="web_ces/Paneles/ICA-SFE/paneles_ICA-SFE.html" class="nav-button">Ver Paneles</a>
-            </div>
-            <div class="nav-card">
-                <div class="nav-card-icon">
-                    <img src="assets/img/icono_RA.png" alt="Varios" style="width: 10rem; height: 10rem; border-radius: 50%;">
-                </div>
-                <h3>Paneles Globales Mensuales</h3>
-                <p>Dinámica de todas las series mensuales procesadas</p>
-                <a href="web_ces/Paneles/global_mensual/paneles_globales_m.html" class="nav-button">Ver Paneles</a>
-            </div>
-            <div class="nav-card">
-                <div class="nav-card-icon">
-                    <img src="assets/img/icono_RA.png" alt="Varios" style="width: 10rem; height: 10rem; border-radius: 50%;">
-                </div>
-                <h3>Paneles globales trimestrales</h3>
-                <p>Dinámica de todas las series trimestrales procesadas</p>
-                <a href="web_ces/Paneles/global_trimestral/paneles_globales_t.html" class="nav-button">Ver Paneles</a>
-            </div>
-            <div class="nav-card">
-                <div class="nav-card-icon">
-                    <img src="assets/img/icono_RA.png" alt="Varios" style="width: 10rem; height: 10rem; border-radius: 50%;">
-                </div>
-                <h3>Visualizador html (plantilla nuevo formato)</h3>
-                <p>Observatorio de html de interés</p>
-                <a href="web_ces/reporte_final.html" class="nav-button">Ver HTML</a>
-            </div>
-            <div class="nav-card">
-                <div class="nav-card-icon">
-                    <img src="assets/img/icono_calendario.png" alt="Calendario" style="width: 10rem; height: 10rem; border-radius: 50%;">
-                </div>
-                <h3>Ver Calendario</h3>
-                <p>Mantente al tanto de las fechas de carga de series y los datos actuales</p>
-                <a href="web_ces/calendario_publicaciones/Calendario.html" class="nav-button">Ver Calendario</a> <!--Link Vacio-->
-            </div>
-            <div class="nav-card">
-                <div class="nav-card-icon">
-                    <img src="assets/img/icono_calendario.png" alt="Calendario" style="width: 10rem; height: 10rem; border-radius: 50%;">
-                </div>
-                <h3>Ver Graficas Interactivas</h3>
-                <p>Botones llevan a cada una</p>
-                <a href="web_ces/graficas_interactivas/FASES_SFE.html" class="nav-button">Ver FASES_SFE</a> <!--Link Vacio-->
-                <a href="web_ces/graficas_interactivas/ICASFe_FCT.html" class="nav-button">Ver ICASFe_FCT</a> <!--Link Vacio-->
-                <a href="web_ces/graficas_interactivas/IDSC_SFE.html" class="nav-button">Ver IDSC_SFE</a> <!--Link Vacio-->
-                <a href="web_ces/graficas_interactivas/MC_SFE.html" class="nav-button">Ver MC_SFE</a> <!--Link Vacio-->
-                <a href="web_ces/graficas_interactivas/TCIA_VAS.html" class="nav-button">Ver TCIA_VAS</a> <!--Link Vacio-->
-                <a href="https://raw.githubusercontent.com/CES-BCSF/CicSFE_GitHub/main/indicadores/SFE-ASF_out.xlsx" class="nav-button">VER EXCEL ASF_SFE</a> <!--Link Vacio-->
-                <a href="https://raw.githubusercontent.com/CES-BCSF/CicSFE_GitHub/main/indicadores/SFE-ASF_plots.pdf" class="nav-button">VER PDF ASF_SFE</a> <!--Link Vacio-->
-            </div>
-        </div>
+  <header class="ces-topbar">
+    <div class="ces-topbar-inner">
+      <a href="index.html" class="ces-brand">
+        <span class="ces-logo-badge"><img src="assets/img/logo-depto.png.png" alt="Logo CES"></span>
+        <span class="ces-brand-text">CES · BCSF<small>Bolsa de Comercio de Santa Fe</small></span>
+      </a>
+      <button class="ces-nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="ces-nav" id="siteNav">
+        <a href="index.html" aria-current="page">Inicio</a>
+        <a href="web_page/informes/index.html">Informes</a>
+        <a href="web_page/paneles/index.html">Paneles</a>
+        <a href="web_page/graficas/index.html">Gráficas</a>
+        <a href="web_page/calendario/index.html">Calendario</a>
+        <a href="web_page/documentos/index.html">Documentos</a>
+      </nav>
     </div>
-    <footer style="text-align: center; width: 100%;">
-            <p>&copy; 2025 CES. Todos los derechos reservados.</p>
-            <p>Datos sujetos a cambios</p>
-        </footer>
-    <script src="assets/js/script.js"></script>
+  </header>
+
+  <main>
+    <section class="ces-hero ces-wrap">
+      <div class="ces-hero-logo"><img src="assets/img/logo-depto.png.png" alt="Logo CES"></div>
+      <p class="ces-eyebrow">Centro de Estudios y Servicios — Bolsa de Comercio de Santa Fe</p>
+      <h1>La economía de Santa Fe, explicada con datos al día.</h1>
+      <p>Informes, paneles interactivos y calendario de publicaciones en un solo lugar, pensados para consultarse sin conocimientos técnicos.</p>
+      <div class="ces-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="heroSearchInput" placeholder="Buscar un informe, panel o indicador…" aria-label="Buscar contenido del sitio">
+      </div>
+    </section>
+
+    <div class="ces-wrap ces-divider-section">
+      <div class="ces-ribbon" aria-hidden="true"></div>
+    </div>
+
+    <section class="ces-wrap">
+      <p class="ces-section-label"><span class="dot"></span> Actualizado recientemente</p>
+      <div class="ces-updates" id="searchableGrid" aria-live="polite"></div>
+    </section>
+
+    <div class="ces-wrap ces-divider-section">
+      <div class="ces-ribbon" aria-hidden="true"></div>
+    </div>
+
+    <section class="ces-wrap">
+      <p class="ces-section-label">Explorar por tipo de contenido</p>
+      <div class="ces-tiles">
+        <a class="ces-tile" href="web_page/informes/index.html" data-category="informes">
+          <div class="ces-tile-icon"><img src="assets/img/icono_RA_margenes.png" alt=""></div>
+          <h3>Informes</h3>
+          <p>Análisis en profundidad sobre márgenes agropecuarios y actividad inmobiliaria.</p>
+          <span class="ces-tile-count">…</span>
+        </a>
+        <a class="ces-tile" href="web_page/paneles/index.html" data-category="paneles">
+          <div class="ces-tile-icon"><img src="assets/img/icono_RA.png" alt=""></div>
+          <h3>Paneles dinámicos</h3>
+          <p>Series de commodities, ICA-SFE y paneles mensuales y trimestrales.</p>
+          <span class="ces-tile-count">…</span>
+        </a>
+        <a class="ces-tile" href="web_page/graficas/index.html" data-category="graficas">
+          <div class="ces-tile-icon"><img src="assets/img/icono_calendario.png" alt=""></div>
+          <h3>Gráficas interactivas</h3>
+          <p>Visualizaciones para explorar la evolución de cada indicador.</p>
+          <span class="ces-tile-count">…</span>
+        </a>
+        <a class="ces-tile" href="web_page/calendario/index.html" data-category="calendario">
+          <div class="ces-tile-icon"><img src="assets/img/icono_calendario.png" alt=""></div>
+          <h3>Calendario</h3>
+          <p>Fechas de publicación de cada serie, para saber cuándo esperar los próximos datos.</p>
+          <span class="ces-tile-count">…</span>
+        </a>
+        <a class="ces-tile" href="web_page/documentos/index.html" data-category="documentos">
+          <div class="ces-tile-icon"><img src="assets/img/icono_excels.png" alt=""></div>
+          <h3>Documentos</h3>
+          <p>Bases de datos y archivos descargables en Excel y PDF.</p>
+          <span class="ces-tile-count">…</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ces-footer">
+    <div class="ces-wrap">
+      <p><strong>CES · BCSF</strong><br>Centro de Estudios y Servicios — Bolsa de Comercio de Santa Fe</p>
+      <small>&copy; 2026 CES. Datos sujetos a cambios.</small>
+    </div>
+  </footer>
+
+  <script>window.CES_ROOT = "";</script>
+  <script src="web_page/assets/js/site.js"></script>
 </body>
-<!-- FRANCO OCAMPO - DESARROLLADOR WEB - 2025 - LINKEDIN: https://linkedin.com/in/franco-ocampo-329437229 - Ing. Sistemas UTN FRSF-->
 </html>
-
-
-
