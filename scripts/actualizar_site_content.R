@@ -24,7 +24,8 @@ actualizar_site_content <- function(categoria,
                                      descripcion = NULL,
                                      icono = NULL,
                                      repo_site = "C:/_Sitio_GitHub/Github_main/ces-bcsf.github.io",
-                                     fecha = base::Sys.time()) {
+                                     fecha = base::Sys.time(),
+                                     push = TRUE) {
 
   json_relativo <- "assets/data/site-content.json"
   json_path <- base::file.path(repo_site, json_relativo)
@@ -88,13 +89,17 @@ actualizar_site_content <- function(categoria,
   # 5. ESCRIBE EL JSON (pretty, sin simplificar listas de un elemento a escalares)
   jsonlite::write_json(data, json_path, auto_unbox = TRUE, pretty = TRUE)
 
-  # 6. COMMIT Y PUSH -- solo el JSON, para no pisar cambios de otros scripts
+  # 6. COMMIT (Y PUSH, si push = TRUE) -- solo el JSON, para no pisar cambios de otros scripts
   gert::git_add(json_relativo, repo = repo_site)
   gert::git_commit(
     base::paste0("Actualiza site-content.json | ", titulo, " | ", base::Sys.time()),
     repo = repo_site
   )
-  gert::git_push(remote = "origin", repo = repo_site)
 
-  base::message(base::paste0("\033[34msite-content.json actualizado (", categoria, " > ", titulo, ") ✔\033[39m\n"))
+  if (push) {
+    gert::git_push(remote = "origin", repo = repo_site)
+    base::message(base::paste0("\033[34msite-content.json actualizado y pusheado (", categoria, " > ", titulo, ") ✔\033[39m\n"))
+  } else {
+    base::message(base::paste0("\033[33msite-content.json actualizado y COMMITEADO LOCAL (sin pushear) (", categoria, " > ", titulo, ") -- revisa con git_log()/git_diff() antes de pushear a mano\033[39m\n"))
+  }
 }
