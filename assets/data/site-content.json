@@ -29,12 +29,6 @@
       "description": "Todas las series trimestrales procesadas.",
       "url": "web_ces/Paneles/global_trimestral/paneles_globales_t.html",
       "updated": "2026-07-31T11:10:00-03:00"
-    },
-    {
-      "title": "PRUEBA (Excel)",
-      "description": "Item de prueba, se puede borrar.",
-      "url": "https://raw.githubusercontent.com/CES-BCSF/CicSFE_GitHub/main/indicadores/PRUEBA_out.xlsx",
-      "updated": "2026-08-04T11:52:45-03:00"
     }
   ],
   "categories": {
@@ -194,12 +188,6 @@
           "download": true,
           "secondary": true,
           "buttonLabel": "Descargar PDF"
-        },
-        {
-          "title": "PRUEBA (Excel)",
-          "description": "Item de prueba, se puede borrar.",
-          "url": "https://raw.githubusercontent.com/CES-BCSF/CicSFE_GitHub/main/indicadores/PRUEBA_out.xlsx",
-          "updated": "2026-08-04T11:52:45-03:00"
         }
       ]
     }
