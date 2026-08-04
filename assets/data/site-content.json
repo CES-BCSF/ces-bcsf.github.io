@@ -29,6 +29,12 @@
       "description": "Todas las series trimestrales procesadas.",
       "url": "web_ces/Paneles/global_trimestral/paneles_globales_t.html",
       "updated": "2026-07-31T11:10:00-03:00"
+    },
+    {
+      "title": "PRUEBA (Excel)",
+      "description": "Item de prueba, se puede borrar.",
+      "url": "https://raw.githubusercontent.com/CES-BCSF/CicSFE_GitHub/main/indicadores/PRUEBA_out.xlsx",
+      "updated": "2026-08-04T11:52:45-03:00"
     }
   ],
   "categories": {
@@ -36,7 +42,10 @@
       "label": "Informes",
       "tileIcon": "assets/img/icono_RA_margenes.png",
       "tileDescription": "Análisis en profundidad sobre márgenes agropecuarios y actividad inmobiliaria.",
-      "countLabel": { "one": "informe", "many": "informes" },
+      "countLabel": {
+        "one": "informe",
+        "many": "informes"
+      },
       "items": [
         {
           "title": "Márgenes Agropecuarios",
@@ -56,7 +65,10 @@
       "label": "Paneles dinámicos",
       "tileIcon": "assets/img/icono_RA.png",
       "tileDescription": "Series de commodities, ICA-SFE y paneles mensuales y trimestrales.",
-      "countLabel": { "one": "panel", "many": "paneles" },
+      "countLabel": {
+        "one": "panel",
+        "many": "paneles"
+      },
       "items": [
         {
           "title": "Panel de precio de commodities",
@@ -97,7 +109,10 @@
       "label": "Gráficas interactivas",
       "tileIcon": "assets/img/icono_calendario.png",
       "tileDescription": "Visualizaciones para explorar la evolución de cada indicador.",
-      "countLabel": { "one": "gráfica", "many": "gráficas" },
+      "countLabel": {
+        "one": "gráfica",
+        "many": "gráficas"
+      },
       "items": [
         {
           "title": "FASES_SFE",
@@ -140,7 +155,10 @@
       "label": "Calendario",
       "tileIcon": "assets/img/icono_calendario.png",
       "tileDescription": "Fechas de publicación de cada serie, para saber cuándo esperar los próximos datos.",
-      "countLabel": { "one": "calendario", "many": "calendarios" },
+      "countLabel": {
+        "one": "calendario",
+        "many": "calendarios"
+      },
       "items": [
         {
           "title": "Calendario de publicaciones",
@@ -155,7 +173,10 @@
       "label": "Documentos",
       "tileIcon": "assets/img/icono_excels.png",
       "tileDescription": "Bases de datos y archivos descargables en Excel y PDF.",
-      "countLabel": { "one": "documento", "many": "documentos" },
+      "countLabel": {
+        "one": "documento",
+        "many": "documentos"
+      },
       "items": [
         {
           "title": "SFE-ASF (Excel)",
@@ -173,6 +194,12 @@
           "download": true,
           "secondary": true,
           "buttonLabel": "Descargar PDF"
+        },
+        {
+          "title": "PRUEBA (Excel)",
+          "description": "Item de prueba, se puede borrar.",
+          "url": "https://raw.githubusercontent.com/CES-BCSF/CicSFE_GitHub/main/indicadores/PRUEBA_out.xlsx",
+          "updated": "2026-08-04T11:52:45-03:00"
         }
       ]
     }
