@@ -163,6 +163,24 @@
         }
       ]
     },
+    "informes-especiales": {
+      "label": "Informes especiales",
+      "tileIcon": "assets/img/icono_ind_PBI.png",
+      "tileDescription": "Análisis puntuales de la BCSF sobre comercio exterior, finanzas públicas, sector agropecuario y otras variables económicas.",
+      "countLabel": {
+        "one": "informe especial",
+        "many": "informes especiales"
+      },
+      "items": [
+        {
+          "title": "Informes especiales BCSF",
+          "description": "Repositorio histórico (2004–2026) de la Bolsa de Comercio de Santa Fe con análisis puntuales organizados por eje temático: sector agropecuario y MOA, comercio exterior, finanzas públicas, reportes sectoriales, variables macroeconómicas y otros temas. Cada informe incluye fecha de publicación, ámbito geográfico y descarga en PDF.",
+          "url": "https://www.bcsf.com.ar/ces/informes-especiales.php",
+          "icon": "assets/img/icono_ind_PBI.png",
+          "buttonLabel": "Ver informes en bcsf.com.ar"
+        }
+      ]
+    },
     "documentos": {
       "label": "Documentos",
       "tileIcon": "assets/img/icono_excels.png",
