@@ -4,7 +4,7 @@
       "title": "Calendario de publicaciones",
       "description": "Mantente al tanto de las fechas de carga de series y los datos actuales.",
       "url": "web_ces/calendario_publicaciones/Calendario.html",
-      "updated": "2026-08-06T11:00:31-03:00"
+      "updated": "2026-08-07T08:47:00-03:00"
     },
     {
       "title": "Gráficas interactivas",
@@ -159,7 +159,7 @@
           "description": "Mantente al tanto de las fechas de carga de series y los datos actuales.",
           "url": "web_ces/calendario_publicaciones/Calendario.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-06T11:00:31-03:00"
+          "updated": "2026-08-07T08:47:00-03:00"
         }
       ]
     },
