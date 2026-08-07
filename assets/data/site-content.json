@@ -47,6 +47,12 @@
       "description": "Serie del ICA-SFE con sus factores componentes.",
       "url": "web_ces/graficas_interactivas/ICASFe_FCT.html",
       "updated": "2026-08-07T09:05:30-03:00"
+    },
+    {
+      "title": "IDSC_SFE",
+      "description": "Índice de difusión sobre la coyuntura de Santa Fe.",
+      "url": "web_ces/graficas_interactivas/IDSC_SFE.html",
+      "updated": "2026-08-07T09:05:32-03:00"
     }
   ],
   "categories": {
@@ -146,7 +152,7 @@
           "description": "Índice de difusión sobre la coyuntura de Santa Fe.",
           "url": "web_ces/graficas_interactivas/IDSC_SFE.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-03T10:05:00-03:00"
+          "updated": "2026-08-07T09:05:32-03:00"
         },
         {
           "title": "MC_SFE",
