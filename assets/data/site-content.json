@@ -35,6 +35,12 @@
       "description": "Complementa el análisis de la actividad económica y da a conocer en forma periódica la evolución de variables agropecuarias representativas de la región pampeana.",
       "url": "web_ces/RA/RA_MA.html",
       "updated": "2026-08-07T08:47:59-03:00"
+    },
+    {
+      "title": "FASES_SFE",
+      "description": "Evolución de las fases del indicador sintético de Santa Fe.",
+      "url": "web_ces/graficas_interactivas/FASES_SFE.html",
+      "updated": "2026-08-07T09:05:26-03:00"
     }
   ],
   "categories": {
@@ -120,7 +126,7 @@
           "description": "Evolución de las fases del indicador sintético de Santa Fe.",
           "url": "web_ces/graficas_interactivas/FASES_SFE.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-03T10:05:00-03:00"
+          "updated": "2026-08-07T09:05:26-03:00"
         },
         {
           "title": "ICASFe_FCT",
