@@ -29,6 +29,12 @@
       "description": "Todas las series trimestrales procesadas.",
       "url": "web_ces/Paneles/global_trimestral/paneles_globales_t.html",
       "updated": "2026-07-31T11:10:00-03:00"
+    },
+    {
+      "title": "Márgenes Agropecuarios",
+      "description": "Complementa el análisis de la actividad económica y da a conocer en forma periódica la evolución de variables agropecuarias representativas de la región pampeana.",
+      "url": "web_ces/RA/RA_MA.html",
+      "updated": "2026-08-07T08:47:59-03:00"
     }
   ],
   "categories": {
@@ -45,7 +51,8 @@
           "title": "Márgenes Agropecuarios",
           "description": "Complementa el análisis de la actividad económica y da a conocer en forma periódica la evolución de variables agropecuarias representativas de la región pampeana.",
           "url": "web_ces/RA/RA_MA.html",
-          "icon": "assets/img/icono_RA_margenes.png"
+          "icon": "assets/img/icono_RA_margenes.png",
+          "updated": "2026-08-07T08:47:59-03:00"
         },
         {
           "title": "Escrituras",
