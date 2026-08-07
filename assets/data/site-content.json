@@ -26,9 +26,9 @@
     },
     {
       "title": "Paneles globales trimestrales",
-      "description": "Todas las series trimestrales procesadas.",
+      "description": "Dinámica de todas las series trimestrales procesadas.",
       "url": "web_ces/Paneles/global_trimestral/paneles_globales_t.html",
-      "updated": "2026-07-31T11:10:00-03:00"
+      "updated": "2026-08-07T20:27:50-03:00"
     },
     {
       "title": "Márgenes Agropecuarios",
@@ -126,7 +126,7 @@
           "description": "Dinámica de todas las series trimestrales procesadas.",
           "url": "web_ces/Paneles/global_trimestral/paneles_globales_t.html",
           "icon": "assets/img/icono_RA.png",
-          "updated": "2026-07-31T11:10:00-03:00"
+          "updated": "2026-08-07T20:27:50-03:00"
         },
         {
           "title": "Observatorio (nuevo formato)",
