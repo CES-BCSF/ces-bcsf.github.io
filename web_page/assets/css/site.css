@@ -546,6 +546,141 @@ a { color: inherit; }
   font-size: 0.95rem;
 }
 
+/* ---------- Banner destacado (novedad / herramienta externa) ---------- */
+
+.ces-banner-section {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.ces-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  background: linear-gradient(120deg, var(--color-forest-deep) 0%, var(--color-forest) 100%);
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+/* brillo diagonal sutil que refuerza el caracter "novedad" */
+.ces-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.14), transparent);
+  transform: skewX(-18deg);
+  animation: ces-banner-shine 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ces-banner-shine {
+  0% { left: -60%; }
+  55%, 100% { left: 130%; }
+}
+
+.ces-banner:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.ces-banner-badge {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--color-live);
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.ces-banner-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 118px;
+  height: 118px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 0.9rem;
+  z-index: 1;
+}
+
+.ces-banner-logo img { width: 100%; height: auto; display: block; }
+
+.ces-banner-body { z-index: 1; }
+
+.ces-banner-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-grain-soft);
+  margin-bottom: 0.5rem;
+}
+
+.ces-banner-body h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+  line-height: 1.2;
+  margin-bottom: 0.55rem;
+  color: #fff;
+}
+
+.ces-banner-body > p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.82);
+  max-width: 60ch;
+  margin-bottom: 1rem;
+}
+
+.ces-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--color-forest-deep);
+  background: var(--color-grain-soft);
+  padding: 0.6rem 1.15rem;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.ces-banner:hover .ces-banner-cta { background: #fff; }
+
+/* badge "Nuevo" reutilizable en tiles */
+.ces-badge-new {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--color-live);
+  padding: 0.12rem 0.45rem;
+  border-radius: 20px;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+}
+
 /* ---------- Footer ---------- */
 
 .ces-footer {
@@ -589,6 +724,9 @@ a { color: inherit; }
   .ces-item { flex-wrap: wrap; }
   .ces-item-actions { width: 100%; justify-content: flex-start; }
   .ces-footer .ces-wrap { flex-direction: column; align-items: flex-start; }
+  .ces-banner { flex-direction: column; text-align: center; gap: 1.1rem; padding: 1.9rem 1.5rem; }
+  .ces-banner-badge { position: static; margin-bottom: 0.25rem; }
+  .ces-banner-body > p { margin-left: auto; margin-right: auto; }
 }
 
 @media (max-width: 480px) {
