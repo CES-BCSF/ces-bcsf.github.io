@@ -40,7 +40,7 @@
       "title": "FASES_SFE",
       "description": "Evolución de las fases del indicador sintético de Santa Fe.",
       "url": "web_ces/graficas_interactivas/FASES_SFE.html",
-      "updated": "2026-08-20T10:17:00-03:00"
+      "updated": "2026-08-20T12:07:07-03:00"
     },
     {
       "title": "ICASFe_FCT",
@@ -157,7 +157,7 @@
           "description": "Evolución de las fases del indicador sintético de Santa Fe.",
           "url": "web_ces/graficas_interactivas/FASES_SFE.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-20T10:17:00-03:00"
+          "updated": "2026-08-20T12:07:07-03:00"
         },
         {
           "title": "ICASFe_FCT",
