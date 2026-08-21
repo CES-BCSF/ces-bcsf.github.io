@@ -40,31 +40,31 @@
       "title": "FASES_SFE",
       "description": "Evolución de las fases del indicador sintético de Santa Fe.",
       "url": "web_ces/graficas_interactivas/FASES_SFE.html",
-      "updated": "2026-08-20T10:17:00-03:00"
+      "updated": "2026-08-20T12:07:07-03:00"
     },
     {
       "title": "ICASFe_FCT",
       "description": "Serie del ICA-SFE con sus factores componentes.",
       "url": "web_ces/graficas_interactivas/ICASFe_FCT.html",
-      "updated": "2026-08-20T10:17:02-03:00"
+      "updated": "2026-08-20T12:07:10-03:00"
     },
     {
       "title": "IDSC_SFE",
       "description": "Índice de difusión sobre la coyuntura de Santa Fe.",
       "url": "web_ces/graficas_interactivas/IDSC_SFE.html",
-      "updated": "2026-08-20T10:17:04-03:00"
+      "updated": "2026-08-20T12:07:13-03:00"
     },
     {
       "title": "MC_SFE",
       "description": "Evolución del indicador MC de Santa Fe.",
       "url": "web_ces/graficas_interactivas/MC_SFE.html",
-      "updated": "2026-08-20T10:17:06-03:00"
+      "updated": "2026-08-20T12:07:16-03:00"
     },
     {
       "title": "TCIA_VAS",
       "description": "Evolución del indicador TCIA_VAS.",
       "url": "web_ces/graficas_interactivas/TCIA_VAS.html",
-      "updated": "2026-08-20T10:17:08-03:00"
+      "updated": "2026-08-20T12:07:19-03:00"
     },
     {
       "title": "Escrituras",
@@ -157,35 +157,35 @@
           "description": "Evolución de las fases del indicador sintético de Santa Fe.",
           "url": "web_ces/graficas_interactivas/FASES_SFE.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-20T10:17:00-03:00"
+          "updated": "2026-08-20T12:07:07-03:00"
         },
         {
           "title": "ICASFe_FCT",
           "description": "Serie del ICA-SFE con sus factores componentes.",
           "url": "web_ces/graficas_interactivas/ICASFe_FCT.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-20T10:17:02-03:00"
+          "updated": "2026-08-20T12:07:10-03:00"
         },
         {
           "title": "IDSC_SFE",
           "description": "Índice de difusión sobre la coyuntura de Santa Fe.",
           "url": "web_ces/graficas_interactivas/IDSC_SFE.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-20T10:17:04-03:00"
+          "updated": "2026-08-20T12:07:13-03:00"
         },
         {
           "title": "MC_SFE",
           "description": "Evolución del indicador MC de Santa Fe.",
           "url": "web_ces/graficas_interactivas/MC_SFE.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-20T10:17:06-03:00"
+          "updated": "2026-08-20T12:07:16-03:00"
         },
         {
           "title": "TCIA_VAS",
           "description": "Evolución del indicador TCIA_VAS.",
           "url": "web_ces/graficas_interactivas/TCIA_VAS.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-20T10:17:08-03:00"
+          "updated": "2026-08-20T12:07:19-03:00"
         }
       ]
     },
