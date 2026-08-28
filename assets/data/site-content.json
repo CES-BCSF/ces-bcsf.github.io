@@ -52,7 +52,7 @@
       "title": "IDSC_SFE",
       "description": "Índice de difusión sobre la coyuntura de Santa Fe.",
       "url": "web_ces/graficas_interactivas/IDSC_SFE.html",
-      "updated": "2026-08-20T12:07:13-03:00"
+      "updated": "2026-08-28T11:41:39-03:00"
     },
     {
       "title": "MC_SFE",
@@ -171,7 +171,7 @@
           "description": "Índice de difusión sobre la coyuntura de Santa Fe.",
           "url": "web_ces/graficas_interactivas/IDSC_SFE.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-20T12:07:13-03:00"
+          "updated": "2026-08-28T11:41:39-03:00"
         },
         {
           "title": "MC_SFE",
