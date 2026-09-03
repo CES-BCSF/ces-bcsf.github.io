@@ -71,6 +71,12 @@
       "description": "Información suministrada por las dos circunscripciones del Colegio de Escribanos de la provincia de Santa Fe.",
       "url": "web_ces/RA/RA_Escrituras.html",
       "updated": "2026-08-20T09:48:48-03:00"
+    },
+    {
+      "title": "Panel de precio de commodities",
+      "description": "Gráficas e índices de precios de commodities y su desagregación.",
+      "url": "web_ces/Precio_commodities/AUX_commodities_BM.html",
+      "updated": "2026-09-03T11:53:33-03:00"
     }
   ],
   "categories": {
@@ -112,7 +118,8 @@
           "title": "Panel de precio de commodities",
           "description": "Gráficas e índices de precios de commodities y su desagregación.",
           "url": "web_ces/Precio_commodities/AUX_commodities_BM.html",
-          "icon": "assets/img/icono_RA.png"
+          "icon": "assets/img/icono_RA.png",
+          "updated": "2026-09-03T11:53:33-03:00"
         },
         {
           "title": "Paneles ICA-SFE",
