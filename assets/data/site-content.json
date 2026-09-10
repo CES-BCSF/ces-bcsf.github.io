@@ -4,7 +4,7 @@
       "title": "Calendario de publicaciones",
       "description": "Mantente al tanto de las fechas de carga de series y los datos actuales.",
       "url": "web_ces/calendario_publicaciones/Calendario.html",
-      "updated": "2026-08-19T11:00:51-03:00"
+      "updated": "2026-08-28T11:00:39-03:00"
     },
     {
       "title": "Gráficas interactivas",
@@ -16,61 +16,67 @@
       "title": "Paneles ICA-SFE",
       "description": "Dinámica de las series del ICA-SFE.",
       "url": "web_ces/Paneles/ICA-SFE/paneles_ICA-SFE.html",
-      "updated": "2026-08-20T10:42:44-03:00"
+      "updated": "2026-09-04T12:11:52-03:00"
     },
     {
       "title": "Paneles globales mensuales",
       "description": "Dinámica de todas las series mensuales procesadas.",
       "url": "web_ces/Paneles/ICA-SFE/paneles_ICA-SFE.html",
-      "updated": "2026-08-14T12:18:01-03:00"
+      "updated": "2026-09-04T12:14:26-03:00"
     },
     {
       "title": "Paneles globales trimestrales",
       "description": "Dinámica de todas las series trimestrales procesadas.",
       "url": "web_ces/Paneles/global_trimestral/paneles_globales_t.html",
-      "updated": "2026-08-14T12:16:20-03:00"
+      "updated": "2026-09-04T12:12:24-03:00"
     },
     {
       "title": "Márgenes Agropecuarios",
       "description": "Complementa el análisis de la actividad económica y da a conocer en forma periódica la evolución de variables agropecuarias representativas de la región pampeana.",
       "url": "web_ces/RA/RA_MA.html",
-      "updated": "2026-08-07T08:47:59-03:00"
+      "updated": "2026-09-03T11:27:26-03:00"
     },
     {
       "title": "FASES_SFE",
       "description": "Evolución de las fases del indicador sintético de Santa Fe.",
       "url": "web_ces/graficas_interactivas/FASES_SFE.html",
-      "updated": "2026-08-20T12:07:07-03:00"
+      "updated": "2026-08-28T11:41:29-03:00"
     },
     {
       "title": "ICASFe_FCT",
       "description": "Serie del ICA-SFE con sus factores componentes.",
       "url": "web_ces/graficas_interactivas/ICASFe_FCT.html",
-      "updated": "2026-08-20T12:07:10-03:00"
+      "updated": "2026-08-28T11:41:34-03:00"
     },
     {
       "title": "IDSC_SFE",
       "description": "Índice de difusión sobre la coyuntura de Santa Fe.",
       "url": "web_ces/graficas_interactivas/IDSC_SFE.html",
-      "updated": "2026-08-20T12:07:13-03:00"
+      "updated": "2026-08-28T11:41:39-03:00"
     },
     {
       "title": "MC_SFE",
       "description": "Evolución del indicador MC de Santa Fe.",
       "url": "web_ces/graficas_interactivas/MC_SFE.html",
-      "updated": "2026-08-20T12:07:16-03:00"
+      "updated": "2026-08-28T11:41:43-03:00"
     },
     {
       "title": "TCIA_VAS",
       "description": "Evolución del indicador TCIA_VAS.",
       "url": "web_ces/graficas_interactivas/TCIA_VAS.html",
-      "updated": "2026-08-20T12:07:19-03:00"
+      "updated": "2026-08-28T11:41:47-03:00"
     },
     {
       "title": "Escrituras",
       "description": "Información suministrada por las dos circunscripciones del Colegio de Escribanos de la provincia de Santa Fe.",
       "url": "web_ces/RA/RA_Escrituras.html",
       "updated": "2026-08-20T09:48:48-03:00"
+    },
+    {
+      "title": "Panel de precio de commodities",
+      "description": "Gráficas e índices de precios de commodities y su desagregación.",
+      "url": "web_ces/Precio_commodities/AUX_commodities_BM.html",
+      "updated": "2026-09-03T11:53:33-03:00"
     }
   ],
   "categories": {
@@ -88,7 +94,7 @@
           "description": "Complementa el análisis de la actividad económica y da a conocer en forma periódica la evolución de variables agropecuarias representativas de la región pampeana.",
           "url": "web_ces/RA/RA_MA.html",
           "icon": "assets/img/icono_RA_margenes.png",
-          "updated": "2026-08-07T08:47:59-03:00"
+          "updated": "2026-09-03T11:27:26-03:00"
         },
         {
           "title": "Escrituras",
@@ -112,28 +118,29 @@
           "title": "Panel de precio de commodities",
           "description": "Gráficas e índices de precios de commodities y su desagregación.",
           "url": "web_ces/Precio_commodities/AUX_commodities_BM.html",
-          "icon": "assets/img/icono_RA.png"
+          "icon": "assets/img/icono_RA.png",
+          "updated": "2026-09-03T11:53:33-03:00"
         },
         {
           "title": "Paneles ICA-SFE",
           "description": "Dinámica de las series del ICA-SFE.",
           "url": "web_ces/Paneles/ICA-SFE/paneles_ICA-SFE.html",
           "icon": "assets/img/icono_RA.png",
-          "updated": "2026-08-20T10:42:44-03:00"
+          "updated": "2026-09-04T12:11:52-03:00"
         },
         {
           "title": "Paneles globales mensuales",
           "description": "Dinámica de todas las series mensuales procesadas.",
           "url": "web_ces/Paneles/ICA-SFE/paneles_ICA-SFE.html",
           "icon": "assets/img/icono_RA.png",
-          "updated": "2026-08-14T12:18:01-03:00"
+          "updated": "2026-09-04T12:14:26-03:00"
         },
         {
           "title": "Paneles globales trimestrales",
           "description": "Dinámica de todas las series trimestrales procesadas.",
           "url": "web_ces/Paneles/global_trimestral/paneles_globales_t.html",
           "icon": "assets/img/icono_RA.png",
-          "updated": "2026-08-14T12:16:20-03:00"
+          "updated": "2026-09-04T12:12:24-03:00"
         },
         {
           "title": "Observatorio (nuevo formato)",
@@ -157,35 +164,35 @@
           "description": "Evolución de las fases del indicador sintético de Santa Fe.",
           "url": "web_ces/graficas_interactivas/FASES_SFE.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-20T12:07:07-03:00"
+          "updated": "2026-08-28T11:41:29-03:00"
         },
         {
           "title": "ICASFe_FCT",
           "description": "Serie del ICA-SFE con sus factores componentes.",
           "url": "web_ces/graficas_interactivas/ICASFe_FCT.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-20T12:07:10-03:00"
+          "updated": "2026-08-28T11:41:34-03:00"
         },
         {
           "title": "IDSC_SFE",
           "description": "Índice de difusión sobre la coyuntura de Santa Fe.",
           "url": "web_ces/graficas_interactivas/IDSC_SFE.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-20T12:07:13-03:00"
+          "updated": "2026-08-28T11:41:39-03:00"
         },
         {
           "title": "MC_SFE",
           "description": "Evolución del indicador MC de Santa Fe.",
           "url": "web_ces/graficas_interactivas/MC_SFE.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-20T12:07:16-03:00"
+          "updated": "2026-08-28T11:41:43-03:00"
         },
         {
           "title": "TCIA_VAS",
           "description": "Evolución del indicador TCIA_VAS.",
           "url": "web_ces/graficas_interactivas/TCIA_VAS.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-20T12:07:19-03:00"
+          "updated": "2026-08-28T11:41:47-03:00"
         }
       ]
     },
@@ -203,7 +210,7 @@
           "description": "Mantente al tanto de las fechas de carga de series y los datos actuales.",
           "url": "web_ces/calendario_publicaciones/Calendario.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-19T11:00:51-03:00"
+          "updated": "2026-08-28T11:00:39-03:00"
         }
       ]
     },
