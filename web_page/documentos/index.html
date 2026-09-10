@@ -21,14 +21,30 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="ces-nav" id="siteNav">
-        <a href="../../index.html">Inicio</a>
-        <a href="../informes/index.html">Informes</a>
-        <a href="../paneles/index.html">Paneles</a>
-        <a href="../graficas/index.html">Gráficas</a>
-        <a href="../calendario/index.html">Calendario</a>
-        <a href="../informes-especiales/index.html">Informes especiales</a>
-        <a href="https://ces-bcsf-apps.shinyapps.io/IndiCES-app/" target="_blank" rel="noopener">IndiCES</a>
-        <a href="../documentos/index.html" aria-current="page">Documentos</a>
+        <a class="ces-nav-link" href="../../index.html">Inicio</a>
+        <div class="ces-nav-group">
+          <button class="ces-nav-trigger" type="button" aria-expanded="false" aria-controls="navGroup1">Informes<svg class="ces-nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="ces-nav-menu" id="navGroup1">
+            <a href="../informes/index.html">Informes</a>
+            <a href="../informes-especiales/index.html">Informes especiales</a>
+          </div>
+        </div>
+        <div class="ces-nav-group">
+          <button class="ces-nav-trigger is-active" type="button" aria-expanded="false" aria-controls="navGroup2" aria-current="page">Recursos visuales<svg class="ces-nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="ces-nav-menu" id="navGroup2">
+            <a href="../paneles/index.html">Paneles</a>
+            <a href="../graficas/index.html">Gráficas</a>
+            <a href="../documentos/index.html" aria-current="page">Documentos</a>
+          </div>
+        </div>
+        <div class="ces-nav-group">
+          <button class="ces-nav-trigger" type="button" aria-expanded="false" aria-controls="navGroup3">Herramientas<svg class="ces-nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="ces-nav-menu" id="navGroup3">
+            <a href="https://ces-bcsf-apps.shinyapps.io/IndiCES-app/" target="_blank" rel="noopener">IndiCES<svg class="ces-nav-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><polyline points="8 7 17 7 17 16"></polyline></svg></a>
+            <a href="https://migrating-ces.onrender.com/home" target="_blank" rel="noopener">CES DataHub<svg class="ces-nav-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><polyline points="8 7 17 7 17 16"></polyline></svg></a>
+          </div>
+        </div>
+        <a class="ces-nav-link" href="../calendario/index.html">Calendario</a>
       </nav>
     </div>
   </header>

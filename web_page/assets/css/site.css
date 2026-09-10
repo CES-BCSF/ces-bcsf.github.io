@@ -157,6 +157,70 @@ a { color: inherit; }
 .ces-nav a:hover { background: var(--color-forest-soft); color: var(--color-forest); }
 .ces-nav a[aria-current="page"] { color: var(--color-forest); font-weight: 600; background: var(--color-forest-soft); }
 
+/* Grupos desplegables de la barra */
+
+.ces-nav-group { position: relative; }
+
+.ces-nav-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ces-nav-trigger:hover { background: var(--color-forest-soft); color: var(--color-forest); }
+.ces-nav-trigger.is-active { color: var(--color-forest); font-weight: 600; background: var(--color-forest-soft); }
+.ces-nav-trigger:focus-visible { outline: 2px solid var(--color-forest); outline-offset: 2px; }
+
+.ces-nav-chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.ces-nav-trigger[aria-expanded="true"] .ces-nav-chevron { transform: rotate(180deg); }
+
+.ces-nav-ext {
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-left: 0.3rem;
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+
+.ces-nav-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  min-width: 13rem;
+  padding: 0.35rem;
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(20, 40, 30, 0.13);
+  z-index: 60;
+}
+
+.ces-nav-menu.is-open { display: block; }
+
+.ces-nav-menu a {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 0.55rem 0.7rem;
+}
+
 .ces-nav-toggle {
   display: none;
   flex-direction: column;
@@ -721,6 +785,19 @@ a { color: inherit; }
   }
   .ces-nav.is-open { display: flex; }
   .ces-nav a { padding: 0.7rem 0.75rem; }
+  .ces-nav-group { width: 100%; }
+  .ces-nav-trigger { width: 100%; justify-content: space-between; padding: 0.7rem 0.75rem; }
+  .ces-nav-menu {
+    position: static;
+    min-width: 0;
+    margin: 0.15rem 0 0.25rem;
+    padding: 0.15rem 0 0.15rem 0.9rem;
+    border: none;
+    border-left: 2px solid var(--color-line);
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+  }
   .ces-item { flex-wrap: wrap; }
   .ces-item-actions { width: 100%; justify-content: flex-start; }
   .ces-footer .ces-wrap { flex-direction: column; align-items: flex-start; }

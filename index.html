@@ -22,14 +22,30 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="ces-nav" id="siteNav">
-        <a href="index.html" aria-current="page">Inicio</a>
-        <a href="web_page/informes/index.html">Informes</a>
-        <a href="web_page/paneles/index.html">Paneles</a>
-        <a href="web_page/graficas/index.html">Gráficas</a>
-        <a href="web_page/calendario/index.html">Calendario</a>
-        <a href="web_page/informes-especiales/index.html">Informes especiales</a>
-        <a href="https://ces-bcsf-apps.shinyapps.io/IndiCES-app/" target="_blank" rel="noopener">IndiCES</a>
-        <a href="web_page/documentos/index.html">Documentos</a>
+        <a class="ces-nav-link" href="index.html" aria-current="page">Inicio</a>
+        <div class="ces-nav-group">
+          <button class="ces-nav-trigger" type="button" aria-expanded="false" aria-controls="navGroup1">Informes<svg class="ces-nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="ces-nav-menu" id="navGroup1">
+            <a href="web_page/informes/index.html">Informes</a>
+            <a href="web_page/informes-especiales/index.html">Informes especiales</a>
+          </div>
+        </div>
+        <div class="ces-nav-group">
+          <button class="ces-nav-trigger" type="button" aria-expanded="false" aria-controls="navGroup2">Recursos visuales<svg class="ces-nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="ces-nav-menu" id="navGroup2">
+            <a href="web_page/paneles/index.html">Paneles</a>
+            <a href="web_page/graficas/index.html">Gráficas</a>
+            <a href="web_page/documentos/index.html">Documentos</a>
+          </div>
+        </div>
+        <div class="ces-nav-group">
+          <button class="ces-nav-trigger" type="button" aria-expanded="false" aria-controls="navGroup3">Herramientas<svg class="ces-nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+          <div class="ces-nav-menu" id="navGroup3">
+            <a href="https://ces-bcsf-apps.shinyapps.io/IndiCES-app/" target="_blank" rel="noopener">IndiCES<svg class="ces-nav-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><polyline points="8 7 17 7 17 16"></polyline></svg></a>
+            <a href="https://migrating-ces.onrender.com/home" target="_blank" rel="noopener">CES DataHub<svg class="ces-nav-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><polyline points="8 7 17 7 17 16"></polyline></svg></a>
+          </div>
+        </div>
+        <a class="ces-nav-link" href="web_page/calendario/index.html">Calendario</a>
       </nav>
     </div>
   </header>
@@ -110,6 +126,12 @@
           <h3>IndiCES <span class="ces-badge-new">Nuevo</span></h3>
           <p>App interactiva para explorar los indicadores económicos de Santa Fe: series originales, filtradas y períodos de recesión.</p>
           <span class="ces-tile-count">App externa</span>
+        </a>
+        <a class="ces-tile" href="https://migrating-ces.onrender.com/home" target="_blank" rel="noopener">
+          <div class="ces-tile-icon"><img src="assets/img/icono_excels.png" alt=""></div>
+          <h3>CES DataHub <span class="ces-badge-new">Nuevo</span></h3>
+          <p>Base de datos digitalizada del CES: consultá y explorá las series históricas relevadas por el Centro.</p>
+          <span class="ces-tile-count">Sitio externo</span>
         </a>
         <a class="ces-tile" href="web_page/documentos/index.html" data-category="documentos">
           <div class="ces-tile-icon"><img src="assets/img/icono_excels.png" alt=""></div>

@@ -65,7 +65,49 @@ function setupNavToggle() {
     link.addEventListener("click", () => {
       nav.classList.remove("is-open");
       btn.setAttribute("aria-expanded", "false");
+      closeAllNavMenus(nav);
     });
+  });
+}
+
+function closeAllNavMenus(nav, except) {
+  nav.querySelectorAll(".ces-nav-trigger").forEach((trigger) => {
+    if (trigger === except) return;
+    trigger.setAttribute("aria-expanded", "false");
+    const menu = document.getElementById(trigger.getAttribute("aria-controls"));
+    if (menu) menu.classList.remove("is-open");
+  });
+}
+
+function setupNavGroups() {
+  const nav = document.getElementById("siteNav");
+  if (!nav) return;
+
+  const triggers = [...nav.querySelectorAll(".ces-nav-trigger")];
+  if (!triggers.length) return;
+
+  triggers.forEach((trigger) => {
+    const menu = document.getElementById(trigger.getAttribute("aria-controls"));
+    if (!menu) return;
+
+    trigger.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const open = trigger.getAttribute("aria-expanded") === "true";
+      closeAllNavMenus(nav, trigger);
+      trigger.setAttribute("aria-expanded", open ? "false" : "true");
+      menu.classList.toggle("is-open", !open);
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!nav.contains(event.target)) closeAllNavMenus(nav);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    const open = nav.querySelector('.ces-nav-trigger[aria-expanded="true"]');
+    closeAllNavMenus(nav);
+    if (open) open.focus();
   });
 }
 
@@ -142,6 +184,7 @@ function renderCategoryList(data) {
 document.addEventListener("DOMContentLoaded", () => {
   buildRibbons();
   setupNavToggle();
+  setupNavGroups();
 
   fetch(CES_DATA_URL())
     .then((res) => res.json())
