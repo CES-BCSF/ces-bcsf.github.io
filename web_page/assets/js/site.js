@@ -10,6 +10,12 @@ function resolveUrl(url) {
   return (window.CES_ROOT || "") + url;
 }
 
+// El calendario de publicaciones se regenera automaticamente: no mostramos su
+// marca de actualizacion para no confundirla con las fechas del propio calendario.
+function hideUpdatedTag(url) {
+  return /calendario_publicaciones/.test(url || "");
+}
+
 function formatDate(iso) {
   const d = new Date(iso);
   const datePart = d.toLocaleDateString("es-AR", { day: "2-digit", month: "short", year: "numeric" });
@@ -127,7 +133,7 @@ function renderUpdates(data) {
     .map(
       (u) => `
       <a class="ces-update-card" href="${resolveUrl(u.url)}" data-search="${u.title}">
-        <time>${formatDate(u.updated)}</time>
+        ${hideUpdatedTag(u.url) ? "" : `<time>${formatDate(u.updated)}</time>`}
         <h3>${u.title}</h3>
         <p>${u.description}</p>
       </a>`
@@ -159,9 +165,10 @@ function renderCategoryList(data) {
 
   list.innerHTML = category.items
     .map((item) => {
-      const tag = item.updated
-        ? `<span class="ces-item-tag">Actualizado ${formatDate(item.updated)}</span>`
-        : "";
+      const tag =
+        item.updated && !hideUpdatedTag(item.url)
+          ? `<span class="ces-item-tag">Actualizado ${formatDate(item.updated)}</span>`
+          : "";
       const btnClass = item.secondary ? "ces-btn secondary" : "ces-btn";
       const btnLabel = item.buttonLabel || "Ver";
       const downloadAttr = item.download ? "download" : "";
