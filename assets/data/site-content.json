@@ -70,7 +70,7 @@
       "title": "Escrituras",
       "description": "Información suministrada por las dos circunscripciones del Colegio de Escribanos de la provincia de Santa Fe.",
       "url": "web_ces/RA/RA_Escrituras.html",
-      "updated": "2026-09-22T09:17:16-03:00"
+      "updated": "2026-09-22T09:21:59-03:00"
     },
     {
       "title": "Panel de precio de commodities",
@@ -101,7 +101,7 @@
           "description": "Información suministrada por las dos circunscripciones del Colegio de Escribanos de la provincia de Santa Fe.",
           "url": "web_ces/RA/RA_Escrituras.html",
           "icon": "assets/img/icono_RA.png",
-          "updated": "2026-09-22T09:17:16-03:00"
+          "updated": "2026-09-22T09:21:59-03:00"
         }
       ]
     },
