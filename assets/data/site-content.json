@@ -64,7 +64,7 @@
       "title": "TCIA_VAS",
       "description": "Evolución del indicador TCIA_VAS.",
       "url": "web_ces/graficas_interactivas/TCIA_VAS.html",
-      "updated": "2026-08-28T11:41:47-03:00"
+      "updated": "2026-09-29T09:15:13-03:00"
     },
     {
       "title": "Escrituras",
@@ -192,7 +192,7 @@
           "description": "Evolución del indicador TCIA_VAS.",
           "url": "web_ces/graficas_interactivas/TCIA_VAS.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-08-28T11:41:47-03:00"
+          "updated": "2026-09-29T09:15:13-03:00"
         }
       ]
     },
