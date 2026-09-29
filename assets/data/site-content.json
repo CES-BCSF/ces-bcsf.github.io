@@ -58,7 +58,7 @@
       "title": "MC_SFE",
       "description": "Evolución del indicador MC de Santa Fe.",
       "url": "web_ces/graficas_interactivas/MC_SFE.html",
-      "updated": "2026-09-29T09:15:06-03:00"
+      "updated": "2026-09-29T09:24:32-03:00"
     },
     {
       "title": "TCIA_VAS",
@@ -185,7 +185,7 @@
           "description": "Evolución del indicador MC de Santa Fe.",
           "url": "web_ces/graficas_interactivas/MC_SFE.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-09-29T09:15:06-03:00"
+          "updated": "2026-09-29T09:24:32-03:00"
         },
         {
           "title": "TCIA_VAS",
