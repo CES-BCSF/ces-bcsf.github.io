@@ -114,7 +114,7 @@
     "paneles": {
       "label": "Paneles dinámicos",
       "tileIcon": "assets/img/icono_RA.png",
-      "tileDescription": "Series de commodities, ICA-SFE y paneles mensuales y trimestrales.",
+      "tileDescription": "Series de commodities, ICA-SFE, paneles mensuales y trimestrales, y recesiones y expansiones.",
       "countLabel": {
         "one": "panel",
         "many": "paneles"
