@@ -10,10 +10,10 @@ function resolveUrl(url) {
   return (window.CES_ROOT || "") + url;
 }
 
-// El calendario de publicaciones se regenera automaticamente: no mostramos su
-// marca de actualizacion para no confundirla con las fechas del propio calendario.
+// El calendario de publicaciones y el panel de recesiones y expansiones se
+// regeneran automaticamente: no mostramos su marca de actualizacion.
 function hideUpdatedTag(url) {
-  return /calendario_publicaciones/.test(url || "");
+  return /calendario_publicaciones|recesiones_expansiones/.test(url || "");
 }
 
 function formatDate(iso) {

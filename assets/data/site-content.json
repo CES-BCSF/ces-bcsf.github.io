@@ -1,6 +1,12 @@
 {
   "updates": [
     {
+      "title": "Panel de Recesiones y Expansiones",
+      "description": "Fases de recesión y expansión de la actividad económica.",
+      "url": "web_ces/Paneles/recesiones_expansiones/Panel_recesion_expansion.html",
+      "updated": "2026-10-26T12:28:44-03:00"
+    },
+    {
       "title": "Calendario de publicaciones",
       "description": "Mantente al tanto de las fechas de carga de series y los datos actuales.",
       "url": "web_ces/calendario_publicaciones/Calendario.html",
@@ -141,6 +147,13 @@
           "url": "web_ces/Paneles/global_trimestral/paneles_globales_t.html",
           "icon": "assets/img/icono_RA.png",
           "updated": "2026-10-23T11:21:09-03:00"
+        },
+        {
+          "title": "Panel de Recesiones y Expansiones",
+          "description": "Fases de recesión y expansión de la actividad económica.",
+          "url": "web_ces/Paneles/recesiones_expansiones/Panel_recesion_expansion.html",
+          "icon": "assets/img/icono_RA.png",
+          "updated": "2026-10-26T12:28:44-03:00"
         },
         {
           "title": "Observatorio (nuevo formato)",
