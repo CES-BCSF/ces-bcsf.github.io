@@ -1,6 +1,12 @@
 {
   "updates": [
     {
+      "title": "Panel de Recesiones y Expansiones",
+      "description": "Fases de recesión y expansión de la actividad económica.",
+      "url": "web_ces/Paneles/recesiones_expansiones/Panel_recesion_expansion.html",
+      "updated": "2026-10-26T12:28:44-03:00"
+    },
+    {
       "title": "Calendario de publicaciones",
       "description": "Mantente al tanto de las fechas de carga de series y los datos actuales.",
       "url": "web_ces/calendario_publicaciones/Calendario.html",
@@ -16,25 +22,25 @@
       "title": "Paneles ICA-SFE",
       "description": "Dinámica de las series del ICA-SFE.",
       "url": "web_ces/Paneles/ICA-SFE/paneles_ICA-SFE.html",
-      "updated": "2026-10-02T10:15:12-03:00"
+      "updated": "2026-10-23T11:20:41-03:00"
     },
     {
       "title": "Paneles globales mensuales",
       "description": "Dinámica de todas las series mensuales procesadas.",
       "url": "web_ces/Paneles/ICA-SFE/paneles_ICA-SFE.html",
-      "updated": "2026-10-02T10:20:47-03:00"
+      "updated": "2026-10-23T11:22:52-03:00"
     },
     {
       "title": "Paneles globales trimestrales",
       "description": "Dinámica de todas las series trimestrales procesadas.",
       "url": "web_ces/Paneles/global_trimestral/paneles_globales_t.html",
-      "updated": "2026-10-02T10:14:29-03:00"
+      "updated": "2026-10-23T11:21:09-03:00"
     },
     {
       "title": "Márgenes Agropecuarios",
       "description": "Complementa el análisis de la actividad económica y da a conocer en forma periódica la evolución de variables agropecuarias representativas de la región pampeana.",
       "url": "web_ces/RA/RA_MA.html",
-      "updated": "2026-09-03T11:27:26-03:00"
+      "updated": "2026-10-05T11:54:50-03:00"
     },
     {
       "title": "FASES_SFE",
@@ -70,13 +76,13 @@
       "title": "Escrituras",
       "description": "Información suministrada por las dos circunscripciones del Colegio de Escribanos de la provincia de Santa Fe.",
       "url": "web_ces/RA/RA_Escrituras.html",
-      "updated": "2026-09-23T09:21:22-03:00"
+      "updated": "2026-10-20T10:55:41-03:00"
     },
     {
       "title": "Panel de precio de commodities",
       "description": "Gráficas e índices de precios de commodities y su desagregación.",
       "url": "web_ces/Precio_commodities/AUX_commodities_BM.html",
-      "updated": "2026-09-03T11:53:33-03:00"
+      "updated": "2026-10-05T10:47:26-03:00"
     }
   ],
   "categories": {
@@ -94,21 +100,21 @@
           "description": "Complementa el análisis de la actividad económica y da a conocer en forma periódica la evolución de variables agropecuarias representativas de la región pampeana.",
           "url": "web_ces/RA/RA_MA.html",
           "icon": "assets/img/icono_RA_margenes.png",
-          "updated": "2026-09-03T11:27:26-03:00"
+          "updated": "2026-10-05T11:54:50-03:00"
         },
         {
           "title": "Escrituras",
           "description": "Información suministrada por las dos circunscripciones del Colegio de Escribanos de la provincia de Santa Fe.",
           "url": "web_ces/RA/RA_Escrituras.html",
           "icon": "assets/img/icono_RA.png",
-          "updated": "2026-09-23T09:21:22-03:00"
+          "updated": "2026-10-20T10:55:41-03:00"
         }
       ]
     },
     "paneles": {
       "label": "Paneles dinámicos",
       "tileIcon": "assets/img/icono_RA.png",
-      "tileDescription": "Series de commodities, ICA-SFE y paneles mensuales y trimestrales.",
+      "tileDescription": "Series de commodities, ICA-SFE, paneles mensuales y trimestrales, y recesiones y expansiones.",
       "countLabel": {
         "one": "panel",
         "many": "paneles"
@@ -119,28 +125,35 @@
           "description": "Gráficas e índices de precios de commodities y su desagregación.",
           "url": "web_ces/Precio_commodities/AUX_commodities_BM.html",
           "icon": "assets/img/icono_RA.png",
-          "updated": "2026-09-03T11:53:33-03:00"
+          "updated": "2026-10-05T10:47:26-03:00"
         },
         {
           "title": "Paneles ICA-SFE",
           "description": "Dinámica de las series del ICA-SFE.",
           "url": "web_ces/Paneles/ICA-SFE/paneles_ICA-SFE.html",
           "icon": "assets/img/icono_RA.png",
-          "updated": "2026-10-02T10:15:12-03:00"
+          "updated": "2026-10-23T11:20:41-03:00"
         },
         {
           "title": "Paneles globales mensuales",
           "description": "Dinámica de todas las series mensuales procesadas.",
           "url": "web_ces/Paneles/ICA-SFE/paneles_ICA-SFE.html",
           "icon": "assets/img/icono_RA.png",
-          "updated": "2026-10-02T10:20:47-03:00"
+          "updated": "2026-10-23T11:22:52-03:00"
         },
         {
           "title": "Paneles globales trimestrales",
           "description": "Dinámica de todas las series trimestrales procesadas.",
           "url": "web_ces/Paneles/global_trimestral/paneles_globales_t.html",
           "icon": "assets/img/icono_RA.png",
-          "updated": "2026-10-02T10:14:29-03:00"
+          "updated": "2026-10-23T11:21:09-03:00"
+        },
+        {
+          "title": "Panel de Recesiones y Expansiones",
+          "description": "Fases de recesión y expansión de la actividad económica.",
+          "url": "web_ces/Paneles/recesiones_expansiones/Panel_recesion_expansion.html",
+          "icon": "assets/img/icono_RA.png",
+          "updated": "2026-10-26T12:28:44-03:00"
         },
         {
           "title": "Observatorio (nuevo formato)",
