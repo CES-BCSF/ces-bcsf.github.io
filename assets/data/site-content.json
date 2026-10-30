@@ -34,7 +34,7 @@
       "title": "Paneles globales trimestrales",
       "description": "Dinámica de todas las series trimestrales procesadas.",
       "url": "web_ces/Paneles/global_trimestral/paneles_globales_t.html",
-      "updated": "2026-10-23T11:21:09-03:00"
+      "updated": "2026-10-30T11:34:09-03:00"
     },
     {
       "title": "Márgenes Agropecuarios",
@@ -146,7 +146,7 @@
           "description": "Dinámica de todas las series trimestrales procesadas.",
           "url": "web_ces/Paneles/global_trimestral/paneles_globales_t.html",
           "icon": "assets/img/icono_RA.png",
-          "updated": "2026-10-23T11:21:09-03:00"
+          "updated": "2026-10-30T11:34:09-03:00"
         },
         {
           "title": "Panel de Recesiones y Expansiones",
