@@ -28,7 +28,7 @@
       "title": "Paneles globales mensuales",
       "description": "Dinámica de todas las series mensuales procesadas.",
       "url": "web_ces/Paneles/ICA-SFE/paneles_ICA-SFE.html",
-      "updated": "2026-10-23T11:22:52-03:00"
+      "updated": "2026-10-30T11:35:29-03:00"
     },
     {
       "title": "Paneles globales trimestrales",
@@ -139,7 +139,7 @@
           "description": "Dinámica de todas las series mensuales procesadas.",
           "url": "web_ces/Paneles/ICA-SFE/paneles_ICA-SFE.html",
           "icon": "assets/img/icono_RA.png",
-          "updated": "2026-10-23T11:22:52-03:00"
+          "updated": "2026-10-30T11:35:29-03:00"
         },
         {
           "title": "Paneles globales trimestrales",
