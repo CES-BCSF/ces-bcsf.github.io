@@ -52,7 +52,7 @@
       "title": "ICASFe_FCT",
       "description": "Serie del ICA-SFE con sus factores componentes.",
       "url": "web_ces/graficas_interactivas/ICASFe_FCT.html",
-      "updated": "2026-10-01T10:02:21-03:00"
+      "updated": "2026-11-03T08:36:36-03:00"
     },
     {
       "title": "IDSC_SFE",
@@ -184,7 +184,7 @@
           "description": "Serie del ICA-SFE con sus factores componentes.",
           "url": "web_ces/graficas_interactivas/ICASFe_FCT.html",
           "icon": "assets/img/icono_calendario.png",
-          "updated": "2026-10-01T10:02:21-03:00"
+          "updated": "2026-11-03T08:36:36-03:00"
         },
         {
           "title": "IDSC_SFE",
